@@ -1,0 +1,136 @@
+.form {
+  display: grid;
+  gap: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+}
+
+.formTitle {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-2);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.req {
+  color: var(--color-brand);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  transition: border-color var(--dur-micro) var(--ease-out),
+    box-shadow var(--dur-micro) var(--ease-out);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px var(--color-brand-soft);
+}
+
+.inputError {
+  composes: input;
+  border-color: var(--color-danger);
+}
+
+.inputError:focus {
+  outline: none;
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px var(--color-danger-soft);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.errorText {
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+  margin-top: 0.15rem;
+}
+
+.errorAlert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-danger-soft);
+  border: 1px solid #fecdd3;
+  color: var(--color-danger);
+  font-size: var(--fs-sm);
+}
+
+.footerRow {
+  display: flex;
+  margin-top: var(--space-2);
+}
+
+.submitBtn {
+  min-width: 180px;
+}
+
+.successCard {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 1.8rem + 2vw, 3.5rem);
+}
+
+.successIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  font-size: var(--fs-lg);
+  max-width: 44ch;
+  line-height: var(--lh-snug);
+}
+
+.resetBtn {
+  margin-top: var(--space-2);
+}

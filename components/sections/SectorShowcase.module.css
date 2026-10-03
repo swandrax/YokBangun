@@ -1,0 +1,244 @@
+.root {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hintText {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.navControls {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.navBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--dur-micro) var(--ease-out);
+}
+
+.navBtn:hover:not(:disabled) {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.iconPrev {
+  transform: rotate(180deg);
+}
+
+.scrollTrack {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-4);
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.card {
+  flex: 0 0 min(360px, 85vw);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.sectorName {
+  font-size: var(--fs-xl);
+  color: var(--color-text);
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-brand-soft);
+  color: var(--color-brand-strong);
+}
+
+.summary {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: var(--lh-snug);
+}
+
+.sectionDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin-block: 0.1rem;
+}
+
+.block {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.blockLabel {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.blockText {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.outcomeBlock {
+  composes: block;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-accent);
+  padding: 0.65rem 0.8rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: auto;
+}
+
+.outcomeLabel {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.outcomeText {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.45;
+}
+
+.note {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* civicGov spotlight container */
+.civicGovSpotlight {
+  display: grid;
+  gap: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  margin-top: var(--space-6);
+}
+
+.civicGovHead {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .civicGovHead {
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-6);
+    align-items: baseline;
+  }
+}
+
+.civicGovTitle {
+  font-size: var(--fs-h2);
+  margin-top: 0.2rem;
+}
+
+.civicGovDesc {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+}
+
+.capHeading {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.capGrid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .capGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .capGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.capItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.capCheck {
+  color: var(--color-brand);
+  font-weight: 800;
+  flex: none;
+}
+
+.disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  font-style: italic;
+}
+
+.viewAllRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--space-2);
+}

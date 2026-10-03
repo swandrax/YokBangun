@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr 1.35fr;
+  }
+}
+
+.aside {
+  display: grid;
+  gap: var(--space-7);
+  align-content: start;
+}
+
+.asideTitle {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-4);
+}
+
+.afterList {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.afterItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.afterIdx {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent);
+  flex: none;
+}
+
+.directBox {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.directTitle {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.directLinks {
+  display: grid;
+  gap: 0.4rem;
+  font-size: var(--fs-sm);
+}
+
+.directLabel {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.directLink {
+  color: var(--color-brand);
+  text-decoration: underline;
+}

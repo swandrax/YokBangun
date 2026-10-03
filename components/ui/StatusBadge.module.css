@@ -1,0 +1,52 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+/* Hollow dot = not yet in use. Filled = in use. */
+.concept .dot {
+  background: transparent;
+  border: 1.5px solid var(--color-text-muted);
+}
+
+.prototype .dot {
+  background: transparent;
+  border: 1.5px solid var(--color-accent);
+}
+
+.pilot .dot {
+  background: var(--color-accent);
+}
+
+.active .dot,
+.maintenance .dot {
+  background: var(--color-brand);
+}
+
+.illustrative {
+  border-style: dashed;
+  color: var(--color-text-muted);
+}
+
+.illustrative .dot {
+  background: transparent;
+  border: 1.5px dashed var(--color-text-muted);
+}

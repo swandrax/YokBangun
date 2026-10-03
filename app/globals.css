@@ -1,0 +1,270 @@
+/* ==========================================================================
+   yokBangun design tokens — light theme only.
+   One mature green brand colour, one warm clay accent used sparingly,
+   neutral surfaces. Whitespace over containers.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Colour */
+  --color-bg: #ffffff;
+  --color-surface: #f7f8f6;
+  --color-surface-2: #eef1ec;
+  --color-text: #151817;
+  --color-text-muted: #606762;
+  --color-text-subtle: #7a807c; /* large text / decorative only */
+  --color-border: #e3e6e1;
+  --color-border-strong: #cbd1c9;
+
+  --color-brand: #1f5d45;
+  --color-brand-strong: #174a37;
+  --color-brand-soft: #e7efea;
+  --color-brand-tint: #f2f6f3;
+
+  --color-accent: #b4572f; /* clay — markers and small highlights */
+  --color-accent-soft: #f7ebe4;
+
+  --color-danger: #b42318;
+  --color-danger-soft: #fdf0ee;
+  --color-success: #1f5d45;
+
+  --focus-ring: 0 0 0 3px #ffffff, 0 0 0 5px var(--color-brand);
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-jakarta), var(--font-sans);
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --fs-h3: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --fs-h2: clamp(1.75rem, 1.3rem + 1.7vw, 2.625rem);
+  --fs-hero: clamp(2.25rem, 1.55rem + 3.1vw, 4rem);
+
+  --lh-tight: 1.12;
+  --lh-snug: 1.3;
+  --lh-body: 1.65;
+
+  --measure: 66ch;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --section-y: clamp(4rem, 2.8rem + 5vw, 7.5rem);
+  --gutter: clamp(1.25rem, 0.8rem + 2.2vw, 2.5rem);
+  --container: 1200px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgb(21 24 23 / 0.05);
+  --shadow-md: 0 6px 24px -12px rgb(21 24 23 / 0.18);
+
+  /* Motion (mirrors the animation timing guidance) */
+  --dur-micro: 180ms;
+  --dur-enter: 480ms;
+  --dur-story: 760ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --header-h: 68px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: var(--color-brand-soft);
+  color: var(--color-brand-strong);
+}
+
+/* ---------- Layout primitives ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.section--tight {
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.lead {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  max-width: var(--measure);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: var(--space-4);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-brand);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-3);
+}
+
+/* ---------- Reduced motion: disable non-essential animation ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

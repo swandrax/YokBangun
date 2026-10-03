@@ -1,0 +1,28 @@
+.hero {
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  padding-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(to bottom, var(--color-brand-tint), transparent 70%),
+    var(--color-bg);
+}
+
+.title {
+  margin-top: var(--space-4);
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.4rem);
+  max-width: 22ch;
+}
+
+.description {
+  margin-top: var(--space-5);
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  max-width: 62ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}

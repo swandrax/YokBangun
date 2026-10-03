@@ -1,0 +1,175 @@
+.useCasesGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .useCasesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .useCasesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.useCaseCard {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: grid;
+  gap: 0.5rem;
+}
+
+.useCaseTitle {
+  font-size: var(--fs-h3);
+}
+
+.useCaseDesc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.dualGrid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 960px) {
+  .dualGrid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.col {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.principlesList {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.principleItem {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.principleTitle {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.principleDesc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.notPromiseCard {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 1.2rem + 1.2vw, 2.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  align-self: start;
+}
+
+.notPromiseTitle {
+  font-size: var(--fs-xl);
+  color: var(--color-text);
+}
+
+.notPromiseList {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.notPromiseItem {
+  display: flex;
+  gap: 0.75rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.notPromiseIcon {
+  color: var(--color-accent);
+  font-weight: 700;
+  flex: none;
+}
+
+.stagesGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .stagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stagesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stageCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  display: grid;
+  gap: 0.4rem;
+}
+
+.stageIdx {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+}
+
+.stageTitle {
+  font-size: var(--fs-h3);
+}
+
+.stageDesc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.ctaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  background: var(--color-brand-tint);
+  border: 1px solid var(--color-brand-soft);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+  margin-top: var(--space-8);
+}
+
+.ctaPrompt {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  max-width: 48ch;
+  line-height: var(--lh-snug);
+}

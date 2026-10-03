@@ -1,0 +1,127 @@
+.illustrationSection {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-4);
+}
+
+.imageWrap {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+.visionGrid {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .visionGrid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.visionCard {
+  background: var(--color-brand-tint);
+  border: 1px solid var(--color-brand-soft);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 1.4rem + 1.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.visionText {
+  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
+  line-height: var(--lh-snug);
+  color: var(--color-brand-strong);
+}
+
+.meaningCard {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 1.4rem + 1.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.meaningTitle {
+  font-size: var(--fs-h2);
+}
+
+.meaningText {
+  display: grid;
+  gap: var(--space-3);
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+.purposeGrid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .purposeGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.purposeCard {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.purposeIdx {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-accent);
+}
+
+.purposeHead {
+  font-size: var(--fs-h3);
+}
+
+.purposeDesc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.audienceBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 58ch;
+}
+
+.audienceTitle {
+  font-size: var(--fs-h2);
+}
+
+.audienceText {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}

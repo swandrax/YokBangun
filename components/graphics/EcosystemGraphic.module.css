@@ -1,0 +1,196 @@
+.root {
+  position: relative;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.canvas {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  background-image: radial-gradient(circle at 1px 1px, rgb(21 24 23 / 0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 600 / 440;
+  font-family: var(--font-sans);
+  overflow: visible;
+}
+
+.loop {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+}
+
+.spoke {
+  stroke: var(--color-border);
+  stroke-width: 1.25;
+  transition: stroke var(--dur-enter) var(--ease-out), stroke-width var(--dur-enter) var(--ease-out);
+}
+
+.spokeActive {
+  stroke: var(--color-brand);
+  stroke-width: 1.75;
+}
+
+.dot {
+  fill: var(--color-brand);
+  opacity: 0;
+  transition: opacity var(--dur-enter) var(--ease-out);
+}
+
+.dotAccent {
+  fill: var(--color-accent);
+}
+
+.ready .dot {
+  opacity: 0.9;
+}
+
+.centerDisc {
+  fill: var(--color-bg);
+  stroke: var(--color-brand);
+  stroke-width: 1.5;
+}
+
+.centerText {
+  fill: var(--color-brand);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.core {
+  fill: var(--color-bg);
+  stroke: var(--color-border-strong);
+  stroke-width: 2;
+  transition: fill var(--dur-micro) var(--ease-out), stroke var(--dur-micro) var(--ease-out);
+}
+
+.halo {
+  fill: var(--color-brand);
+  opacity: 0;
+  transition: opacity var(--dur-enter) var(--ease-out);
+}
+
+.pulse {
+  fill: none;
+  stroke: var(--color-brand);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.label {
+  fill: var(--color-text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: fill var(--dur-micro) var(--ease-out), opacity var(--dur-enter) var(--ease-out);
+}
+
+.active .core {
+  fill: var(--color-brand);
+  stroke: var(--color-brand);
+}
+
+.active .halo {
+  opacity: 0.12;
+}
+
+.active .label {
+  fill: var(--color-text);
+  font-weight: 650;
+}
+
+/* ---- Stage control (real text, keyboard accessible) ---- */
+.stages {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.stageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.stageButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition:
+    background-color var(--dur-micro) var(--ease-out),
+    color var(--dur-micro) var(--ease-out),
+    border-color var(--dur-micro) var(--ease-out);
+}
+
+.stageButton:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.stageIndex {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.stageActive {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+
+.stageActive:hover {
+  color: #fff;
+}
+
+.stageActive .stageIndex {
+  color: #f3c4a8;
+}
+
+.stageDescription {
+  min-height: 1.65em;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Small screens: simplify ---- */
+@media (max-width: 640px) {
+  .label {
+    font-size: 22px;
+    opacity: 0;
+  }
+
+  .active .label {
+    opacity: 1;
+  }
+
+  .centerText {
+    font-size: 18px;
+  }
+
+  .stageButton {
+    padding-inline: 0.65rem;
+  }
+}

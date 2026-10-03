@@ -1,0 +1,73 @@
+.wrap {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.rail {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.track {
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-brand);
+  transform-origin: top;
+}
+
+.list {
+  display: grid;
+  gap: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.marker {
+  position: absolute;
+  left: calc(-2rem + 1px);
+  top: 0.45rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+  background: var(--color-bg);
+  transition: border-color var(--dur-enter) var(--ease-out), background-color var(--dur-enter) var(--ease-out);
+}
+
+.reached .marker {
+  border-color: var(--color-brand);
+  background: var(--color-brand);
+}
+
+.title {
+  font-size: var(--fs-xl);
+  transition: color var(--dur-enter) var(--ease-out);
+}
+
+.description {
+  color: var(--color-text-muted);
+  max-width: 48ch;
+}

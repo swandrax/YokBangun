@@ -1,0 +1,79 @@
+.legendBox {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.legendTitle {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.legendGrid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .legendGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .legendGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.legendItem {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.legendHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.legendDot[data-status="concept"] {
+  border: 1.5px solid var(--color-text-muted);
+  background: transparent;
+}
+
+.legendDot[data-status="prototype"] {
+  border: 1.5px solid var(--color-accent);
+  background: transparent;
+}
+
+.legendDot[data-status="pilot"] {
+  background: var(--color-accent);
+}
+
+.legendDot[data-status="active"],
+.legendDot[data-status="maintenance"] {
+  background: var(--color-brand);
+}
+
+.legendBadge {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.legendDesc {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
