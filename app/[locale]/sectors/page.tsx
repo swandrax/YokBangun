@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n/messages";
 import { isLocale, localizedPath, type Locale } from "@/lib/i18n/config";
@@ -8,7 +9,7 @@ import { SectorShowcase } from "@/components/sections/SectorShowcase";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return pageMetadata(locale, "sectors", "/sectors");

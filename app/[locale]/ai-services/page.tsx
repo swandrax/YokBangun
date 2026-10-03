@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n/messages";
 import { isLocale, localizedPath, type Locale } from "@/lib/i18n/config";
@@ -9,7 +10,7 @@ import styles from "./AiServicesPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return pageMetadata(locale, "aiServices", "/ai-services");
@@ -88,7 +89,7 @@ export default async function AiServicesPage({ params }: Props) {
               <ul role="list" className={styles.notPromiseList}>
                 {aip.notPromise.map((item) => (
                   <li key={item} className={styles.notPromiseItem}>
-                    <span className={styles.notPromiseIcon} aria-hidden="true">—</span>
+                    <span className={styles.notPromiseIcon} aria-hidden="true">✕</span>
                     <p>{item}</p>
                   </li>
                 ))}
