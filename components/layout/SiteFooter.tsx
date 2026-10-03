@@ -68,6 +68,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             <li>
               <Link href={href("/contact")}>{t.nav.cta}</Link>
             </li>
+            <li>
+              <a href="/feed.xml" target="_blank" rel="noopener noreferrer">
+                RSS Feed
+              </a>
+            </li>
             {publicContact.email && (
               <li>
                 <a href={`mailto:${publicContact.email}`}>{publicContact.email}</a>

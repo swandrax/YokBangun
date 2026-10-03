@@ -706,10 +706,10 @@ const id = {
       {
         title: "Stack yang biasa kami pakai",
         items: [
-          "Frontend: Next.js, React, TypeScript",
+          "Frontend: Next.js, React, TypeScript, Tailwind CSS, Preline UI, Clipboard.js",
           "Backend: API berbasis Node.js atau layanan yang sudah Anda gunakan",
           "Database: PostgreSQL untuk data operasional",
-          "Integrasi: REST API, webhook, gateway pembayaran, WhatsApp Business API",
+          "Integrasi: REST API, webhook, RSS feed, Open Graph, payment gateway, WhatsApp Business API",
         ],
       },
       {

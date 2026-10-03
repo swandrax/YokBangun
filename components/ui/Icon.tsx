@@ -13,6 +13,7 @@ const paths = {
   chevronRight: "M9 6l6 6-6 6",
   mail: "M4 6h16v12H4zM4 7l8 6 8-6",
   chat: "M5 5h14v10H9l-4 4z",
+  copy: "M8 4v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2m-4-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2",
 } as const;
 
 export type IconName = keyof typeof paths;

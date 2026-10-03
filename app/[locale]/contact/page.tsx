@@ -1,16 +1,18 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n/messages";
 import { isLocale, type Locale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { publicContact } from "@/lib/site";
+import { publicContact, siteUrl } from "@/lib/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 import { ContactForm } from "@/features/contact/ContactForm";
+import { CopyButton } from "@/components/ui/CopyButton";
 import styles from "./ContactPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return pageMetadata(locale, "contact", "/contact");
@@ -52,20 +54,27 @@ export default async function ContactPage({ params }: Props) {
                 </ol>
               </div>
 
-              {(publicContact.email || publicContact.whatsapp) && (
-                <div className={styles.directBox}>
-                  <h3 className={styles.directTitle}>{con.directTitle}</h3>
-                  <div className={styles.directLinks}>
-                    {publicContact.email && (
-                      <p>
+              <div className={styles.directBox}>
+                <h3 className={styles.directTitle}>{con.directTitle}</h3>
+                <div className={styles.directLinks}>
+                  {publicContact.email && (
+                    <div className="flex items-center justify-between gap-2 py-1">
+                      <div>
                         <span className={styles.directLabel}>{con.emailLabel}:</span>{" "}
                         <a href={`mailto:${publicContact.email}`} className={styles.directLink}>
                           {publicContact.email}
                         </a>
-                      </p>
-                    )}
-                    {publicContact.whatsapp && (
-                      <p>
+                      </div>
+                      <CopyButton
+                        text={publicContact.email}
+                        label={locale === "id" ? "Salin" : "Copy"}
+                        successLabel={locale === "id" ? "Tersalin!" : "Copied!"}
+                      />
+                    </div>
+                  )}
+                  {publicContact.whatsapp && (
+                    <div className="flex items-center justify-between gap-2 py-1">
+                      <div>
                         <span className={styles.directLabel}>{con.whatsappLabel}:</span>{" "}
                         <a
                           href={`https://wa.me/${publicContact.whatsapp.replace(/\D/g, "")}`}
@@ -75,11 +84,26 @@ export default async function ContactPage({ params }: Props) {
                         >
                           {publicContact.whatsapp}
                         </a>
-                      </p>
-                    )}
+                      </div>
+                      <CopyButton
+                        text={publicContact.whatsapp}
+                        label={locale === "id" ? "Salin" : "Copy"}
+                        successLabel={locale === "id" ? "Tersalin!" : "Copied!"}
+                      />
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between gap-2 pt-2 border-t border-neutral-200">
+                    <span className="text-xs text-neutral-600">
+                      {locale === "id" ? "Bagikan tautan halaman" : "Share page link"}
+                    </span>
+                    <CopyButton
+                      text={`${siteUrl}/${locale}/contact`}
+                      label={locale === "id" ? "Salin URL" : "Copy URL"}
+                      successLabel={locale === "id" ? "Tersalin!" : "Copied!"}
+                    />
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
             <div>

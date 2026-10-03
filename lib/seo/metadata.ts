@@ -5,12 +5,17 @@ import { brand, siteUrl } from "@/lib/site";
 
 export type PageKey = keyof ReturnType<typeof getMessages>["meta"]["pages"];
 
-/** Canonical + hreflang alternates for an internal path such as "/services". */
 export function alternatesFor(locale: Locale, path: string): Metadata["alternates"] {
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = localizedPath(l, path);
   languages["x-default"] = localizedPath(defaultLocale, path);
-  return { canonical: localizedPath(locale, path), languages };
+  return {
+    canonical: localizedPath(locale, path),
+    languages,
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  };
 }
 
 /** Shared base for every route (used by the [locale] layout). */
@@ -25,6 +30,17 @@ export function baseMetadata(locale: Locale): Metadata {
     creator: brand.name,
     formatDetection: { telephone: false, email: false, address: false },
     robots: { index: true, follow: true },
+    alternates: {
+      canonical: localizedPath(locale, "/"),
+      languages: {
+        id: "/id",
+        en: "/en",
+        "x-default": "/id",
+      },
+      types: {
+        "application/rss+xml": "/feed.xml",
+      },
+    },
     openGraph: {
       type: "website",
       siteName: brand.full,

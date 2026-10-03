@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ==========================================================================
    yokBangun design tokens — light theme only.
    One mature green brand colour, one warm clay accent used sparingly,

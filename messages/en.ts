@@ -676,10 +676,10 @@ const en: Messages = {
       {
         title: "Our usual stack",
         items: [
-          "Frontend: Next.js, React, TypeScript",
+          "Frontend: Next.js, React, TypeScript, Tailwind CSS, Preline UI, Clipboard.js",
           "Backend: Node.js-based APIs or services you already use",
           "Database: PostgreSQL for operational data",
-          "Integration: REST APIs, webhooks, payment gateways, WhatsApp Business API",
+          "Integration: REST APIs, webhooks, RSS feeds, Open Graph, payment gateways, WhatsApp Business API",
         ],
       },
       {
