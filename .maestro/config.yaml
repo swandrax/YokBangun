@@ -1,0 +1,8 @@
+appId: com.yokbangun.app
+tags:
+  - smoke
+  - regression
+  - expo
+env:
+  BASE_URL: "https://yokbangun.work.gd"
+  LOCAL_SERVER_URL: "http://111.94.7.240:3000"

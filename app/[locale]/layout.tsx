@@ -10,6 +10,8 @@ import { htmlLang, isLocale, locales } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 import { baseMetadata } from "@/lib/seo/metadata";
 import { PrelineScript } from "@/components/preline/PrelineScript";
+import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
+import { PwaInstallPrompt } from "@/components/pwa/PwaInstallPrompt";
 import "../globals.css";
 
 // Two families max. Plus Jakarta Sans (designed in Jakarta) for headings, Inter for body.
@@ -71,6 +73,8 @@ export default async function LocaleLayout({ children, params }: Props) {
         </div>
         <LocalePreference locale={locale} />
         <PrelineScript />
+        <ServiceWorkerRegister />
+        <PwaInstallPrompt locale={locale} />
       </body>
     </html>
   );

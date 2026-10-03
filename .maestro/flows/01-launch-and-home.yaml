@@ -1,0 +1,13 @@
+appId: com.yokbangun.app
+---
+- launchApp:
+    clearState: true
+
+# Assert core branding guardrails
+- assertVisible: "yokBangun"
+- assertVisible: "growth with u"
+- assertVisible: "Bangun digitalnya."
+
+# Verify CTA interaction navigates to discussion/contact
+- tapOn: "Diskusikan Kebutuhan"
+- assertVisible: "Ceritakan apa yang ingin Anda bangun"

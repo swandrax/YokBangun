@@ -1,0 +1,28 @@
+{
+  "name": "yokbangun-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "main": "App.tsx",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test:maestro": "maestro test ../.maestro/flows/",
+    "test:maestro:home": "maestro test ../.maestro/flows/01-launch-and-home.yaml",
+    "test:maestro:services": "maestro test ../.maestro/flows/02-services-navigation.yaml",
+    "test:maestro:contact": "maestro test ../.maestro/flows/03-contact-inquiry.yaml"
+  },
+  "dependencies": {
+    "expo": "^52.0.0",
+    "expo-status-bar": "~2.0.0",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-webview": "13.12.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0",
+    "@types/react": "~18.3.12",
+    "typescript": "^5.5.3"
+  }
+}

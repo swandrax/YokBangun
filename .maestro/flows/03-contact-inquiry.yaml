@@ -1,0 +1,27 @@
+appId: com.yokbangun.app
+---
+- launchApp
+
+# Open Contact and fill form
+- tapOn: "Kontak"
+- assertVisible: "Ceritakan apa yang ingin Anda bangun"
+
+# Test form inputs
+- tapOn:
+    id: "name"
+- inputText: "Budi Santoso"
+
+- tapOn:
+    id: "organisation"
+- inputText: "Koperasi Warga Sejahtera"
+
+- tapOn:
+    id: "contact"
+- inputText: "081234567890"
+
+- tapOn:
+    id: "notes"
+- inputText: "Diskusi sistem digitalisasi operasional koperasi."
+
+# Ensure submit button exists
+- assertVisible: "Kirim Pesan"

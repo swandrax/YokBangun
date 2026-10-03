@@ -30,6 +30,12 @@ export function baseMetadata(locale: Locale): Metadata {
     creator: brand.name,
     formatDetection: { telephone: false, email: false, address: false },
     robots: { index: true, follow: true },
+    manifest: "/manifest.webmanifest",
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "default",
+      title: brand.name,
+    },
     alternates: {
       canonical: localizedPath(locale, "/"),
       languages: {

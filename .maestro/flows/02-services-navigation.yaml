@@ -1,0 +1,10 @@
+appId: com.yokbangun.app
+---
+- launchApp
+
+# Navigate to services and verify the four core service pillars
+- tapOn: "Layanan"
+- assertVisible: "Produk Digital"
+- assertVisible: "Layanan AI"
+- assertVisible: "Product & Maintenance"
+- assertVisible: "Integrasi & Operasional Digital"

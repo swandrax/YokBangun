@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "yokBangun",
+    "slug": "yokbangun",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1F5D45"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yokbangun.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#1F5D45"
+      },
+      "package": "com.yokbangun.app"
+    },
+    "extra": {
+      "productionUrl": "https://yokbangun.work.gd",
+      "hostIpUrl": "http://111.94.7.240:3000"
+    }
+  }
+}

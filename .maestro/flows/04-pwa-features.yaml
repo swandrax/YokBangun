@@ -1,0 +1,10 @@
+appId: com.yokbangun.app
+---
+- launchApp
+
+# Verify PWA install trigger element or copy button availability
+- assertVisible: "yokBangun"
+- tapOn: "Kontak"
+- assertVisible: "Bagikan tautan halaman"
+- tapOn: "Salin URL"
+- assertVisible: "Tersalin!"
