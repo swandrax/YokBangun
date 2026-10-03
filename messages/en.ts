@@ -5,6 +5,11 @@ import type { Messages } from "./id";
  * Must mirror messages/id.ts; the `Messages` type keeps the shapes in sync.
  */
 const en: Messages = {
+  splash: {
+    line1: "Build it digital.",
+    line2: "Grow the business.",
+    skip: "Tap to continue",
+  },
   meta: {
     siteTitle: "yokBangun — Digital Product, AI & Maintenance Services",
     siteDescription:

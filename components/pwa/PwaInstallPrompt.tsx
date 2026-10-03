@@ -17,6 +17,13 @@ export function PwaInstallPrompt({ locale }: { locale: Locale }) {
     if (typeof window !== "undefined" && sessionStorage.getItem("pwa_prompt_dismissed")) {
       return;
     }
+    // Already opened as the installed app: nothing to offer.
+    if (
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (navigator as Navigator & { standalone?: boolean }).standalone === true
+    ) {
+      return;
+    }
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);

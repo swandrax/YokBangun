@@ -1,0 +1,30 @@
+# Caddy reverse proxy for the self hosted server (111.94.7.240).
+# Gives automatic HTTPS (Let's Encrypt) plus HTTP/1.1, HTTP/2 and HTTP/3 (QUIC).
+#
+# Run:   caddy run --config deploy/Caddyfile
+# Needs: Next.js running on 127.0.0.1:3000 (npm run build && npm run start)
+#        Router forwards TCP 80, TCP 443 and UDP 443 to this machine.
+#        UDP 443 is what HTTP/3 uses. Without it browsers fall back to HTTP/2.
+
+{
+	servers {
+		protocols h1 h2 h3
+	}
+}
+
+www.yokbangun.work.gd {
+	redir https://yokbangun.work.gd{uri} permanent
+}
+
+yokbangun.work.gd {
+	encode zstd gzip
+
+	# Caddy adds the Alt-Svc: h3=":443" header itself so browsers upgrade to HTTP/3.
+	reverse_proxy 127.0.0.1:3000 {
+		header_up X-Real-IP {remote_host}
+	}
+
+	# Hashed build assets never change, cache them for a year.
+	@static path /_next/static/*
+	header @static Cache-Control "public, max-age=31536000, immutable"
+}

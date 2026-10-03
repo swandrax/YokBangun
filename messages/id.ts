@@ -6,6 +6,11 @@
  * Writing rules: specific over generic, no hype, no invented numbers.
  */
 const id = {
+  splash: {
+    line1: "Bangun digitalnya.",
+    line2: "Tumbuh usahanya.",
+    skip: "Ketuk untuk lanjut",
+  },
   meta: {
     siteTitle: "yokBangun — Digital Product, AI & Maintenance Services",
     siteDescription:

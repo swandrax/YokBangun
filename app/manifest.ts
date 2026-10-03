@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: brand.name,
     description:
       "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
-    start_url: "/",
+    start_url: "/?source=pwa",
     display: "standalone",
     background_color: "#FFFFFF",
     theme_color: "#1F5D45",

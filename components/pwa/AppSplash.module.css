@@ -1,0 +1,325 @@
+/*
+ * Launch splash timeline (normal motion), total 3.6s + 0.45s fade:
+ *   0.00s  mark tile springs in
+ *   0.40s  first stroke draws, 0.65s second stroke draws
+ *   1.00s  clay dot pops
+ *   1.05s  "yokBangun" wordmark wipes in, tagline follows
+ *   1.80s  "Bangun digitalnya." rises word by word
+ *   2.10s  "Tumbuh usahanya." rises word by word (brand green)
+ *   3.60s  overlay fades out (also works without JavaScript)
+ * Keep DURATION_MS in AppSplashController.tsx in sync.
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  background:
+    radial-gradient(120% 70% at 50% 0%, #eef5f1 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(90% 60% at 50% 110%, #fbf1ec 0%, rgba(255, 255, 255, 0) 55%),
+    #ffffff;
+  color: #1a2421;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+:global(.yb-splash-on) .overlay {
+  display: flex;
+  animation: splashOut 0.45s ease 3.6s forwards;
+}
+
+:global(.yb-splash-on.yb-splash-leaving) .overlay {
+  animation: splashOut 0.45s ease forwards;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 6vh, 56px);
+  width: min(100%, 720px);
+}
+
+/* ---------- Brand: mark + wordmark ---------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 18px);
+}
+
+.mark {
+  width: clamp(56px, 16vw, 88px);
+  height: clamp(56px, 16vw, 88px);
+  flex: none;
+  overflow: visible;
+}
+
+.markBg {
+  fill: #1f5d45;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: tileIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.stroke {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.strokeA {
+  animation: draw 0.35s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
+}
+
+.strokeB {
+  animation: draw 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.65s forwards;
+}
+
+.dot {
+  fill: #e3936a;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: pop 0.35s cubic-bezier(0.34, 1.8, 0.64, 1) 1s forwards;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.name {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6.5vw, 2.6rem);
+  letter-spacing: -0.02em;
+  color: #1a2421;
+  clip-path: inset(0 100% 0 0);
+  animation: wipe 0.5s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(0.85rem, 3vw, 1.05rem);
+  color: #5b6762;
+  opacity: 0;
+  animation: fadeUp 0.45s ease 1.4s forwards;
+}
+
+/* ---------- Headline ---------- */
+
+.headline {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 7.5vw, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #1a2421;
+}
+
+.line {
+  display: block;
+}
+
+.lineAccent {
+  color: #1f5d45;
+}
+
+.word {
+  display: inline-block;
+  margin: 0 0.12em;
+  opacity: 0;
+  transform: translateY(0.55em);
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) calc(1.8s + var(--i, 0) * 0.14s) forwards;
+}
+
+/* ---------- Progress + skip hint ---------- */
+
+.progress {
+  position: absolute;
+  left: 50%;
+  bottom: max(28px, calc(env(safe-area-inset-bottom) + 16px));
+  width: min(160px, 40vw);
+  height: 3px;
+  margin-left: calc(min(160px, 40vw) / -2);
+  border-radius: 3px;
+  background: #e4ebe7;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1f5d45;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fill 3.6s linear forwards;
+}
+
+.skip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(44px, calc(env(safe-area-inset-bottom) + 32px));
+  text-align: center;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: #8a948f;
+  opacity: 0;
+  animation: fadeUp 0.4s ease 1.2s forwards;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Desktop: a little more breathing room. */
+@media (min-width: 1024px) {
+  .stage {
+    gap: 64px;
+  }
+}
+
+/* Phones in landscape and short windows: put brand and headline side by side. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .stage {
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(24px, 6vw, 56px);
+    width: min(100%, 900px);
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headline {
+    text-align: left;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .word {
+    margin: 0 0.24em 0 0;
+  }
+
+  .skip {
+    display: none;
+  }
+}
+
+/* Reduced motion: same content, gentle fade only, shorter. */
+:global(.yb-splash-calm) .markBg,
+:global(.yb-splash-calm) .dot,
+:global(.yb-splash-calm) .word,
+:global(.yb-splash-calm) .tagline,
+:global(.yb-splash-calm) .skip {
+  transform: none;
+  animation: fade 0.3s ease forwards;
+}
+
+:global(.yb-splash-calm) .stroke {
+  stroke-dashoffset: 0;
+  animation: none;
+}
+
+:global(.yb-splash-calm) .name {
+  clip-path: none;
+  animation: none;
+}
+
+:global(.yb-splash-calm) .progress::after {
+  animation-duration: 1.4s;
+}
+
+:global(.yb-splash-on.yb-splash-calm) .overlay {
+  animation: splashOut 0.3s ease 1.4s forwards;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes tileIn {
+  from {
+    opacity: 0;
+    transform: scale(0.55) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes wipe {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splashOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
