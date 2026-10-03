@@ -261,7 +261,6 @@ ol[role="list"] {
   top: var(--space-3);
 }
 
-/* ---------- Reduced motion: disable non-essential animation ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -270,5 +269,10 @@ ol[role="list"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -14,11 +14,14 @@ export function PwaInstallPrompt({ locale }: { locale: Locale }) {
   const [showPrompt, setShowPrompt] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("pwa_prompt_dismissed")) {
+      return;
+    }
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      // Show prompt after a short delay so it does not startle the visitor
-      const timer = setTimeout(() => setShowPrompt(true), 3000);
+      // Show prompt after user is comfortable on the page (5s)
+      const timer = setTimeout(() => setShowPrompt(true), 5000);
       return () => clearTimeout(timer);
     };
 
@@ -39,6 +42,9 @@ export function PwaInstallPrompt({ locale }: { locale: Locale }) {
 
   const handleDismiss = () => {
     setShowPrompt(false);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("pwa_prompt_dismissed", "true");
+    }
   };
 
   return (
