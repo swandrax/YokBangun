@@ -1,4 +1,5 @@
 import "server-only";
+import { validateOutboundUrl } from "@/lib/security/ssrfGuard";
 
 /**
  * Forward a validated submission to an external receiver (CRM, email relay,
@@ -20,7 +21,12 @@ export async function deliverSubmission(
     return { delivered: false };
   }
 
-  const response = await fetch(webhookUrl, {
+  const urlValidation = validateOutboundUrl(webhookUrl);
+  if (!urlValidation.ok) {
+    throw new Error(`Invalid or blocked webhook destination: ${urlValidation.error}`);
+  }
+
+  const response = await fetch(urlValidation.url.toString(), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
