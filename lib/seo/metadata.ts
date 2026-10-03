@@ -36,17 +36,7 @@ export function baseMetadata(locale: Locale): Metadata {
       statusBarStyle: "default",
       title: brand.name,
     },
-    alternates: {
-      canonical: localizedPath(locale, "/"),
-      languages: {
-        id: "/id",
-        en: "/en",
-        "x-default": "/id",
-      },
-      types: {
-        "application/rss+xml": "/feed.xml",
-      },
-    },
+    alternates: alternatesFor(locale, "/"),
     openGraph: {
       type: "website",
       siteName: brand.full,
@@ -60,6 +50,12 @@ export function baseMetadata(locale: Locale): Metadata {
       card: "summary_large_image",
       title: t.siteTitle,
       description: t.siteDescription,
+    },
+    other: {
+      "geo.region": "ID",
+      "geo.placename": "Indonesia",
+      "geo.position": "-6.2088;106.8456",
+      ICBM: "-6.2088, 106.8456",
     },
   };
 }
