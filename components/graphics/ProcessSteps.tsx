@@ -67,7 +67,7 @@ export function ProcessSteps({ steps }: { steps: Step[] }) {
               </span>
               <svg className={styles.rule} viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
                 <line
-                  ref={(el) => {
+                  ref={(el: SVGLineElement | null) => {
                     lineRefs.current[i] = el;
                   }}
                   x1="0"

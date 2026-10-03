@@ -89,7 +89,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
   useEffect(() => {
     if (reduced || !inView || hovered || pinned) return;
     const id = window.setInterval(() => {
-      if (!document.hidden) setStage((s) => (s + 1) % labels.stages.length);
+      if (!document.hidden) setStage((s: number) => (s + 1) % labels.stages.length);
     }, CYCLE_MS);
     return () => window.clearInterval(id);
   }, [reduced, inView, hovered, pinned, labels.stages.length]);
@@ -100,7 +100,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
     let cancelled = false;
 
     if (animsRef.current.length) {
-      animsRef.current.forEach((a) => a.play());
+      animsRef.current.forEach((a: AnimeAnimation) => a.play());
     } else {
       Promise.all([import("animejs/animation"), import("animejs/svg")]).then(([animation, svg]) => {
         if (cancelled || !loopRef.current) return;
@@ -110,7 +110,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
         const count = narrow ? 1 : DOT_COUNT;
         const path = svg.createMotionPath(loopRef.current, 0.0001);
         if (!path) return;
-        animsRef.current = dotRefs.current.slice(0, count).flatMap((dot, i) => {
+        animsRef.current = dotRefs.current.slice(0, count).flatMap((dot: SVGCircleElement | null, i: number) => {
           if (!dot) return [];
           const offsetPath = svg.createMotionPath(loopRef.current!, i / count + 0.0001);
           if (!offsetPath) return [];
@@ -130,7 +130,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
 
     return () => {
       cancelled = true;
-      animsRef.current.forEach((a) => a.pause());
+      animsRef.current.forEach((a: AnimeAnimation) => a.pause());
     };
   }, [reduced, inView]);
 
@@ -149,7 +149,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
   // Full cleanup on unmount.
   useEffect(() => {
     return () => {
-      animsRef.current.forEach((a) => a.revert());
+      animsRef.current.forEach((a: AnimeAnimation) => a.revert());
       animsRef.current = [];
     };
   }, []);
@@ -196,7 +196,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
             {Array.from({ length: DOT_COUNT }, (_, i) => (
               <circle
                 key={i}
-                ref={(el) => {
+                ref={(el: SVGCircleElement | null) => {
                   dotRefs.current[i] = el;
                 }}
                 r={i === 0 ? 4.5 : 3.5}
@@ -227,7 +227,7 @@ export function EcosystemGraphic({ labels }: { labels: EcosystemLabels }) {
                   onClick={() => selectStage(n.stage)}
                 >
                   <circle
-                    ref={(el) => {
+                    ref={(el: SVGCircleElement | null) => {
                       pulseRefs.current[i] = el;
                     }}
                     r={10}

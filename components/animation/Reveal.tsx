@@ -47,6 +47,7 @@ type GroupProps = {
   as?: "div" | "ul" | "ol";
   role?: string;
   "aria-label"?: string;
+  key?: React.Key;
 };
 
 /** Staggered container for cards and lists. */
@@ -72,6 +73,7 @@ type ItemProps = {
   className?: string;
   as?: "div" | "li" | "article";
   id?: string;
+  key?: React.Key;
 };
 
 export function RevealItem({ children, className, as = "div", id }: ItemProps) {
