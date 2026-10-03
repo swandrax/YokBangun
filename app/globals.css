@@ -206,14 +206,6 @@ ol[role="list"] {
   color: var(--color-brand);
 }
 
-.eyebrow::before {
-  content: "";
-  width: 18px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--color-accent);
-}
-
 .lead {
   font-size: var(--fs-lg);
   color: var(--color-text-muted);

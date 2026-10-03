@@ -19,12 +19,12 @@ const id = {
       aiServices: {
         title: "Layanan AI",
         description:
-          "AI untuk pencarian informasi, layanan pelanggan, pengolahan dokumen, dan automasi alur kerja—dipasang hanya di bagian yang benar-benar terbantu.",
+          "AI untuk pencarian informasi, layanan pelanggan, pengolahan dokumen, dan automasi alur kerja, dipasang hanya di bagian yang benar-benar terbantu.",
       },
       products: {
         title: "Produk",
         description:
-          "Produk digital yang sedang kami kembangkan untuk UMKM, koperasi, layanan warga, dan bisnis jasa—lengkap dengan status apa adanya.",
+          "Produk digital yang sedang kami kembangkan untuk UMKM, koperasi, layanan warga, dan bisnis jasa, lengkap dengan status apa adanya.",
       },
       sectors: {
         title: "Solusi Sektoral",
@@ -93,7 +93,7 @@ const id = {
   },
 
   hero: {
-    eyebrow: "Digital Products · AI Services · Maintenance · Sector Solutions",
+    eyebrow: "Produk Digital · Layanan AI · Maintenance · Solusi Sektoral",
     titleLead: "Bangun digitalnya.",
     titleAccent: "Tumbuh usahanya.",
     description:
@@ -200,7 +200,7 @@ const id = {
         key: "integration",
         title: "Integrasi & Operasional Digital",
         description:
-          "Menghubungkan sistem yang sudah Anda pakai—pembayaran, data, layanan eksternal—supaya pekerjaan tidak dicatat dua kali.",
+          "Menghubungkan sistem yang sudah Anda pakai (seperti pembayaran, data, layanan eksternal) supaya pekerjaan tidak dicatat dua kali.",
         items: [
           "Integrasi API",
           "Integrasi pembayaran",
@@ -574,7 +574,7 @@ const id = {
       { title: "Bahasa yang mudah dipahami", description: "Keputusan teknis dijelaskan dengan bahasa sehari-hari, supaya Anda bisa ikut memutuskan." },
       { title: "Kode dan data tetap milik Anda", description: "Akun, kode, dan data dicatat atas nama Anda, lengkap dengan dokumentasi serah terima." },
       { title: "AI hanya jika berguna", description: "Kami menyarankan AI ketika memang mengurangi pekerjaan, bukan karena sedang ramai dibicarakan." },
-      { title: "Paham konteks lokal", description: "Pelanggan yang lebih nyaman lewat WhatsApp, pembayaran QRIS, struktur RT/RW—kami merancang dengan kondisi itu." },
+      { title: "Paham konteks lokal", description: "Pelanggan yang lebih nyaman lewat WhatsApp, pembayaran QRIS, struktur RT/RW. Kami merancang dengan kondisi itu." },
     ],
   },
 
@@ -645,7 +645,7 @@ const id = {
     eyebrow: "Tentang yokBangun",
     title: "Perusahaan produk dan layanan digital untuk usaha yang terus bertumbuh.",
     intro:
-      "yokBangun membangun produk digital dan layanan digital untuk usaha, organisasi, dan bisnis jasa—terutama yang membutuhkan teknologi tetapi belum punya tim teknologi sendiri.",
+      "yokBangun membangun produk digital dan layanan digital untuk usaha, organisasi, dan bisnis jasa, terutama yang membutuhkan teknologi tetapi belum punya tim teknologi sendiri.",
     visionTitle: "Visi",
     vision:
       "Menjadi mitra digital yang membantu usaha dan organisasi membangun produk, layanan, serta operasional digital yang berguna, mudah digunakan, dan dapat terus dikembangkan.",
