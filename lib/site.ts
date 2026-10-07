@@ -2,7 +2,7 @@
 export const brand = {
   name: "yokBangun",
   tagline: "growth with u",
-  full: "yokBangun — growth with u",
+  full: "yokBangun growth with u",
 } as const;
 
 function normaliseUrl(url: string): string {
@@ -13,7 +13,7 @@ export const siteUrl = normaliseUrl(process.env.NEXT_PUBLIC_SITE_URL || "https:/
 
 /** Optional public contact details. Never hard-code invented numbers. */
 export const publicContact = {
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "nussaspacevibe@gmail.com",
   whatsapp: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || "",
 };
 

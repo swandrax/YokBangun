@@ -11,7 +11,7 @@ const en: Messages = {
     skip: "Tap to continue",
   },
   meta: {
-    siteTitle: "yokBangun — Digital Product, AI & Maintenance Services",
+    siteTitle: "yokBangun: Digital Product, AI & Maintenance Services",
     siteDescription:
       "yokBangun builds digital products, practical AI services, integrations, and maintenance for small and growing businesses, communities, and sector-specific organisations in Indonesia.",
     pages: {
@@ -93,6 +93,8 @@ const en: Messages = {
     contact: "Contact",
     technical: "Technical Notes",
     cta: "Discuss Your Project",
+    howWeWork: "How it works",
+    discussProject: "Discuss project",
   },
 
   hero: {
@@ -723,6 +725,172 @@ const en: Messages = {
         ],
       },
     ],
+  },
+
+  landing: {
+    hero: {
+      title: "Build digital. Grow your business.",
+      description: "Digital products, practical AI, and ongoing maintenance for small businesses, villages, and communities in Indonesia.",
+      primaryCta: "Discuss project",
+      secondaryCta: "Explore services",
+    },
+    visionMission: {
+      eyebrow: "Vision, Mission & Goals",
+      title: "Our foundation and guiding commitment",
+      subtitle: "Supporting healthy, autonomous, and enduring digital transformation.",
+      slides: [
+        {
+          key: "visi",
+          tab: "Vision",
+          eyebrow: "Our Vision",
+          heading: "Trusted Digital Partner for Sustainable Growth",
+          summary: "To be a digital partner that empowers businesses and organizations to build practical, accessible, and continuously evolving digital products and operations.",
+          highlights: [
+            {
+              title: "Purpose-Built Technology",
+              text: "Focusing on functional solutions that solve genuine operational problems without unnecessary complexity.",
+            },
+            {
+              title: "Growing Together",
+              text: "Supporting your business journey with ongoing maintenance and continuous iterations.",
+            },
+          ],
+        },
+        {
+          key: "misi",
+          tab: "Mission",
+          eyebrow: "Our Mission",
+          heading: "Three Practical Commitments",
+          summary: "Enabling effective digital transformation through clear, battle-tested execution.",
+          highlights: [
+            {
+              title: "Functional Product Development",
+              text: "Crafting websites and web systems tailored to your team's real operational workflows.",
+            },
+            {
+              title: "Proactive Maintenance & Security",
+              text: "Ensuring stability, responsiveness, and timely security updates long after launch.",
+            },
+            {
+              title: "Practical AI Implementation",
+              text: "Applying AI for document search and workflow automation where it delivers real leverage.",
+            },
+          ],
+        },
+        {
+          key: "goals",
+          tab: "Goals",
+          eyebrow: "Goals & Objectives",
+          heading: "Strategic Direction & Measurable Outcomes",
+          summary: "Measurable benchmarks guiding success across every partnership and digital product.",
+          highlights: [
+            {
+              title: "Frictionless Digitalization",
+              text: "Making technology straightforward and welcoming for small businesses and local organizations.",
+            },
+            {
+              title: "Tangible Work Efficiency",
+              text: "Eliminating manual, repetitive bottlenecks so your team can save valuable operational hours.",
+            },
+            {
+              title: "Lasting Relevance",
+              text: "Ensuring digital products remain resilient and adaptive as your organization scales.",
+            },
+          ],
+        },
+      ],
+      prev: "Previous",
+      next: "Next",
+    },
+    services: {
+      eyebrow: "Services",
+      title: "Four core focus areas",
+      items: [
+        {
+          title: "Digital Products",
+          description: "Practical websites, internal portals, and web applications built around your actual operations and user needs.",
+          href: "/services#digital-products",
+        },
+        {
+          title: "AI Services",
+          description: "Practical AI implementation for document search, customer FAQ assistants, and meaningful workflow automation.",
+          href: "/ai-services",
+        },
+        {
+          title: "Integration",
+          description: "Connecting the tools you already rely on, from payments and customer data to WhatsApp, so work isn't duplicated.",
+          href: "/services#integration",
+        },
+        {
+          title: "Maintenance",
+          description: "Regular maintenance, bug fixes, security updates, and performance tuning to keep your systems dependable.",
+          href: "/services#maintenance",
+        },
+      ],
+    },
+    sectors: {
+      eyebrow: "Sectors",
+      title: "Built for Indonesia's local context.",
+      description: "We understand the specific workflows and constraints across different businesses and community organizations.",
+      cta: "Explore sector details",
+      chips: [
+        "Small businesses",
+        "Home businesses",
+        "Cooperatives",
+        "RT/RW",
+        "Villages & sub-districts",
+        "Districts",
+        "Communities",
+        "Education",
+        "Healthcare",
+        "Services",
+      ],
+    },
+    howWeWork: {
+      eyebrow: "How it works",
+      title: "Four simple steps",
+      steps: [
+        {
+          key: "pahami",
+          number: "01",
+          title: "Understand",
+          description: "We learn how your business operates, where bottlenecks exist, and what needs solving first.",
+        },
+        {
+          key: "bangun",
+          number: "02",
+          title: "Build",
+          description: "We craft clean, functional digital products that your team and users can put to work right away.",
+        },
+        {
+          key: "rawat",
+          number: "03",
+          title: "Maintain",
+          description: "We continuously look after stability, security, and performance long after launch.",
+        },
+        {
+          key: "tumbuh",
+          number: "04",
+          title: "Grow",
+          description: "We roll out iterative improvements and new capabilities as your business scales.",
+        },
+      ],
+    },
+    cta: {
+      title: "Tell us what you want to build.",
+      description: "Let's discuss your project plans, operational bottlenecks, or ideas. Clear, practical, and without complicated lock-in.",
+      button: "Discuss project",
+      mailtoText: "Send email directly",
+    },
+    partnershipSlider: {
+      eyebrow: "Marketing & Partnerships",
+      title: "Strategic collaboration for wider scale",
+      subtitle: "Partner with tech, business, and community ecosystems to grow together.",
+      ctaText: "Start Collaboration",
+      noteText: "Direct contact with nussaspacevibe partnership team",
+      prev: "Previous",
+      next: "Next",
+    },
   },
 
   notFound: {

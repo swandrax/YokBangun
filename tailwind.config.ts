@@ -11,19 +11,18 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#1F5D45",
-          dark: "#143F2F",
-          light: "#2B7E5E",
-          soft: "#EAF3EE",
+          DEFAULT: "#D9531E",
+          light: "#E26C3B",
+          soft: "#FCF1EB",
         },
         clay: {
-          DEFAULT: "#B4572F",
-          soft: "#F8ECE5",
+          DEFAULT: "#D9531E",
+          soft: "#FCF1EB",
         },
         surface: {
           DEFAULT: "#FFFFFF",
-          subtle: "#F7F8F6",
-          raised: "#EDF0EB",
+          subtle: "#FBF9F7",
+          raised: "#E8E2DA",
         },
       },
     },

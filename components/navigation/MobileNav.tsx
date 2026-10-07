@@ -11,6 +11,7 @@ import type { NavItem } from "@/lib/navigation";
 import { useUiStore } from "@/stores/ui-store";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { NavLinks } from "./NavLinks";
+import { publicContact } from "@/lib/site";
 import styles from "./MobileNav.module.css";
 
 type Props = {
@@ -98,13 +99,15 @@ export function MobileNav({ locale, items, labels }: Props) {
 
           <div className={styles.bottom}>
             <LanguageSwitcher locale={locale} label={labels.language} />
-            <Link
-              href={localizedPath(locale, "/contact")}
+            <a
+              href={`mailto:${publicContact.email || "nussaspacevibe@gmail.com"}?subject=${encodeURIComponent(
+                locale === "id" ? "Diskusi Proyek yokBangun" : "Discuss Project yokBangun"
+              )}`}
               className={buttonClass("primary", "lg", styles.cta)}
               onClick={closeNav}
             >
               {labels.cta}
-            </Link>
+            </a>
           </div>
         </div>
       </dialog>

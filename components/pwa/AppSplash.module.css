@@ -21,10 +21,10 @@
   padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
     max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   background:
-    radial-gradient(120% 70% at 50% 0%, #eef5f1 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(120% 70% at 50% 0%, #fef5f0 0%, rgba(255, 255, 255, 0) 60%),
     radial-gradient(90% 60% at 50% 110%, #fbf1ec 0%, rgba(255, 255, 255, 0) 55%),
     #ffffff;
-  color: #1a2421;
+  color: #14110F;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -63,7 +63,7 @@
 }
 
 .markBg {
-  fill: #1f5d45;
+  fill: #D9531E;
   transform-box: fill-box;
   transform-origin: center;
   opacity: 0;
@@ -88,7 +88,7 @@
 }
 
 .dot {
-  fill: #e3936a;
+  fill: #BF4515;
   transform-box: fill-box;
   transform-origin: center;
   transform: scale(0);
@@ -106,7 +106,7 @@
   font-weight: 700;
   font-size: clamp(1.6rem, 6.5vw, 2.6rem);
   letter-spacing: -0.02em;
-  color: #1a2421;
+  color: #14110F;
   clip-path: inset(0 100% 0 0);
   animation: wipe 0.5s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
 }
@@ -115,7 +115,7 @@
   margin-top: 4px;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: clamp(0.85rem, 3vw, 1.05rem);
-  color: #5b6762;
+  color: #6B645D;
   opacity: 0;
   animation: fadeUp 0.45s ease 1.4s forwards;
 }
@@ -130,7 +130,7 @@
   font-size: clamp(1.75rem, 7.5vw, 3.75rem);
   line-height: 1.12;
   letter-spacing: -0.025em;
-  color: #1a2421;
+  color: #14110F;
 }
 
 .line {
@@ -138,7 +138,7 @@
 }
 
 .lineAccent {
-  color: #1f5d45;
+  color: #D9531E;
 }
 
 .word {
@@ -159,7 +159,7 @@
   height: 3px;
   margin-left: calc(min(160px, 40vw) / -2);
   border-radius: 3px;
-  background: #e4ebe7;
+  background: #f0ece6;
   overflow: hidden;
 }
 
@@ -167,7 +167,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: #1f5d45;
+  background: #D9531E;
   transform: scaleX(0);
   transform-origin: left;
   animation: fill 3.6s linear forwards;

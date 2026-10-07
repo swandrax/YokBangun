@@ -10,7 +10,7 @@ describe("RSS feed route handler", () => {
     const xml = await res.text();
     expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>');
     expect(xml).toContain('<rss version="2.0"');
-    expect(xml).toContain("<title>yokBangun — growth with u</title>");
+    expect(xml).toContain("<title>yokBangun growth with u</title>");
     expect(xml).toContain("<item>");
     expect(xml).toContain("</item>");
     expect(xml).toContain("</rss>");

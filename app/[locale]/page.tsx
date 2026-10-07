@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n/messages";
 import { isLocale, localizedPath, type Locale } from "@/lib/i18n/config";
@@ -9,17 +10,10 @@ import {
   servicesSchema,
 } from "@/lib/seo/schema";
 import { JsonLd } from "@/lib/seo/JsonLd";
-import { ButtonLink } from "@/components/ui/Button";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { RevealGroup, RevealItem } from "@/components/animation/Reveal";
-import { EcosystemGraphic } from "@/components/graphics/EcosystemGraphic";
-import { StoryRail } from "@/components/animation/StoryRail";
-import { ProcessSteps } from "@/components/graphics/ProcessSteps";
-import { SectorShowcase } from "@/components/sections/SectorShowcase";
-import { QueryProvider } from "@/lib/query/QueryProvider";
-import { CaseStudyList } from "@/features/portfolio/CaseStudyList";
-import { listCaseStudies } from "@/features/portfolio/data";
-import { ContactForm } from "@/features/contact/ContactForm";
+import { HeroVideo } from "@/components/HeroVideo";
+import { VisionMissionSlider } from "@/components/sections/VisionMissionSlider";
+import { PartnershipSlider } from "@/components/sections/PartnershipSlider";
+import { publicContact } from "@/lib/site";
 import styles from "./HomePage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -41,7 +35,8 @@ export default async function HomePage({ params }: Props) {
   const locale: Locale = rawLocale;
 
   const t = getMessages(locale);
-  const initialCaseStudies = listCaseStudies(locale).slice(0, 3);
+  const landing = t.landing;
+  const mailAddress = publicContact.email || "nussaspacevibe@gmail.com";
 
   return (
     <>
@@ -53,349 +48,164 @@ export default async function HomePage({ params }: Props) {
         ]}
       />
 
-      {/* 02. HERO SECTION */}
+      {/* 1. HERO (100vh) WITH VIDEO BACKGROUND */}
       <section className={styles.hero} aria-labelledby="hero-title">
-        <div className={`container ${styles.heroGrid}`}>
-          <div className={styles.heroContent}>
-            <p className="eyebrow">{t.hero.eyebrow}</p>
-            <h1 id="hero-title" className={styles.heroTitle}>
-              {t.hero.titleLead}{" "}
-              <span className={styles.heroAccent}>{t.hero.titleAccent}</span>
-            </h1>
-            <p className={styles.heroDesc}>{t.hero.description}</p>
-            <div className={styles.heroActions}>
-              <ButtonLink
-                href={localizedPath(locale, "/contact")}
-                variant="primary"
-                size="lg"
-                arrow
-              >
-                {t.hero.primaryCta}
-              </ButtonLink>
-              <ButtonLink
-                href={localizedPath(locale, "/services")}
-                variant="secondary"
-                size="lg"
-              >
-                {t.hero.secondaryCta}
-              </ButtonLink>
-            </div>
-          </div>
+        <HeroVideo />
 
-          <div className={styles.heroGraphicWrap}>
-            <EcosystemGraphic labels={t.hero.graphic} />
+        <div className={`container ${styles.heroContent}`}>
+          <h1 id="hero-title" className={styles.heroTitle}>
+            {landing.hero.title}
+          </h1>
+          <p className={styles.heroSub}>{landing.hero.description}</p>
+          <div className={styles.heroActions}>
+            <a
+              href={`mailto:${mailAddress}?subject=${encodeURIComponent(
+                locale === "id" ? "Diskusi Proyek yokBangun" : "Discuss Project yokBangun"
+              )}`}
+              className={styles.primaryPillBtn}
+            >
+              {landing.hero.primaryCta}
+            </a>
+            <a href="#services" className={styles.secondaryPillBtn}>
+              {landing.hero.secondaryCta}
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 03. BUSINESS TRUST / SHORT POSITIONING STRIP */}
-      <section className={styles.strip} aria-label={t.positioning.label}>
-        <div className={`container ${styles.stripGrid}`}>
-          {t.positioning.items.map((item) => (
-            <div key={item} className={styles.stripItem}>
-              <span className={styles.stripDot} aria-hidden="true" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 2. VISI, MISI & GOALS ANIMATED SLIDER */}
+      <VisionMissionSlider copy={landing.visionMission} />
 
-      {/* 04. WHAT WE BUILD */}
+      {/* 3. LAYANAN (4 BARIS, 2 KOLOM) */}
       <section
         id="services"
-        className="section"
-        aria-labelledby="what-we-build-title"
+        className={styles.section}
+        aria-labelledby="services-title"
       >
         <div className="container">
-          <SectionHeader
-            id="what-we-build-title"
-            eyebrow={t.whatWeBuild.eyebrow}
-            title={t.whatWeBuild.title}
-            description={t.whatWeBuild.description}
-            align="split"
-          />
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>{landing.services.eyebrow}</span>
+            <h2 id="services-title" className={styles.sectionTitle}>
+              {landing.services.title}
+            </h2>
+          </div>
 
-          <RevealGroup className={styles.categoriesGrid}>
-            {t.whatWeBuild.categories.map((cat) => (
-              <RevealItem
-                key={cat.key}
-                as="article"
-                className={styles.categoryCard}
-              >
-                <div className={styles.categoryHead}>
-                  <h3 className={styles.categoryTitle}>{cat.title}</h3>
-                  <p className={styles.categoryDesc}>{cat.description}</p>
+          <div className={styles.servicesTable}>
+            {landing.services.items.map((item) => (
+              <div key={item.title} className={styles.serviceRow}>
+                <div className={styles.serviceColLeft}>
+                  <h3 className={styles.serviceTitle}>{item.title}</h3>
                 </div>
-                <ul role="list" className={styles.categoryList}>
-                  {cat.items.map((item) => (
-                    <li key={item} className={styles.categoryItem}>
-                      <span className={styles.categoryDot} aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </RevealItem>
+                <div className={styles.serviceColRight}>
+                  <p className={styles.serviceDesc}>{item.description}</p>
+                </div>
+              </div>
             ))}
-          </RevealGroup>
-        </div>
-      </section>
-
-      {/* 05. AI SERVICES */}
-      <section
-        id="ai-services"
-        className="section section--surface"
-        aria-labelledby="ai-title"
-      >
-        <div className="container">
-          <SectionHeader
-            id="ai-title"
-            eyebrow={t.ai.eyebrow}
-            title={t.ai.title}
-            description={t.ai.description}
-            align="split"
-          />
-
-          <div className={styles.aiGrid}>
-            <div>
-              <h3 className="visually-hidden">{t.ai.useCasesTitle}</h3>
-              <RevealGroup className={styles.useCasesGrid}>
-                {t.ai.useCases.map((uc) => (
-                  <RevealItem key={uc.title} className={styles.useCaseCard}>
-                    <h4 className={styles.useCaseTitle}>{uc.title}</h4>
-                    <p className={styles.useCaseDesc}>{uc.description}</p>
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-            </div>
-
-            <div className={styles.principlesCard}>
-              <h3 className={styles.principlesTitle}>{t.ai.principlesTitle}</h3>
-              <div className={styles.principlesList}>
-                {t.ai.principles.map((pr) => (
-                  <div key={pr.title} className={styles.principleItem}>
-                    <h4 className={styles.principleTitle}>{pr.title}</h4>
-                    <p className={styles.principleDesc}>{pr.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 06. PRODUCT & MAINTENANCE SERVICES */}
-      <section
-        id="maintenance"
-        className="section"
-        aria-labelledby="maintenance-title"
-      >
-        <div className="container">
-          <SectionHeader
-            id="maintenance-title"
-            eyebrow={t.maintenance.eyebrow}
-            title={t.maintenance.title}
-            description={t.maintenance.description}
-            align="split"
-          />
-
-          <div className={styles.maintenanceGrid}>
-            <div>
-              <StoryRail
-                steps={t.maintenance.steps}
-                label={t.maintenance.stepsLabel}
-              />
-            </div>
-
-            <div className={styles.maintenanceIncludes}>
-              <h3 className={styles.includesTitle}>
-                {t.maintenance.includesTitle}
-              </h3>
-              <ul role="list" className={styles.includesGrid}>
-                {t.maintenance.includes.map((inc) => (
-                  <li key={inc} className={styles.includeItem}>
-                    <span className={styles.includeCheck} aria-hidden="true">
-                      ✓
-                    </span>
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className={styles.takeoverNote}>{t.maintenance.takeover}</p>
-              <div>
-                <ButtonLink
-                  href={localizedPath(locale, "/contact")}
-                  variant="primary"
-                  size="md"
-                  arrow
-                >
-                  {t.maintenance.cta}
-                </ButtonLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 07. SECTOR SOLUTIONS */}
+      {/* 3. SEKTOR (HEADING + KALIMAT + CHIP PILLS) */}
       <section
         id="sectors"
-        className="section section--surface"
+        className={styles.section}
         aria-labelledby="sectors-title"
       >
         <div className="container">
-          <SectionHeader
-            id="sectors-title"
-            eyebrow={t.sectors.eyebrow}
-            title={t.sectors.title}
-            description={t.sectors.description}
-          />
-          <SectorShowcase
-            locale={locale}
-            copy={t.sectors}
-            commonCopy={t.common}
-          />
-        </div>
-      </section>
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>{landing.sectors.eyebrow}</span>
+            <h2 id="sectors-title" className={styles.sectionTitle}>
+              {landing.sectors.title}
+            </h2>
+            <p className={styles.sectionDesc}>{landing.sectors.description}</p>
+          </div>
 
-      {/* 08. HOW WE WORK */}
-      <section id="how-we-work" className="section" aria-labelledby="process-title">
-        <div className="container">
-          <SectionHeader
-            id="process-title"
-            eyebrow={t.process.eyebrow}
-            title={t.process.title}
-            description={t.process.description}
-          />
-          <ProcessSteps steps={t.process.steps} />
-        </div>
-      </section>
-
-      {/* 09. SELECTED WORK / CASE STUDIES */}
-      <section
-        id="work"
-        className="section section--surface"
-        aria-labelledby="work-title"
-      >
-        <div className="container">
-          <SectionHeader
-            id="work-title"
-            eyebrow={t.work.eyebrow}
-            title={t.work.title}
-            description={t.work.description}
-            align="split"
-          >
-            <p className="muted" style={{ fontSize: "var(--fs-xs)" }}>
-              {t.work.illustrativeNote}
-            </p>
-          </SectionHeader>
-
-          <QueryProvider>
-            <CaseStudyList
-              locale={locale}
-              initialData={initialCaseStudies}
-              copy={t.work}
-              statusCopy={t.status}
-            />
-          </QueryProvider>
-        </div>
-      </section>
-
-      {/* 10. PARTNERSHIP & GROWTH */}
-      <section
-        id="partnership"
-        className="section"
-        aria-labelledby="partner-title"
-      >
-        <div className="container">
-          <SectionHeader
-            id="partner-title"
-            eyebrow={t.partnership.eyebrow}
-            title={t.partnership.title}
-            description={t.partnership.description}
-            align="split"
-          >
-            <div>
-              <ButtonLink
-                href={localizedPath(locale, "/partnership")}
-                variant="primary"
-                size="md"
-                arrow
-              >
-                {t.partnership.cta}
-              </ButtonLink>
-            </div>
-          </SectionHeader>
-
-          <RevealGroup className={styles.partnerGrid}>
-            {t.partnership.types.map((pt) => (
-              <RevealItem key={pt.key} className={styles.partnerCard}>
-                <h3 className={styles.partnerTitle}>{pt.title}</h3>
-                <p className={styles.partnerDesc}>{pt.description}</p>
-              </RevealItem>
+          <div className={styles.chipGrid} role="list" aria-label={landing.sectors.title}>
+            {landing.sectors.chips.map((chip) => (
+              <span key={chip} role="listitem" className={styles.chip}>
+                {chip}
+              </span>
             ))}
-          </RevealGroup>
+          </div>
+
+          <div className={styles.sectorLinkWrapper}>
+            <Link
+              href={localizedPath(locale, "/sectors")}
+              className={styles.sectorLink}
+            >
+              <span>{landing.sectors.cta}</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 11. WHY YOKBANGUN */}
+      {/* 4. CARA KERJA (4 LANGKAH: PAHAMI, BANGUN, RAWAT, TUMBUH) */}
       <section
-        id="why"
-        className="section section--surface"
-        aria-labelledby="why-title"
+        id="how-we-work"
+        className={styles.section}
+        aria-labelledby="how-we-work-title"
       >
         <div className="container">
-          <SectionHeader
-            id="why-title"
-            eyebrow={t.why.eyebrow}
-            title={t.why.title}
-          />
-          <RevealGroup className={styles.whyGrid}>
-            {t.why.reasons.map((r) => (
-              <RevealItem key={r.title} className={styles.whyCard}>
-                <h3 className={styles.whyTitle}>{r.title}</h3>
-                <p className={styles.whyDesc}>{r.description}</p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </div>
-      </section>
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>{landing.howWeWork.eyebrow}</span>
+            <h2 id="how-we-work-title" className={styles.sectionTitle}>
+              {landing.howWeWork.title}
+            </h2>
+          </div>
 
-      {/* 12. CONTACT / PROJECT DISCUSSION */}
-      <section id="contact" className="section" aria-labelledby="contact-title">
-        <div className="container">
-          <SectionHeader
-            id="contact-title"
-            eyebrow={t.contact.eyebrow}
-            title={t.contact.title}
-            description={t.contact.description}
-          />
-
-          <div className={styles.contactGrid}>
-            <div className={styles.contactAside}>
-              <div>
-                <h3 className={styles.afterTitle}>{t.contact.afterTitle}</h3>
-                <ol role="list" className={styles.afterList}>
-                  {t.contact.after.map((step, idx) => (
-                    <li key={step} className={styles.afterItem}>
-                      <span className={styles.afterIndex} aria-hidden="true">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ol>
+          <div className={styles.stepsGrid}>
+            {landing.howWeWork.steps.map((step) => (
+              <div key={step.key} className={styles.stepCard}>
+                <span className={styles.stepNum}>{step.number}</span>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.description}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div>
-              <QueryProvider>
-                <ContactForm
-                  locale={locale}
-                  copy={t.contact.form}
-                  validationCopy={t.validation}
-                  sectors={t.sectors.items}
-                />
-              </QueryProvider>
+      {/* 5. MARKETING & PARTNERSHIPS SLIDER */}
+      <PartnershipSlider
+        copy={{
+          ...landing.partnershipSlider,
+          items: t.partnership.types.map((pt) => ({
+            key: pt.key,
+            title: pt.title,
+            description: pt.description,
+          })),
+        }}
+        email={mailAddress}
+      />
+
+      {/* 6. CTA PENUTUP */}
+      <section
+        id="contact"
+        className={`${styles.section} ${styles.ctaSection}`}
+        aria-labelledby="cta-title"
+      >
+        <div className="container">
+          <div className={styles.ctaCard}>
+            <h2 id="cta-title" className={styles.ctaTitle}>
+              {landing.cta.title}
+            </h2>
+            <p className={styles.ctaDesc}>{landing.cta.description}</p>
+            <div className={styles.ctaActions}>
+              <a
+                href={`mailto:${mailAddress}?subject=${encodeURIComponent(
+                  locale === "id" ? "Diskusi Proyek yokBangun" : "Discuss Project yokBangun"
+                )}`}
+                className={styles.primaryPillBtn}
+              >
+                {landing.cta.button}
+              </a>
+              <a
+                href={`mailto:${mailAddress}`}
+                className={styles.mailtoBtn}
+              >
+                {landing.cta.mailtoText} ({mailAddress})
+              </a>
             </div>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import { brand } from "@/lib/site";
 import styles from "./Logo.module.css";
 
-type Props = { showTagline?: boolean; className?: string };
+type Props = { showTagline?: boolean; className?: string; inverted?: boolean };
 
 /** Inline SVG mark + wordmark. No image request, so it never affects LCP. */
-export function Logo({ showTagline = true, className }: Props) {
+export function Logo({ showTagline = true, className, inverted = false }: Props) {
   return (
-    <span className={`${styles.logo} ${className ?? ""}`}>
+    <span className={`${styles.logo} ${inverted ? styles.inverted : ""} ${className ?? ""}`}>
       <svg className={styles.mark} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <rect width="32" height="32" rx="8" fill="currentColor" />
         <path

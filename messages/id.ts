@@ -12,7 +12,7 @@ const id = {
     skip: "Ketuk untuk lanjut",
   },
   meta: {
-    siteTitle: "yokBangun — Digital Product, AI & Maintenance Services",
+    siteTitle: "yokBangun: Digital Product, AI & Maintenance Services",
     siteDescription:
       "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
     pages: {
@@ -95,6 +95,8 @@ const id = {
     contact: "Kontak",
     technical: "Catatan Teknis",
     cta: "Diskusikan Kebutuhan",
+    howWeWork: "Cara kerja",
+    discussProject: "Diskusi proyek",
   },
 
   hero: {
@@ -753,6 +755,172 @@ const id = {
         ],
       },
     ],
+  },
+
+  landing: {
+    hero: {
+      title: "Bangun digital. Tumbuhkan usaha.",
+      description: "Produk digital, AI praktis, dan perawatan untuk UMKM, desa, dan komunitas di Indonesia.",
+      primaryCta: "Diskusi proyek",
+      secondaryCta: "Lihat layanan",
+    },
+    visionMission: {
+      eyebrow: "Visi, Misi & Goals",
+      title: "Fondasi dan arah komitmen kami",
+      subtitle: "Mendukung transformasi digital yang sehat, mandiri, dan berkesinambungan.",
+      slides: [
+        {
+          key: "visi",
+          tab: "Visi",
+          eyebrow: "Visi Kami",
+          heading: "Mitra Digital Terpercaya untuk Pertumbuhan Berkelanjutan",
+          summary: "Menjadi mitra digital yang membantu usaha dan organisasi membangun produk, layanan, serta operasional digital yang berguna, mudah digunakan, dan dapat terus dikembangkan.",
+          highlights: [
+            {
+              title: "Teknologi Tepat Guna",
+              text: "Fokus pada produk fungsional yang menyelesaikan kendala nyata tanpa kompleksitas berlebih.",
+            },
+            {
+              title: "Tumbuh Bersama",
+              text: "Mendampingi setiap fase perjalanan digital Anda melalui perawatan dan pengembangan berkala.",
+            },
+          ],
+        },
+        {
+          key: "misi",
+          tab: "Misi",
+          eyebrow: "Misi Kami",
+          heading: "Tiga Pilar Aksi Nyata",
+          summary: "Mewujudkan transformasi digital yang efektif melalui standar kerja teruji dan terarah.",
+          highlights: [
+            {
+              title: "Membangun Produk Fungsional",
+              text: "Mengembangkan website dan aplikasi yang pas dengan alur operasional kerja harian.",
+            },
+            {
+              title: "Perawatan & Keamanan Rutin",
+              text: "Memastikan stabilitas sistem, kecepatan akses, dan pembaruan keamanan terus terjaga pasca-peluncuran.",
+            },
+            {
+              title: "Solusi AI Praktis",
+              text: "Menerapkan asisten dokumen dan automasi alur kerja di bagian yang benar-benar meringankan beban tim.",
+            },
+          ],
+        },
+        {
+          key: "goals",
+          tab: "Goals",
+          eyebrow: "Goals & Target",
+          heading: "Target Strategis dan Tolak Ukur Keberhasilan",
+          summary: "Sasaran terukur yang memandu setiap proyek agar memberikan dampak nyata bagi bisnis Anda.",
+          highlights: [
+            {
+              title: "Digitalisasi Tanpa Hambatan",
+              text: "Memudahkan adopsi teknologi bagi UMKM, komunitas, dan organisasi lokal tanpa rasa takut gagal.",
+            },
+            {
+              title: "Efisiensi Kerja Optimal",
+              text: "Memangkas proses manual dan duplikasi data agar operasional usaha berjalan jauh lebih hemat waktu.",
+            },
+            {
+              title: "Solusi yang Berkelanjutan",
+              text: "Menjamin aset digital dan teknologi yang dibangun tetap adaptif saat skala usaha Anda meluas.",
+            },
+          ],
+        },
+      ],
+      prev: "Sebelumnya",
+      next: "Berikutnya",
+    },
+    services: {
+      eyebrow: "Layanan",
+      title: "Empat bidang utama",
+      items: [
+        {
+          title: "Produk Digital",
+          description: "Website, sistem internal, dan aplikasi web praktis yang dibangun sesuai alur operasional dan kebutuhan pengguna nyata.",
+          href: "/services#digital-products",
+        },
+        {
+          title: "Layanan AI",
+          description: "Penerapan AI praktis untuk pencarian dokumen internal, asisten FAQ, dan automasi alur kerja tanpa kerumitan.",
+          href: "/ai-services",
+        },
+        {
+          title: "Integrasi",
+          description: "Menghubungkan sistem yang sudah Anda gunakan mulai dari pembayaran, data pelanggan, hingga WhatsApp agar tidak ada kerja berulang.",
+          href: "/services#integration",
+        },
+        {
+          title: "Perawatan",
+          description: "Dukungan pemeliharaan berkala, perbaikan bug, pembaruan keamanan, dan peningkatan performa agar produk terus andal.",
+          href: "/services#maintenance",
+        },
+      ],
+    },
+    sectors: {
+      eyebrow: "Sektor",
+      title: "Dibangun untuk konteks lokal Indonesia.",
+      description: "Kami memahami alur kerja dan tantangan spesifik di berbagai sektor usaha dan organisasi.",
+      cta: "Lihat detail sektor",
+      chips: [
+        "UMKM",
+        "Usaha rumahan",
+        "Koperasi",
+        "RT/RW",
+        "Desa & kelurahan",
+        "Kecamatan",
+        "Komunitas",
+        "Pendidikan",
+        "Kesehatan",
+        "Jasa",
+      ],
+    },
+    howWeWork: {
+      eyebrow: "Cara kerja",
+      title: "Empat langkah terarah",
+      steps: [
+        {
+          key: "pahami",
+          number: "01",
+          title: "Pahami",
+          description: "Mendengarkan cara kerja usaha, kendala operasional, dan masalah yang paling mendesak diselesaikan.",
+        },
+        {
+          key: "bangun",
+          number: "02",
+          title: "Bangun",
+          description: "Mewujudkan produk digital yang ringkas, fungsional, dan langsung dapat digunakan tim Anda.",
+        },
+        {
+          key: "rawat",
+          number: "03",
+          title: "Rawat",
+          description: "Menjaga stabilitas, keamanan, dan keandalan sistem secara berkala setelah peluncuran.",
+        },
+        {
+          key: "tumbuh",
+          number: "04",
+          title: "Tumbuh",
+          description: "Mengembangkan fitur baru dan perbaikan bertahap seiring pertumbuhan skala usaha Anda.",
+        },
+      ],
+    },
+    cta: {
+      title: "Ceritakan apa yang ingin dibangun.",
+      description: "Mari diskusikan kebutuhan usaha atau sistem yang ingin Anda kembangkan. Ringkas, jelas, dan tanpa komitmen rumit.",
+      button: "Diskusi proyek",
+      mailtoText: "Kirim email langsung",
+    },
+    partnershipSlider: {
+      eyebrow: "Marketing & Partnerships",
+      title: "Kolaborasi strategis untuk skala lebih luas",
+      subtitle: "Bermitra dengan ekosistem teknologi, bisnis, dan institusi untuk tumbuh bersama.",
+      ctaText: "Mulai Kolaborasi",
+      noteText: "Direct contact ke tim kemitraan nussaspacevibe",
+      prev: "Sebelumnya",
+      next: "Berikutnya",
+    },
   },
 
   notFound: {

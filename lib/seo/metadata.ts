@@ -23,7 +23,7 @@ export function baseMetadata(locale: Locale): Metadata {
   const t = getMessages(locale).meta;
   return {
     metadataBase: new URL(siteUrl),
-    title: { default: t.siteTitle, template: `%s — ${brand.name}` },
+    title: { default: t.siteTitle, template: `%s | ${brand.name}` },
     description: t.siteDescription,
     applicationName: brand.full,
     authors: [{ name: brand.name }],
@@ -63,7 +63,7 @@ export function baseMetadata(locale: Locale): Metadata {
 /** Metadata for an inner page. */
 export function pageMetadata(locale: Locale, key: PageKey, path: string): Metadata {
   const page = getMessages(locale).meta.pages[key];
-  const fullTitle = `${page.title} — ${brand.name}`;
+  const fullTitle = `${page.title} | ${brand.name}`;
   return {
     title: page.title,
     description: page.description,
