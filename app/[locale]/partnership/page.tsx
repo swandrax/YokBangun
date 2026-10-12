@@ -7,6 +7,8 @@ import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 import { PartnershipForm } from "@/features/partnership/PartnershipForm";
+import { CopyButton } from "@/components/ui/CopyButton";
+import { publicContact } from "@/lib/site";
 import styles from "./PartnershipPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -74,10 +76,38 @@ export default async function PartnershipPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Partnership Inquiry Form */}
+      {/* Partnership Inquiry Form & Direct Email */}
       <section className="section" aria-labelledby="partner-form-title">
         <div className="container">
           <div className={styles.formContainer}>
+            <div className="mb-8 p-6 bg-[#fbf9f6] border border-neutral-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span className="block text-xs uppercase tracking-wider text-[#bf572b] font-semibold mb-1">
+                  {locale === "id" ? "Kontak Langsung Kemitraan" : "Direct Partnership Contact"}
+                </span>
+                <p className="text-sm text-neutral-600 mb-1">
+                  {locale === "id"
+                    ? "Untuk diskusi awal startup, integrasi platform, atau penjajakan kolaborasi UKM:"
+                    : "For early startup discussions, platform integrations, or SME collaboration inquiries:"}
+                </p>
+                <a
+                  href={`mailto:${publicContact.email || "nussaspacevibe@gmail.com"}?subject=${encodeURIComponent(
+                    locale === "id"
+                      ? "Inquiry Kemitraan Startup & UKM — yokBangun"
+                      : "Startup & SME Partnership Inquiry — yokBangun"
+                  )}`}
+                  className="text-base font-semibold text-neutral-900 hover:underline"
+                >
+                  {publicContact.email || "nussaspacevibe@gmail.com"}
+                </a>
+              </div>
+              <CopyButton
+                text={publicContact.email || "nussaspacevibe@gmail.com"}
+                label={locale === "id" ? "Salin Email" : "Copy Email"}
+                successLabel={locale === "id" ? "Tersalin!" : "Copied!"}
+              />
+            </div>
+
             <QueryProvider>
               <PartnershipForm
                 locale={locale}

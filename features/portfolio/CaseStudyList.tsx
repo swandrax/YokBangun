@@ -31,10 +31,20 @@ export function CaseStudyList({
 
   const sectorFilters = [
     { key: "all", label: copy.filterAll },
-    { key: "civicgov", label: "civicGov · RT/RW" },
     { key: "umkm", label: "UMKM" },
-    { key: "koperasi", label: "Koperasi" },
-    { key: "pendidikan", label: "Pendidikan" },
+    {
+      key: "home-business",
+      label: locale === "id" ? "Usaha Rumahan" : "Home Businesses",
+    },
+    { key: "civicgov", label: "RT/RW · civicGov" },
+    {
+      key: "pendidikan",
+      label: locale === "id" ? "Pendidikan" : "Education",
+    },
+    {
+      key: "kesehatan",
+      label: locale === "id" ? "Kesehatan" : "Health Services",
+    },
   ];
 
   const filtered =

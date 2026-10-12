@@ -39,7 +39,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     content: {
       id: {
         sector: "RT/RW · civicGov",
-        title: "Portal layanan warga untuk lingkungan RW",
+        title: "Portal layanan warga untuk lingkungan RT/RW",
         problem:
           "Permintaan surat pengantar dikirim lewat chat pribadi pengurus. Warga tidak tahu statusnya, dan pengurus menjawab pertanyaan yang sama berkali-kali.",
         built: [
@@ -53,7 +53,7 @@ const caseStudies: LocalizedCaseStudy[] = [
       },
       en: {
         sector: "Neighbourhood association · civicGov",
-        title: "Resident service portal for a neighbourhood association",
+        title: "Resident service portal for neighbourhood associations",
         problem:
           "Cover-letter requests were sent to officers' personal chats. Residents didn't know the status, and officers answered the same questions many times.",
         built: [
@@ -70,11 +70,11 @@ const caseStudies: LocalizedCaseStudy[] = [
   {
     slug: "katalog-usaha-makanan",
     kind: "illustrative",
-    sectorKey: "umkm",
+    sectorKey: "home-business",
     technology: ["Next.js", "Headless CMS", "WhatsApp click-to-chat", "QRIS"],
     content: {
       id: {
-        sector: "UMKM · Usaha rumahan",
+        sector: "Usaha Rumahan",
         title: "Katalog dan pencatatan pesanan untuk usaha makanan rumahan",
         problem:
           "Menu dikirim berupa foto di chat, pesanan dicatat di buku, dan pemilik sulit melihat pesanan hari ini dalam satu tampilan.",
@@ -88,7 +88,7 @@ const caseStudies: LocalizedCaseStudy[] = [
         status: "Skenario ilustratif",
       },
       en: {
-        sector: "Small business · Home business",
+        sector: "Home businesses",
         title: "Catalogue and order log for a home food business",
         problem:
           "The menu was sent as photos in chats, orders were written in a notebook, and the owner couldn't see today's orders in one view.",
@@ -104,37 +104,73 @@ const caseStudies: LocalizedCaseStudy[] = [
     },
   },
   {
-    slug: "pencatatan-koperasi",
+    slug: "operasional-toko-umkm",
     kind: "illustrative",
-    sectorKey: "koperasi",
-    technology: ["React", "Node.js API", "PostgreSQL", "PDF reports"],
+    sectorKey: "umkm",
+    technology: ["Next.js", "PostgreSQL", "WhatsApp API", "QRIS"],
     content: {
       id: {
-        sector: "Koperasi",
-        title: "Pencatatan simpanan dan pinjaman anggota koperasi",
+        sector: "UMKM",
+        title: "Katalog digital dan integrasi pesanan toko ritel UMKM",
         problem:
-          "Seluruh data anggota ada di satu spreadsheet milik bendahara. Laporan bulanan disusun manual, dan anggota harus bertanya untuk tahu saldonya.",
+          "Stok produk tersebar antara toko fisik dan pesanan online, rekap transaksi lambat, dan pelanggan kesulitan mengecek ketersediaan barang.",
         built: [
-          "Data anggota dengan riwayat simpanan dan pinjaman",
-          "Laporan bulanan yang bisa diunduh",
-          "Akses baca untuk anggota",
-          "Hak akses berbeda untuk pengurus dan anggota",
+          "Katalog produk mobile-first dengan update stok berkala",
+          "Pencatatan transaksi terintegrasi dan ringkasan harian",
+          "Integrasi notifikasi pesanan ke WhatsApp admin toko",
+          "Pilihan pembayaran QRIS statis dan dinamis",
         ],
-        outcome: "Laporan tidak lagi disusun dari nol, dan data tidak bergantung pada satu orang.",
+        outcome: "Pemilik UMKM memantau stok dan transaksi harian tanpa pencatatan kertas ganda.",
         status: "Skenario ilustratif",
       },
       en: {
-        sector: "Cooperative",
-        title: "Savings and loan records for a cooperative",
+        sector: "Small businesses (UMKM)",
+        title: "Digital catalogue and order flow for small retail business",
         problem:
-          "All member data lived in one spreadsheet kept by the treasurer. Monthly reports were compiled by hand, and members had to ask to know their balance.",
+          "Product stock was split between the physical shop and online chats, sales reconciliation was manual, and customers couldn't check stock easily.",
         built: [
-          "Member records with savings and loan history",
-          "Downloadable monthly reports",
-          "Read-only access for members",
-          "Separate permissions for officers and members",
+          "Mobile-first product catalogue with simple stock updates",
+          "Integrated daily sales record and order summary",
+          "WhatsApp notification dispatch for shop staff",
+          "Direct QRIS payment display",
         ],
-        outcome: "Reports no longer start from scratch, and the data no longer depends on one person.",
+        outcome: "Shop owners manage stock and daily revenue without double manual recording.",
+        status: "Illustrative scenario",
+      },
+    },
+  },
+  {
+    slug: "antrean-layanan-klinik",
+    kind: "illustrative",
+    sectorKey: "kesehatan",
+    technology: ["Next.js", "Real-time Queue", "WhatsApp Notification", "PostgreSQL"],
+    content: {
+      id: {
+        sector: "Kesehatan",
+        title: "Sistem antrean dan jadwal kunjungan klinik pratama",
+        problem:
+          "Pasien menumpuk di jam sibuk dan menunggu lama di ruang tunggu, sedangkan pembaruan jadwal dokter belum bisa diakses sebelum datang.",
+        built: [
+          "Nomor antrean digital dengan estimasi waktu panggil",
+          "Notifikasi WhatsApp saat antrean pasien mendekat",
+          "Dashboard antrean sederhana untuk staf front-desk",
+          "Jadwal dokter dan layanan yang terhubung langsung",
+        ],
+        outcome: "Pasien datang sesuai perkiraan waktu, dan ruang tunggu klinik tidak lagi berdesakan.",
+        status: "Skenario ilustratif",
+      },
+      en: {
+        sector: "Health services",
+        title: "Queue and schedule management for primary health clinics",
+        problem:
+          "Patients arrived all at once during peak hours, and updated doctor schedules were inaccessible prior to physical arrival.",
+        built: [
+          "Digital queue ticket with estimated call time",
+          "Automated WhatsApp notification as turn approaches",
+          "Simple front-desk check-in and queue dashboard",
+          "Real-time schedule update for doctors and specialists",
+        ],
+        outcome: "Patients arrive closer to their actual consultation time, reducing crowded waiting areas.",
         status: "Illustrative scenario",
       },
     },
@@ -146,8 +182,8 @@ const caseStudies: LocalizedCaseStudy[] = [
     technology: ["Document retrieval", "LLM API", "Admin review", "WhatsApp Business API"],
     content: {
       id: {
-        sector: "Pendidikan · Bisnis jasa",
-        title: "Asisten FAQ untuk lembaga kursus",
+        sector: "Pendidikan",
+        title: "Asisten informasi dan FAQ untuk lembaga pendidikan",
         problem:
           "Admin menjawab pertanyaan jadwal, biaya, dan syarat pendaftaran yang sama setiap hari, sering di luar jam kerja.",
         built: [
@@ -160,8 +196,8 @@ const caseStudies: LocalizedCaseStudy[] = [
         status: "Skenario ilustratif",
       },
       en: {
-        sector: "Education · Service business",
-        title: "FAQ assistant for a course provider",
+        sector: "Education",
+        title: "FAQ assistant for educational institutions",
         problem:
           "Admin staff answered the same questions about schedules, fees, and requirements every day, often outside working hours.",
         built: [

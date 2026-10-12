@@ -26,7 +26,46 @@ export function organizationSchema(locale: Locale): JsonLdObject {
     areaServed: { "@type": "Country", name: "Indonesia" },
     knowsLanguage: ["id", "en"],
     ...(publicContact.email ? { email: publicContact.email } : {}),
-    knowsAbout: t.whatWeBuild.categories.map((c) => c.title),
+    knowsAbout: [
+      ...t.whatWeBuild.categories.map((c) => c.title),
+      "ISO/IEC 27001:2022 Information Security Management Standards",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "security standard alignment",
+      name: "ISO/IEC 27001:2022 Information Security Management Controls",
+    },
+  };
+}
+
+export function localBusinessSchema(locale: Locale): JsonLdObject {
+  const t = getMessages(locale);
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#localbusiness`,
+    name: brand.name,
+    alternateName: brand.full,
+    description: t.meta.siteDescription,
+    url: siteUrl,
+    email: publicContact.email,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "ID",
+      addressRegion: "DKI Jakarta",
+      addressLocality: "Jakarta",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.2088,
+      longitude: 106.8456,
+    },
+    areaServed: [
+      { "@type": "Country", name: "Indonesia" },
+      { "@type": "AdministrativeArea", name: "DKI Jakarta" },
+    ],
+    priceRange: "$$",
+    parentOrganization: { "@id": ORG_ID },
   };
 }
 

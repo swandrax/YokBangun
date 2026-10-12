@@ -62,3 +62,12 @@ Tests:       28 passed (28)
 Typecheck:   0 errors (npx tsc --noEmit)
 ```
 Semua perlindungan aktif dan siap untuk deployment produksi di Vercel.
+
+---
+
+## 4. Kepatuhan Standar ISO/IEC 27001:2022 (Legacy Audit Reference)
+
+Laporan audit kepatuhan kontrol sistem ISO/IEC 27001:2022 lengkap (mencakup kontrol A.5, A.6, A.7, dan A.8) didokumentasikan sebagai referensi audit arsitektur sistem di:
+- [`legacy/ISO_27001_SYSTEM_AUDIT_REPORT.md`](file:///c:/Users/user/Desktop/company-profile/legacy/ISO_27001_SYSTEM_AUDIT_REPORT.md)
+
+Laporan audit ini mencakup 5 sektor fokus (UMKM, Usaha Rumahan, RT/RW · civicGov, Pendidikan, Kesehatan) serta pemisahan scope Ingestion Kontak Enterprise vs Kemitraan Startups & SME dengan email resmi `nussaspacevibe@gmail.com`.

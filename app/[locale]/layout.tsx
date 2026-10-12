@@ -12,6 +12,7 @@ import { baseMetadata } from "@/lib/seo/metadata";
 import { PrelineScript } from "@/components/preline/PrelineScript";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { PwaInstallPrompt } from "@/components/pwa/PwaInstallPrompt";
+import { AppSplash } from "@/components/pwa/AppSplash";
 import "../globals.css";
 
 // Two families max. Plus Jakarta Sans (designed in Jakarta) for headings, Inter for body.
@@ -78,6 +79,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </MotionProvider>
           <SiteFooter locale={locale} />
         </div>
+        <AppSplash copy={t.splash} />
         <LocalePreference locale={locale} />
         <PrelineScript />
         <ServiceWorkerRegister />

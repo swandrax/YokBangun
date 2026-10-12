@@ -13,7 +13,7 @@ const en: Messages = {
   meta: {
     siteTitle: "yokBangun: Digital Product, AI & Maintenance Services",
     siteDescription:
-      "yokBangun builds digital products, practical AI services, integrations, and maintenance for small and growing businesses, communities, and sector-specific organisations in Indonesia.",
+      "yokBangun builds digital products, practical AI services, integrations, and maintenance for small businesses, home businesses, neighbourhood associations, education, and health services in Indonesia.",
     pages: {
       services: {
         title: "Services",
@@ -33,7 +33,7 @@ const en: Messages = {
       sectors: {
         title: "Sector Solutions",
         description:
-          "Digital solutions for small businesses, home businesses, cooperatives, neighbourhood associations, villages, districts, communities, education, and health services.",
+          "Digital solutions for small businesses, home businesses, neighbourhood associations, education, and health services.",
       },
       work: {
         title: "Work & Case Studies",
@@ -43,7 +43,7 @@ const en: Messages = {
       partnership: {
         title: "Partnership",
         description:
-          "yokBangun is open to product collaboration, technology integration, sector implementation, applied research, and long-term growth partnerships.",
+          "yokBangun is open to product collaboration, technology integration, and applied research with startups and SMEs.",
       },
       about: {
         title: "About",
@@ -52,7 +52,7 @@ const en: Messages = {
       },
       contact: {
         title: "Discuss Your Project",
-        description: "Tell us what you are trying to build. We can help define what should be built first.",
+        description: "Contact yokBangun's enterprise team to discuss your digital product and AI service needs.",
       },
       technical: {
         title: "Technical Notes",
@@ -326,15 +326,6 @@ const en: Messages = {
         outcome: "Owners can see orders and income without scrolling through many conversations.",
       },
       {
-        key: "koperasi",
-        name: "Cooperatives (Koperasi)",
-        tag: "",
-        summary: "Member, savings, and loan records kept tidy, and members can check their own data.",
-        problem: "Member, savings, and loan data still live in ledgers or spreadsheets held by one or two officers.",
-        solution: "Member records, savings and loan tracking, periodic reports, and member access to check balances.",
-        outcome: "Reports take less time to prepare, and members can check their own records.",
-      },
-      {
         key: "rt-rw",
         name: "Neighbourhood associations (RT/RW)",
         tag: "civicGov",
@@ -342,33 +333,6 @@ const en: Messages = {
         problem: "Announcements get buried in WhatsApp groups, dues are recorded by hand, and letter requests need an in-person visit.",
         solution: "Resident portal, announcements, dues records, and a letter-request workflow.",
         outcome: "Residents know the status of their requests, and officers stop answering the same questions again and again.",
-      },
-      {
-        key: "desa-kelurahan",
-        name: "Villages & urban wards",
-        tag: "civicGov",
-        summary: "Administrative services, resident information, and complaints that are recorded and trackable.",
-        problem: "Administrative services, population data, and complaints are handled separately, so they are hard to track.",
-        solution: "Resident information portal, letter request workflow, service status tracking, complaints channel, and document templates.",
-        outcome: "Requests and complaints are recorded properly, with a status residents can see.",
-      },
-      {
-        key: "kecamatan",
-        name: "Sub-districts (Kecamatan)",
-        tag: "civicGov",
-        summary: "Cross-village data summaries with a consistent reporting format.",
-        problem: "Reports from many villages arrive in different formats and are re-compiled by hand.",
-        solution: "Area data dashboard, standard reporting forms, and administrative follow-up tracking.",
-        outcome: "Cross-area summaries no longer start from zero every period.",
-      },
-      {
-        key: "komunitas",
-        name: "Resident communities",
-        tag: "",
-        summary: "Activities, members, and community funds that stay on record when the committee changes.",
-        problem: "Activities, membership, and community funds are scattered across chats, forms, and officers' personal notes.",
-        solution: "Community platform, event registration, member records, and simple cash reports.",
-        outcome: "New officers can continue the work without losing earlier records.",
       },
       {
         key: "pendidikan",
@@ -388,47 +352,19 @@ const en: Messages = {
         solution: "Booking and queue system, service information, schedule reminders, and a simple service dashboard.",
         outcome: "Patients know the schedule before they come, and staff have a clearer list of visits.",
       },
-      {
-        key: "usaha-desa",
-        name: "Village small businesses",
-        tag: "",
-        summary: "An online shopfront for village products that can be shared with buyers outside the area.",
-        problem: "Village products are hard to sell outside the area, and business records aren't well organised yet.",
-        solution: "Village product catalogue, order page, sales records, and payment integration.",
-        outcome: "Village products have a shopfront that can be shared with buyers from other areas.",
-      },
-      {
-        key: "jasa",
-        name: "Service businesses",
-        tag: "",
-        summary: "Bookings, schedules, and customer follow-ups that don't slip through the cracks.",
-        problem: "Schedules, bookings, and follow-ups are handled by phone and chat, so things are easily missed.",
-        solution: "Booking system, customer portal, automatic reminders, and an FAQ assistant.",
-        outcome: "Fewer missed or double-booked appointments.",
-      },
-      {
-        key: "menengah",
-        name: "Growing medium-sized businesses",
-        tag: "",
-        summary: "Connected systems and older applications that stay well maintained.",
-        problem: "There are more and more systems, data isn't connected, and the internal team struggles to maintain older applications.",
-        solution: "Internal dashboard, system integration, application maintenance, and workflow automation.",
-        outcome: "The team can focus on operations instead of copying data between apps.",
-      },
     ],
     civicGov: {
       eyebrow: "Sector category",
       title: "civicGov",
       description:
-        "civicGov is our solution category for neighbourhood associations, villages, urban wards, and sub-districts. It focuses on everyday resident services: information, letters, complaints, and local data.",
+        "civicGov is our solution category for neighbourhood associations (RT/RW). It focuses on everyday resident services: information, letters, announcements, dues, and local data.",
       capabilitiesTitle: "Capabilities we can set up",
       capabilities: [
         "Resident information portal",
         "Letter request workflow",
         "Community announcements",
-        "Complaint and report workflow",
+        "Dues tracking",
         "Administration tracking",
-        "Local data dashboard",
         "Service request status",
         "Document templates",
       ],
@@ -505,10 +441,10 @@ const en: Messages = {
   },
 
   partnership: {
-    eyebrow: "Partnership & Growth",
-    title: "Growing further with the right partners.",
+    eyebrow: "Partnership for Startups & SMEs",
+    title: "Strategic collaboration for startups and SMEs ready to grow.",
     description:
-      "yokBangun is open to product collaboration, technology integration, sector implementation, applied research, and long-term growth partnerships.",
+      "yokBangun is open to product collaboration, technology integration, and applied research with startups and SMEs looking to strengthen their digital products.",
     types: [
       { key: "technology", title: "Technology partners", description: "Platform, API, payment, or infrastructure providers who want their products used more widely by small businesses and organisations." },
       { key: "business", title: "Business partners", description: "Agencies, consultants, or service providers who need a product and maintenance team for their clients." },
@@ -534,7 +470,7 @@ const en: Messages = {
       type: "Partnership type",
       typePlaceholder: "Choose a partnership type",
       message: "What would you like to collaborate on?",
-      messagePlaceholder: "Tell us briefly about your organisation and the idea.",
+      messagePlaceholder: "Tell us briefly about your startup/SME and the idea.",
       submit: "Send",
       submitting: "Sending…",
       success: "Thank you. We've received your message and will reply to the email address you gave us.",
@@ -556,10 +492,10 @@ const en: Messages = {
   },
 
   contact: {
-    eyebrow: "Discuss Your Project",
-    title: "Tell us what you are trying to build.",
+    eyebrow: "Enterprise & Business",
+    title: "Discuss your digital business needs.",
     description:
-      "You don't need a full brief. Tell us where your business is now, and we can help define what should be built first.",
+      "Contact our enterprise team. Tell us where your business stands now, and we can help define the digital product that should be built first.",
     afterTitle: "After you send a message",
     after: [
       "We read your message and reply, with follow-up questions if needed.",
@@ -571,7 +507,7 @@ const en: Messages = {
     whatsappLabel: "WhatsApp",
     form: {
       name: "Name",
-      organisation: "Business / Organisation",
+      organisation: "Company / Organisation",
       email: "Email",
       whatsapp: "WhatsApp",
       whatsappHint: "For example: 0812xxxxxxx or +62812xxxxxxx",
@@ -593,7 +529,7 @@ const en: Messages = {
       submitting: "Sending…",
       success: "Thank you. We've received your message and will reply by email or WhatsApp.",
       error: "Your message wasn't sent. Please check your connection and try again.",
-      privacy: "We only use your details to reply to this message.",
+      privacy: "Your data is protected in accordance with ISO 27001:2022 security standards.",
       errorSummary: "A few fields need your attention.",
     },
   },
@@ -609,7 +545,7 @@ const en: Messages = {
 
   footer: {
     description:
-      "To become a practical digital partner that helps businesses and organisations build useful digital products, services, and operations that can grow over time.",
+      "A digital partner for small businesses, home businesses, neighbourhood associations, education, and health services. Digital products, AI services, and maintenance that keep growing.",
     servicesTitle: "Services",
     companyTitle: "Company",
     contactTitle: "Contact",
@@ -622,7 +558,7 @@ const en: Messages = {
     eyebrow: "About yokBangun",
     title: "A digital product and service company for businesses that keep growing.",
     intro:
-      "yokBangun builds digital products and services for businesses, organisations, and service companies, especially those that need technology but don't have their own tech team.",
+      "yokBangun builds digital products and services for small businesses, home businesses, neighbourhood associations, schools, and health services — especially those that need technology but don't have their own tech team.",
     visionTitle: "Vision",
     vision:
       "To become a practical digital partner that helps businesses and organisations build useful digital products, services, and operations that can grow over time.",
@@ -632,7 +568,7 @@ const en: Messages = {
       "We want to work differently. We build, maintain, improve, and grow the product together with our clients, as their business changes.",
     ],
     illustrationAlt:
-      "Illustration of an Indonesian neighbourhood street with a small shop, a cooperative office, a health post, a school, and a community hall, with residents going about their day.",
+      "Illustration of an Indonesian neighbourhood street with a small shop, a health post, a school, and a community hall, with residents going about their day.",
     purposeTitle: "What we do",
     purposes: [
       { title: "Build practical digital products", description: "For businesses that need technology but don't have a large tech team." },
@@ -641,7 +577,7 @@ const en: Messages = {
     ],
     audienceTitle: "Who we work with",
     audience:
-      "Small and home businesses, growing medium-sized businesses, cooperatives, neighbourhood associations, villages and urban wards, sub-districts, resident communities, schools, health services, village businesses, and service companies.",
+      "Small businesses (UMKM), home businesses, neighbourhood associations (RT/RW), schools, and health services.",
     cta: "Discuss Your Project",
   },
 
@@ -699,12 +635,15 @@ const en: Messages = {
         ],
       },
       {
-        title: "Security & maintenance",
+        title: "Security & compliance (ISO 27001:2022)",
         items: [
+          "Information security management aligned with ISO/IEC 27001:2022 controls",
           "Regular dependency updates and security patches",
           "Scheduled backups and restore testing",
           "Role-based access control for internal dashboards",
           "Error and uptime monitoring",
+          "Data retention and deletion policies as needed",
+          "Periodic security risk assessments",
         ],
       },
       {
@@ -730,7 +669,7 @@ const en: Messages = {
   landing: {
     hero: {
       title: "Build digital. Grow your business.",
-      description: "Digital products, practical AI, and ongoing maintenance for small businesses, villages, and communities in Indonesia.",
+      description: "Digital products, practical AI, and ongoing maintenance for small businesses, home businesses, neighbourhood associations, education, and health services in Indonesia.",
       primaryCta: "Discuss project",
       secondaryCta: "Explore services",
     },
@@ -831,19 +770,14 @@ const en: Messages = {
     sectors: {
       eyebrow: "Sectors",
       title: "Built for Indonesia's local context.",
-      description: "We understand the specific workflows and constraints across different businesses and community organizations.",
+      description: "We understand the specific workflows and constraints across the five key sectors we serve.",
       cta: "Explore sector details",
       chips: [
         "Small businesses",
         "Home businesses",
-        "Cooperatives",
         "RT/RW",
-        "Villages & sub-districts",
-        "Districts",
-        "Communities",
         "Education",
         "Healthcare",
-        "Services",
       ],
     },
     howWeWork: {
@@ -883,11 +817,11 @@ const en: Messages = {
       mailtoText: "Send email directly",
     },
     partnershipSlider: {
-      eyebrow: "Marketing & Partnerships",
-      title: "Strategic collaboration for wider scale",
+      eyebrow: "Startup & SME Partnerships",
+      title: "Strategic collaboration for startups and SMEs",
       subtitle: "Partner with tech, business, and community ecosystems to grow together.",
       ctaText: "Start Collaboration",
-      noteText: "Direct contact with nussaspacevibe partnership team",
+      noteText: "Direct contact with nussaspacevibe@gmail.com partnership team",
       prev: "Previous",
       next: "Next",
     },

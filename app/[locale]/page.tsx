@@ -6,6 +6,7 @@ import { isLocale, localizedPath, type Locale } from "@/lib/i18n/config";
 import { alternatesFor } from "@/lib/seo/metadata";
 import {
   organizationSchema,
+  localBusinessSchema,
   websiteSchema,
   servicesSchema,
 } from "@/lib/seo/schema";
@@ -43,6 +44,7 @@ export default async function HomePage({ params }: Props) {
       <JsonLd
         data={[
           organizationSchema(locale),
+          localBusinessSchema(locale),
           websiteSchema(locale),
           ...servicesSchema(locale),
         ]}
