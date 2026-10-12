@@ -5,6 +5,8 @@ import { isLocale, type Locale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { publicContact, siteUrl } from "@/lib/site";
 import { PageHero } from "@/components/sections/PageHero";
+import { QueryProvider } from "@/lib/query/QueryProvider";
+import { ContactForm } from "@/features/contact/ContactForm";
 import { CopyButton } from "@/components/ui/CopyButton";
 import styles from "./ContactPage.module.css";
 
@@ -105,84 +107,14 @@ export default async function ContactPage({ params }: Props) {
             </div>
 
             <div>
-              <div className={styles.directEmailCard}>
-                <div className={styles.emailCardHeader}>
-                  <div className={styles.emailCardBadge} aria-hidden="true">
-                    ✉️
-                  </div>
-                  <div>
-                    <h2 className={styles.emailCardTitle}>
-                      {locale === "id"
-                        ? "Hubungi Langsung via Email"
-                        : "Contact Us Directly via Email"}
-                    </h2>
-                    <p className={styles.emailCardDesc}>
-                      {locale === "id"
-                        ? "Tidak perlu mengisi formulir panjang. Klik tombol di bawah untuk langsung membuka email Anda atau salin alamat email kami untuk mengirimkan rencana atau kebutuhan proyek Anda."
-                        : "No need to fill out long forms. Click the button below to launch your email client or copy our email address to share your project goals."}
-                    </p>
-                  </div>
-                </div>
-
-                <div className={styles.emailDetailBox}>
-                  <div>
-                    <span className="block text-xs uppercase tracking-wider text-neutral-500 mb-1">
-                      {locale === "id" ? "Alamat Email Resmi" : "Official Email Address"}
-                    </span>
-                    <span className={styles.emailAddressText}>
-                      {publicContact.email || "nussaspacevibe@gmail.com"}
-                    </span>
-                  </div>
-                  <CopyButton
-                    text={publicContact.email || "nussaspacevibe@gmail.com"}
-                    label={locale === "id" ? "Salin Email" : "Copy Email"}
-                    successLabel={locale === "id" ? "Tersalin!" : "Copied!"}
-                  />
-                </div>
-
-                <div className={styles.emailActionRow}>
-                  <a
-                    href={`mailto:${publicContact.email || "nussaspacevibe@gmail.com"}?subject=${encodeURIComponent(
-                      locale === "id"
-                        ? "Diskusi Proyek Digital yokBangun"
-                        : "Digital Project Discussion yokBangun"
-                    )}`}
-                    className={styles.primaryEmailBtn}
-                  >
-                    <span>
-                      {locale === "id" ? "Buka Email Sekarang" : "Open Email Client"}
-                    </span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-
-                <div className={styles.benefitList}>
-                  <div className={styles.benefitItem}>
-                    <span className={styles.benefitCheck}>✓</span>
-                    <span>
-                      {locale === "id"
-                        ? "Respons cepat dalam 1x24 jam kerja"
-                        : "Fast response within 24 business hours"}
-                    </span>
-                  </div>
-                  <div className={styles.benefitItem}>
-                    <span className={styles.benefitCheck}>✓</span>
-                    <span>
-                      {locale === "id"
-                        ? "Diskusi langsung bersama tim teknis tanpa perantara"
-                        : "Direct conversation with technical product engineers"}
-                    </span>
-                  </div>
-                  <div className={styles.benefitItem}>
-                    <span className={styles.benefitCheck}>✓</span>
-                    <span>
-                      {locale === "id"
-                        ? "Konsultasi awal & eksplorasi solusi tanpa komitmen rumit"
-                        : "Initial consultation & solution scoping without friction"}
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <QueryProvider>
+                <ContactForm
+                  locale={locale}
+                  copy={con.form}
+                  validationCopy={t.validation}
+                  sectors={t.sectors.items}
+                />
+              </QueryProvider>
             </div>
           </div>
         </div>

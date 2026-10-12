@@ -38,12 +38,3 @@
     display: none;
   }
 }
-
-.inverted .name {
-  color: #FFFFFF;
-}
-
-.inverted .tagline {
-  color: rgb(255 255 255 / 0.75);
-}
-
