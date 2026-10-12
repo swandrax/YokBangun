@@ -13,7 +13,7 @@ const en: Messages = {
   meta: {
     siteTitle: "yokBangun: Digital Product, AI & Maintenance Services",
     siteDescription:
-      "yokBangun builds digital products, practical AI services, integrations, and maintenance for small businesses, home businesses, neighbourhood associations, education, and health services in Indonesia.",
+      "yokBangun builds digital products, practical AI services, integrations, and maintenance for small and growing businesses, communities, and sector-specific organisations in Indonesia.",
     pages: {
       services: {
         title: "Services",
@@ -43,7 +43,7 @@ const en: Messages = {
       partnership: {
         title: "Partnership",
         description:
-          "yokBangun is open to product collaboration, technology integration, and applied research with startups and SMEs.",
+          "yokBangun is open to product collaboration, technology integration, sector implementation, applied research, and long-term growth partnerships.",
       },
       about: {
         title: "About",
@@ -52,7 +52,7 @@ const en: Messages = {
       },
       contact: {
         title: "Discuss Your Project",
-        description: "Contact yokBangun's enterprise team to discuss your digital product and AI service needs.",
+        description: "Tell us what you are trying to build. We can help define what should be built first.",
       },
       technical: {
         title: "Technical Notes",
@@ -357,14 +357,15 @@ const en: Messages = {
       eyebrow: "Sector category",
       title: "civicGov",
       description:
-        "civicGov is our solution category for neighbourhood associations (RT/RW). It focuses on everyday resident services: information, letters, announcements, dues, and local data.",
+        "civicGov is our solution category for neighbourhood associations, villages, urban wards, and sub-districts. It focuses on everyday resident services: information, letters, complaints, and local data.",
       capabilitiesTitle: "Capabilities we can set up",
       capabilities: [
         "Resident information portal",
         "Letter request workflow",
         "Community announcements",
-        "Dues tracking",
+        "Complaint and report workflow",
         "Administration tracking",
+        "Local data dashboard",
         "Service request status",
         "Document templates",
       ],
@@ -441,10 +442,10 @@ const en: Messages = {
   },
 
   partnership: {
-    eyebrow: "Partnership for Startups & SMEs",
-    title: "Strategic collaboration for startups and SMEs ready to grow.",
+    eyebrow: "Partnership & Growth",
+    title: "Growing further with the right partners.",
     description:
-      "yokBangun is open to product collaboration, technology integration, and applied research with startups and SMEs looking to strengthen their digital products.",
+      "yokBangun is open to product collaboration, technology integration, sector implementation, applied research, and long-term growth partnerships.",
     types: [
       { key: "technology", title: "Technology partners", description: "Platform, API, payment, or infrastructure providers who want their products used more widely by small businesses and organisations." },
       { key: "business", title: "Business partners", description: "Agencies, consultants, or service providers who need a product and maintenance team for their clients." },
@@ -470,7 +471,7 @@ const en: Messages = {
       type: "Partnership type",
       typePlaceholder: "Choose a partnership type",
       message: "What would you like to collaborate on?",
-      messagePlaceholder: "Tell us briefly about your startup/SME and the idea.",
+      messagePlaceholder: "Tell us briefly about your organisation and the idea.",
       submit: "Send",
       submitting: "Sending…",
       success: "Thank you. We've received your message and will reply to the email address you gave us.",
@@ -492,10 +493,10 @@ const en: Messages = {
   },
 
   contact: {
-    eyebrow: "Enterprise & Business",
-    title: "Discuss your digital business needs.",
+    eyebrow: "Discuss Your Project",
+    title: "Tell us what you are trying to build.",
     description:
-      "Contact our enterprise team. Tell us where your business stands now, and we can help define the digital product that should be built first.",
+      "You don't need a full brief. Tell us where your business is now, and we can help define what should be built first.",
     afterTitle: "After you send a message",
     after: [
       "We read your message and reply, with follow-up questions if needed.",
@@ -507,7 +508,7 @@ const en: Messages = {
     whatsappLabel: "WhatsApp",
     form: {
       name: "Name",
-      organisation: "Company / Organisation",
+      organisation: "Business / Organisation",
       email: "Email",
       whatsapp: "WhatsApp",
       whatsappHint: "For example: 0812xxxxxxx or +62812xxxxxxx",
@@ -529,7 +530,7 @@ const en: Messages = {
       submitting: "Sending…",
       success: "Thank you. We've received your message and will reply by email or WhatsApp.",
       error: "Your message wasn't sent. Please check your connection and try again.",
-      privacy: "Your data is protected in accordance with ISO 27001:2022 security standards.",
+      privacy: "We only use your details to reply to this message.",
       errorSummary: "A few fields need your attention.",
     },
   },
@@ -545,7 +546,7 @@ const en: Messages = {
 
   footer: {
     description:
-      "A digital partner for small businesses, home businesses, neighbourhood associations, education, and health services. Digital products, AI services, and maintenance that keep growing.",
+      "To become a practical digital partner that helps businesses and organisations build useful digital products, services, and operations that can grow over time.",
     servicesTitle: "Services",
     companyTitle: "Company",
     contactTitle: "Contact",
@@ -558,7 +559,7 @@ const en: Messages = {
     eyebrow: "About yokBangun",
     title: "A digital product and service company for businesses that keep growing.",
     intro:
-      "yokBangun builds digital products and services for small businesses, home businesses, neighbourhood associations, schools, and health services — especially those that need technology but don't have their own tech team.",
+      "yokBangun builds digital products and services for businesses, organisations, and service companies, especially those that need technology but don't have their own tech team.",
     visionTitle: "Vision",
     vision:
       "To become a practical digital partner that helps businesses and organisations build useful digital products, services, and operations that can grow over time.",
@@ -568,7 +569,7 @@ const en: Messages = {
       "We want to work differently. We build, maintain, improve, and grow the product together with our clients, as their business changes.",
     ],
     illustrationAlt:
-      "Illustration of an Indonesian neighbourhood street with a small shop, a health post, a school, and a community hall, with residents going about their day.",
+      "Illustration of an Indonesian neighbourhood street with a small shop, a cooperative office, a health post, a school, and a community hall, with residents going about their day.",
     purposeTitle: "What we do",
     purposes: [
       { title: "Build practical digital products", description: "For businesses that need technology but don't have a large tech team." },
@@ -577,7 +578,7 @@ const en: Messages = {
     ],
     audienceTitle: "Who we work with",
     audience:
-      "Small businesses (UMKM), home businesses, neighbourhood associations (RT/RW), schools, and health services.",
+      "Small and home businesses, neighbourhood associations, schools, and health services.",
     cta: "Discuss Your Project",
   },
 
@@ -635,15 +636,12 @@ const en: Messages = {
         ],
       },
       {
-        title: "Security & compliance (ISO 27001:2022)",
+        title: "Security & maintenance",
         items: [
-          "Information security management aligned with ISO/IEC 27001:2022 controls",
           "Regular dependency updates and security patches",
           "Scheduled backups and restore testing",
           "Role-based access control for internal dashboards",
           "Error and uptime monitoring",
-          "Data retention and deletion policies as needed",
-          "Periodic security risk assessments",
         ],
       },
       {
@@ -669,7 +667,7 @@ const en: Messages = {
   landing: {
     hero: {
       title: "Build digital. Grow your business.",
-      description: "Digital products, practical AI, and ongoing maintenance for small businesses, home businesses, neighbourhood associations, education, and health services in Indonesia.",
+      description: "Digital products, practical AI, and ongoing maintenance for small businesses, villages, and communities in Indonesia.",
       primaryCta: "Discuss project",
       secondaryCta: "Explore services",
     },
@@ -770,7 +768,7 @@ const en: Messages = {
     sectors: {
       eyebrow: "Sectors",
       title: "Built for Indonesia's local context.",
-      description: "We understand the specific workflows and constraints across the five key sectors we serve.",
+      description: "We understand the specific workflows and constraints across different businesses and community organizations.",
       cta: "Explore sector details",
       chips: [
         "Small businesses",
@@ -817,11 +815,11 @@ const en: Messages = {
       mailtoText: "Send email directly",
     },
     partnershipSlider: {
-      eyebrow: "Startup & SME Partnerships",
-      title: "Strategic collaboration for startups and SMEs",
+      eyebrow: "Marketing & Partnerships",
+      title: "Strategic collaboration for wider scale",
       subtitle: "Partner with tech, business, and community ecosystems to grow together.",
       ctaText: "Start Collaboration",
-      noteText: "Direct contact with nussaspacevibe@gmail.com partnership team",
+      noteText: "Direct contact with nussaspacevibe partnership team",
       prev: "Previous",
       next: "Next",
     },

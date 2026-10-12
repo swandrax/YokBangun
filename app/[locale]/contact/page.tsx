@@ -113,13 +113,13 @@ export default async function ContactPage({ params }: Props) {
                   <div>
                     <h2 className={styles.emailCardTitle}>
                       {locale === "id"
-                        ? "Hubungi Langsung Tim Enterprise"
-                        : "Contact Our Enterprise Team"}
+                        ? "Hubungi Langsung via Email"
+                        : "Contact Us Directly via Email"}
                     </h2>
                     <p className={styles.emailCardDesc}>
                       {locale === "id"
-                        ? "Diskusikan kebutuhan proyek skala enterprise, integrasi sistem, transformasi operasional, serta audit dan pemeliharaan digital langsung melalui email resmi kami."
-                        : "Discuss enterprise-scale digital projects, system integrations, operational transformation, and long-term maintenance directly via our official email."}
+                        ? "Tidak perlu mengisi formulir panjang. Klik tombol di bawah untuk langsung membuka email Anda atau salin alamat email kami untuk mengirimkan rencana atau kebutuhan proyek Anda."
+                        : "No need to fill out long forms. Click the button below to launch your email client or copy our email address to share your project goals."}
                     </p>
                   </div>
                 </div>
@@ -144,8 +144,8 @@ export default async function ContactPage({ params }: Props) {
                   <a
                     href={`mailto:${publicContact.email || "nussaspacevibe@gmail.com"}?subject=${encodeURIComponent(
                       locale === "id"
-                        ? "Inquiry Proyek Enterprise — yokBangun"
-                        : "Enterprise Project Inquiry — yokBangun"
+                        ? "Diskusi Proyek Digital yokBangun"
+                        : "Digital Project Discussion yokBangun"
                     )}`}
                     className={styles.primaryEmailBtn}
                   >
@@ -161,24 +161,24 @@ export default async function ContactPage({ params }: Props) {
                     <span className={styles.benefitCheck}>✓</span>
                     <span>
                       {locale === "id"
-                        ? "Respons cepat dalam 1x24 jam kerja untuk enterprise & bisnis"
-                        : "Fast response within 24 business hours for enterprise & businesses"}
+                        ? "Respons cepat dalam 1x24 jam kerja"
+                        : "Fast response within 24 business hours"}
                     </span>
                   </div>
                   <div className={styles.benefitItem}>
                     <span className={styles.benefitCheck}>✓</span>
                     <span>
                       {locale === "id"
-                        ? "Keamanan informasi & data mengacu standar ISO 27001:2022"
-                        : "Information security & data protection aligned with ISO 27001:2022"}
+                        ? "Diskusi langsung bersama tim teknis tanpa perantara"
+                        : "Direct conversation with technical product engineers"}
                     </span>
                   </div>
                   <div className={styles.benefitItem}>
                     <span className={styles.benefitCheck}>✓</span>
                     <span>
                       {locale === "id"
-                        ? "Konsultasi teknis langsung dengan tim engineer tanpa perantara"
-                        : "Direct technical consultation with engineers without intermediaries"}
+                        ? "Konsultasi awal & eksplorasi solusi tanpa komitmen rumit"
+                        : "Initial consultation & solution scoping without friction"}
                     </span>
                   </div>
                 </div>

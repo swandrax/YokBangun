@@ -14,7 +14,7 @@ const id = {
   meta: {
     siteTitle: "yokBangun: Digital Product, AI & Maintenance Services",
     siteDescription:
-      "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha rumahan, RT/RW, pendidikan, dan kesehatan di Indonesia.",
+      "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
     pages: {
       services: {
         title: "Layanan",
@@ -44,7 +44,7 @@ const id = {
       partnership: {
         title: "Kemitraan",
         description:
-          "yokBangun terbuka untuk kolaborasi produk, integrasi teknologi, dan riset terapan bersama startup dan UKM.",
+          "yokBangun terbuka untuk kolaborasi produk, integrasi teknologi, implementasi sektoral, riset terapan, dan pertumbuhan jangka panjang.",
       },
       about: {
         title: "Tentang",
@@ -54,7 +54,7 @@ const id = {
       contact: {
         title: "Diskusikan Kebutuhan",
         description:
-          "Hubungi tim enterprise yokBangun untuk mendiskusikan kebutuhan produk digital dan layanan AI bisnis Anda.",
+          "Ceritakan apa yang ingin Anda bangun. Kami bantu menentukan apa yang sebaiknya dibangun lebih dahulu.",
       },
       technical: {
         title: "Catatan Teknis",
@@ -104,7 +104,7 @@ const id = {
     titleLead: "Bangun digitalnya.",
     titleAccent: "Tumbuh usahanya.",
     description:
-      "yokBangun membantu UMKM, usaha rumahan, RT/RW, lembaga pendidikan, dan layanan kesehatan membangun produk digital, layanan AI, serta sistem yang terus dikembangkan.",
+      "yokBangun membantu UMKM, usaha menengah, komunitas, dan organisasi membangun produk digital, layanan AI, serta sistem yang dapat digunakan dan terus dikembangkan.",
     primaryCta: "Diskusikan Kebutuhan",
     secondaryCta: "Lihat Layanan",
     graphic: {
@@ -376,14 +376,15 @@ const id = {
       eyebrow: "Kategori sektor",
       title: "civicGov",
       description:
-        "civicGov adalah kategori solusi kami untuk RT/RW. Fokusnya pada layanan warga sehari-hari: informasi, surat-menyurat, pengumuman, iuran, dan data lingkungan.",
+        "civicGov adalah kategori solusi kami untuk RT/RW, desa, kelurahan, dan kecamatan. Fokusnya pada layanan warga sehari-hari: informasi, surat-menyurat, pengaduan, dan data wilayah.",
       capabilitiesTitle: "Kemampuan yang bisa disiapkan",
       capabilities: [
         "Portal informasi warga",
         "Alur permohonan surat",
         "Pengumuman komunitas",
-        "Pencatatan iuran",
+        "Alur pengaduan dan laporan",
         "Pelacakan administrasi",
+        "Dashboard data wilayah",
         "Status permintaan layanan",
         "Template dokumen",
       ],
@@ -461,10 +462,10 @@ const id = {
   },
 
   partnership: {
-    eyebrow: "Kemitraan untuk Startup & UKM",
-    title: "Kolaborasi strategis untuk startup dan UKM yang ingin tumbuh.",
+    eyebrow: "Kemitraan & Pertumbuhan",
+    title: "Tumbuh lebih jauh bersama partner yang tepat.",
     description:
-      "yokBangun terbuka untuk kolaborasi produk, integrasi teknologi, dan riset terapan bersama startup dan UKM yang ingin memperkuat produk digitalnya.",
+      "yokBangun terbuka untuk kolaborasi produk, integrasi teknologi, implementasi sektoral, riset terapan, dan peluang pertumbuhan bersama.",
     types: [
       { key: "technology", title: "Partner teknologi", description: "Penyedia platform, API, pembayaran, atau infrastruktur yang ingin produknya dipakai lebih luas oleh UMKM dan organisasi." },
       { key: "business", title: "Partner bisnis", description: "Agensi, konsultan, atau penyedia jasa yang butuh tim produk dan maintenance untuk klien mereka." },
@@ -490,7 +491,7 @@ const id = {
       type: "Jenis kemitraan",
       typePlaceholder: "Pilih jenis kemitraan",
       message: "Apa yang ingin Anda kolaborasikan?",
-      messagePlaceholder: "Ceritakan singkat tentang startup/UKM Anda dan ide kolaborasinya.",
+      messagePlaceholder: "Ceritakan singkat tentang organisasi Anda dan ide kolaborasinya.",
       submit: "Kirim",
       submitting: "Mengirim…",
       success: "Terima kasih. Pesan Anda sudah kami terima, dan kami akan membalas lewat email yang Anda cantumkan.",
@@ -512,10 +513,10 @@ const id = {
   },
 
   contact: {
-    eyebrow: "Enterprise & Bisnis",
-    title: "Diskusikan kebutuhan digital bisnis Anda.",
+    eyebrow: "Diskusikan Kebutuhan",
+    title: "Ceritakan apa yang ingin Anda bangun.",
     description:
-      "Hubungi tim enterprise kami. Ceritakan kondisi bisnis Anda sekarang, dan kami bantu menentukan produk digital yang sebaiknya dibangun lebih dahulu.",
+      "Tidak perlu dokumen lengkap. Ceritakan kondisi usaha Anda sekarang, dan kami bantu menentukan apa yang sebaiknya dibangun lebih dahulu.",
     afterTitle: "Setelah Anda mengirim pesan",
     after: [
       "Kami membaca pesan Anda dan membalas, termasuk pertanyaan lanjutan bila perlu.",
@@ -527,7 +528,7 @@ const id = {
     whatsappLabel: "WhatsApp",
     form: {
       name: "Nama",
-      organisation: "Perusahaan / Organisasi",
+      organisation: "Usaha / Organisasi",
       email: "Email",
       whatsapp: "WhatsApp",
       whatsappHint: "Contoh: 0812xxxxxxx atau +62812xxxxxxx",
@@ -549,7 +550,7 @@ const id = {
       submitting: "Mengirim…",
       success: "Terima kasih. Pesan Anda sudah kami terima, dan kami akan membalas lewat email atau WhatsApp yang Anda cantumkan.",
       error: "Pesan belum terkirim. Periksa koneksi Anda lalu coba lagi.",
-      privacy: "Data Anda dilindungi sesuai standar keamanan ISO 27001:2022.",
+      privacy: "Data Anda hanya dipakai untuk membalas pesan ini.",
       errorSummary: "Ada beberapa isian yang perlu diperbaiki.",
     },
   },
@@ -565,7 +566,7 @@ const id = {
 
   footer: {
     description:
-      "Mitra digital untuk UMKM, usaha rumahan, RT/RW, pendidikan, dan kesehatan. Produk digital, layanan AI, dan maintenance yang berguna dan terus dikembangkan.",
+      "Menjadi mitra digital yang membantu usaha dan organisasi membangun produk, layanan, serta operasional digital yang berguna, mudah digunakan, dan dapat terus dikembangkan.",
     servicesTitle: "Layanan",
     companyTitle: "Perusahaan",
     contactTitle: "Kontak",
@@ -578,7 +579,7 @@ const id = {
     eyebrow: "Tentang yokBangun",
     title: "Perusahaan produk dan layanan digital untuk usaha yang terus bertumbuh.",
     intro:
-      "yokBangun membangun produk digital dan layanan digital untuk UMKM, usaha rumahan, RT/RW, lembaga pendidikan, dan layanan kesehatan — terutama yang membutuhkan teknologi tetapi belum punya tim teknologi sendiri.",
+      "yokBangun membangun produk digital dan layanan digital untuk usaha, organisasi, dan bisnis jasa, terutama yang membutuhkan teknologi tetapi belum punya tim teknologi sendiri.",
     visionTitle: "Visi",
     vision:
       "Menjadi mitra digital yang membantu usaha dan organisasi membangun produk, layanan, serta operasional digital yang berguna, mudah digunakan, dan dapat terus dikembangkan.",
@@ -588,7 +589,7 @@ const id = {
       "Kami ingin bekerja dengan cara yang berbeda. Kami membangun, merawat, memperbaiki, dan mengembangkan produk bersama klien, mengikuti perubahan usaha mereka.",
     ],
     illustrationAlt:
-      "Ilustrasi jalan permukiman di Indonesia dengan warung, posyandu, sekolah, dan balai warga, serta warga yang beraktivitas.",
+      "Ilustrasi jalan permukiman di Indonesia dengan warung, kantor koperasi, posyandu, sekolah, dan balai warga, serta warga yang beraktivitas.",
     purposeTitle: "Yang kami kerjakan",
     purposes: [
       { title: "Membangun produk digital yang praktis", description: "Untuk usaha yang butuh teknologi tetapi belum punya tim teknologi besar." },
@@ -655,15 +656,12 @@ const id = {
         ],
       },
       {
-        title: "Keamanan & kepatuhan (ISO 27001:2022)",
+        title: "Keamanan & perawatan",
         items: [
-          "Pengelolaan keamanan informasi mengacu pada kontrol ISO/IEC 27001:2022",
           "Pembaruan dependensi dan patch keamanan secara berkala",
           "Backup terjadwal dan uji pemulihan",
           "Kontrol akses berbasis peran untuk dashboard internal",
           "Monitoring error dan ketersediaan",
-          "Kebijakan retensi data dan penghapusan sesuai kebutuhan",
-          "Evaluasi risiko keamanan berkala",
         ],
       },
       {
@@ -689,7 +687,7 @@ const id = {
   landing: {
     hero: {
       title: "Bangun digital. Tumbuhkan usaha.",
-      description: "Produk digital, AI praktis, dan perawatan untuk UMKM, usaha rumahan, RT/RW, pendidikan, dan kesehatan di Indonesia.",
+      description: "Produk digital, AI praktis, dan perawatan untuk UMKM, desa, dan komunitas di Indonesia.",
       primaryCta: "Diskusi proyek",
       secondaryCta: "Lihat layanan",
     },
@@ -790,7 +788,7 @@ const id = {
     sectors: {
       eyebrow: "Sektor",
       title: "Dibangun untuk konteks lokal Indonesia.",
-      description: "Kami memahami alur kerja dan tantangan spesifik di lima sektor utama yang kami layani.",
+      description: "Kami memahami alur kerja dan tantangan spesifik di berbagai sektor usaha dan organisasi.",
       cta: "Lihat detail sektor",
       chips: [
         "UMKM",
@@ -837,11 +835,11 @@ const id = {
       mailtoText: "Kirim email langsung",
     },
     partnershipSlider: {
-      eyebrow: "Kemitraan Startup & UKM",
-      title: "Kolaborasi strategis untuk startup dan UKM",
+      eyebrow: "Marketing & Partnerships",
+      title: "Kolaborasi strategis untuk skala lebih luas",
       subtitle: "Bermitra dengan ekosistem teknologi, bisnis, dan institusi untuk tumbuh bersama.",
       ctaText: "Mulai Kolaborasi",
-      noteText: "Direct contact ke tim kemitraan nussaspacevibe@gmail.com",
+      noteText: "Direct contact ke tim kemitraan nussaspacevibe",
       prev: "Sebelumnya",
       next: "Berikutnya",
     },
