@@ -33,10 +33,15 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1F5D45" },
+  ],
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
 };
 
 type Props = { children: ReactNode; params: Promise<{ locale: string }> };
@@ -60,6 +65,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <meta name="color-scheme" content="light" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body>
         {/* Without JS, reveal animations never run, so keep content visible. */}

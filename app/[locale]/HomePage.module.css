@@ -1,22 +1,25 @@
 .hero {
-  padding-top: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
-  padding-bottom: clamp(3rem, 2.5rem + 3.5vw, 5.5rem);
+  padding-top: clamp(1.75rem, 1.25rem + 1.8vw, 4rem);
+  padding-bottom: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
   border-bottom: 1px solid var(--color-border);
   background:
     linear-gradient(to bottom, var(--color-brand-tint), transparent 60%),
     var(--color-bg);
+  overflow: clip;
 }
 
 .heroCarouselWrap {
-  margin-bottom: var(--space-7);
+  margin-bottom: clamp(1.5rem, 1rem + 1.5vw, var(--space-7));
   width: 100%;
+  max-width: 100%;
 }
 
 .heroGrid {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-6);
   grid-template-columns: 1fr;
   align-items: center;
+  max-width: 100%;
 }
 
 @media (min-width: 960px) {
@@ -28,14 +31,18 @@
 
 .heroContent {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .heroTitle {
   font-size: var(--fs-hero);
   line-height: var(--lh-tight);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--color-text);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .heroAccent {
@@ -48,6 +55,7 @@
   line-height: var(--lh-body);
   color: var(--color-text-muted);
   max-width: 54ch;
+  overflow-wrap: break-word;
 }
 
 .heroActions {
@@ -55,10 +63,22 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-2);
+  width: 100%;
+}
+
+@media (max-width: 440px) {
+  .heroActions > * {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .heroGraphicWrap {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 /* Positioning strip */

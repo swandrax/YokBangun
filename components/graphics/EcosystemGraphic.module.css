@@ -20,7 +20,7 @@
   height: auto;
   aspect-ratio: 600 / 440;
   font-family: var(--font-sans);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .loop {
