@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/lib/i18n/messages";
 import { isLocale, localizedPath, type Locale } from "@/lib/i18n/config";
@@ -43,23 +42,6 @@ export default async function AboutPage({ params }: Props) {
           {ab.cta}
         </ButtonLink>
       </PageHero>
-
-      {/* Editorial Neighbourhood Illustration */}
-      <section className={styles.illustrationSection} aria-label={ab.illustrationAlt}>
-        <div className="container">
-          <div className={styles.imageWrap}>
-            <Image
-              src="/about/neighbourhood.jpg"
-              alt={ab.illustrationAlt}
-              width={1200}
-              height={800}
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-              className={styles.image}
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Vision & Meaning of "growth with u" */}
       <section className="section" aria-labelledby="vision-title">

@@ -7,6 +7,11 @@
     var(--color-bg);
 }
 
+.heroCarouselWrap {
+  margin-bottom: var(--space-7);
+  width: 100%;
+}
+
 .heroGrid {
   display: grid;
   gap: var(--space-7);

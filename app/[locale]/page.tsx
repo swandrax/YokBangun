@@ -21,6 +21,8 @@ import { QueryProvider } from "@/lib/query/QueryProvider";
 import { CaseStudyList } from "@/features/portfolio/CaseStudyList";
 import { listCaseStudies } from "@/features/portfolio/data";
 import { ContactForm } from "@/features/contact/ContactForm";
+import { HeroCarousel } from "@/components/sections/HeroCarousel";
+import { VideoTeaser } from "@/components/sections/VideoTeaser";
 import styles from "./HomePage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -57,7 +59,23 @@ export default async function HomePage({ params }: Props) {
 
       {/* 02. HERO SECTION */}
       <section className={styles.hero} aria-labelledby="hero-title">
-        <div className={`container ${styles.heroGrid}`}>
+        <div className="container">
+          <div className={styles.heroCarouselWrap}>
+            <HeroCarousel
+              slides={[
+                {
+                  src: "/about/neighbourhood.jpg",
+                  alt: t.about.illustrationAlt,
+                  caption:
+                    locale === "id"
+                      ? "Solusi digital dan produk praktis untuk usaha dan komunitas warga"
+                      : "Practical digital products and solutions for businesses and local communities",
+                },
+              ]}
+            />
+          </div>
+
+          <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
             <p className="eyebrow">{t.hero.eyebrow}</p>
             <h1 id="hero-title" className={styles.heroTitle}>
@@ -88,7 +106,8 @@ export default async function HomePage({ params }: Props) {
             <EcosystemGraphic labels={t.hero.graphic} />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* 03. BUSINESS TRUST / SHORT POSITIONING STRIP */}
       <section className={styles.strip} aria-label={t.positioning.label}>
@@ -271,6 +290,49 @@ export default async function HomePage({ params }: Props) {
           <ProcessSteps steps={t.process.steps} />
         </div>
       </section>
+
+      {/* 08b. DOCS & PLATFORM VIDEO TEASER */}
+      <VideoTeaser
+        src="/videos/yokbangun_teaser_20s.mp4"
+        poster="/about/neighbourhood.jpg"
+      >
+        <span className="eyebrow" style={{ color: "#4ADE80", letterSpacing: "0.08em" }}>
+          {locale === "id" ? "Dokumentasi & Platform Teaser" : "Documentation & Platform Teaser"}
+        </span>
+        <h2 style={{ fontSize: "var(--fs-h2)", color: "#ffffff", maxWidth: "26ch" }}>
+          {locale === "id"
+            ? "Membangun Produk yang Handal, Terukur, & Terawat"
+            : "Building Scalable, Resilient, & Maintained Products"}
+        </h2>
+        <p style={{ color: "rgba(255,255,255,0.85)", maxWidth: "56ch", fontSize: "var(--fs-md)" }}>
+          {locale === "id"
+            ? "Arsitektur frontend modern, integrasi embedding RAG untuk AI cerdas, hingga perawatan sistem berkala."
+            : "Modern frontend architecture, enterprise embedding RAG AI integration, and dedicated system maintenance."}
+        </p>
+        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", justifyContent: "center", marginTop: "var(--space-2)" }}>
+          <ButtonLink
+            href={localizedPath(locale, "/technical")}
+            variant="primary"
+            size="md"
+            arrow
+          >
+            {locale === "id" ? "Pelajari Catatan Teknis" : "Explore Technical Docs"}
+          </ButtonLink>
+          <ButtonLink
+            href={localizedPath(locale, "/contact")}
+            variant="secondary"
+            size="md"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.15)",
+              color: "#ffffff",
+              borderColor: "rgba(255, 255, 255, 0.35)",
+              backdropFilter: "blur(4px)",
+            }}
+          >
+            {locale === "id" ? "Diskusikan Proyek" : "Discuss Project"}
+          </ButtonLink>
+        </div>
+      </VideoTeaser>
 
       {/* 09. SELECTED WORK / CASE STUDIES */}
       <section
