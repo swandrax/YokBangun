@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
-import { brand } from "@/lib/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: brand.full,
-    short_name: brand.name,
+    name: "yokBangun — Solusi Digital & AI",
+    short_name: "yokBangun",
     description:
       "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
     start_url: "/?source=pwa",
@@ -13,7 +12,14 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#1F5D45",
     orientation: "portrait-primary",
     scope: "/",
-    id: "/",
+    id: "/?source=pwa",
+    related_applications: [
+      {
+        platform: "play",
+        id: "id.yokbangun.app",
+        url: "https://yok-bangun.vercel.app/download",
+      },
+    ],
     icons: [
       {
         src: "/icons/icon-192.png",

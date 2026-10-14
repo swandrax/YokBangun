@@ -23,6 +23,8 @@ import { listCaseStudies } from "@/features/portfolio/data";
 import { ContactForm } from "@/features/contact/ContactForm";
 import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import { VideoTeaser } from "@/components/sections/VideoTeaser";
+import { Suspense } from "react";
+import { StatusDeepLinkRedirect } from "@/components/navigation/StatusDeepLinkRedirect";
 import styles from "./HomePage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -48,6 +50,9 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <StatusDeepLinkRedirect locale={locale} />
+      </Suspense>
       <JsonLd
         data={[
           organizationSchema(locale),
@@ -348,12 +353,14 @@ export default async function HomePage({ params }: Props) {
           </SectionHeader>
 
           <QueryProvider>
-            <CaseStudyList
-              locale={locale}
-              initialData={initialCaseStudies}
-              copy={t.work}
-              statusCopy={t.status}
-            />
+            <Suspense fallback={null}>
+              <CaseStudyList
+                locale={locale}
+                initialData={initialCaseStudies}
+                copy={t.work}
+                statusCopy={t.status}
+              />
+            </Suspense>
           </QueryProvider>
         </div>
       </section>
@@ -447,12 +454,14 @@ export default async function HomePage({ params }: Props) {
 
             <div>
               <QueryProvider>
-                <ContactForm
-                  locale={locale}
-                  copy={t.contact.form}
-                  validationCopy={t.validation}
-                  sectors={t.sectors.items}
-                />
+                <Suspense fallback={null}>
+                  <ContactForm
+                    locale={locale}
+                    copy={t.contact.form}
+                    validationCopy={t.validation}
+                    sectors={t.sectors.items}
+                  />
+                </Suspense>
               </QueryProvider>
             </div>
           </div>

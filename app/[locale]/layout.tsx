@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { MotionProvider } from "@/components/animation/MotionProvider";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -13,6 +13,7 @@ import { PrelineScript } from "@/components/preline/PrelineScript";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { PwaInstallPrompt } from "@/components/pwa/PwaInstallPrompt";
 import { AppSplash } from "@/components/pwa/AppSplash";
+import { AndroidAppBanner } from "@/components/AndroidAppBanner";
 import "../globals.css";
 
 // Two families max. Plus Jakarta Sans (designed in Jakarta) for headings, Inter for body.
@@ -34,10 +35,7 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#1F5D45" },
-  ],
+  themeColor: "#1F5D45",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -65,6 +63,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       suppressHydrationWarning
     >
       <head>
+        <meta name="theme-color" content="#1F5D45" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="color-scheme" content="light" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -88,10 +88,15 @@ export default async function LocaleLayout({ children, params }: Props) {
           </MotionProvider>
           <SiteFooter locale={locale} />
         </div>
-        <LocalePreference locale={locale} />
+        <Suspense fallback={null}>
+          <LocalePreference locale={locale} />
+        </Suspense>
         <PrelineScript />
         <ServiceWorkerRegister />
         <PwaInstallPrompt locale={locale} />
+        <Suspense fallback={null}>
+          <AndroidAppBanner locale={locale} />
+        </Suspense>
       </body>
     </html>
   );

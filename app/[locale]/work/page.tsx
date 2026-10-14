@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 import { CaseStudyList } from "@/features/portfolio/CaseStudyList";
 import { listCaseStudies } from "@/features/portfolio/data";
+import { Suspense } from "react";
 import styles from "./WorkPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -60,12 +61,14 @@ export default async function WorkPage({ params }: Props) {
       <section className="section" aria-label={w.title}>
         <div className="container">
           <QueryProvider>
-            <CaseStudyList
-              locale={locale}
-              initialData={initialStudies}
-              copy={w}
-              statusCopy={t.status}
-            />
+            <Suspense fallback={null}>
+              <CaseStudyList
+                locale={locale}
+                initialData={initialStudies}
+                copy={w}
+                statusCopy={t.status}
+              />
+            </Suspense>
           </QueryProvider>
         </div>
       </section>

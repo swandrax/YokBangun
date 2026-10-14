@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { caseStudiesQueryOptions } from "./queries";
 import type { CaseStudy } from "./data";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -22,12 +23,7 @@ export function CaseStudyList({
   copy,
   statusCopy,
 }: Props) {
-  const [selectedSector, setSelectedSector] = useState<string>("all");
-
-  const { data: studies = initialData } = useQuery({
-    ...caseStudiesQueryOptions(locale),
-    initialData,
-  });
+  const searchParams = useSearchParams();
 
   const sectorFilters = [
     { key: "all", label: copy.filterAll },
@@ -46,6 +42,35 @@ export function CaseStudyList({
       label: locale === "id" ? "Kesehatan" : "Health Services",
     },
   ];
+
+  const sectorParam = searchParams?.get("sector")?.toLowerCase()?.trim();
+  const urlMatchedSector: string =
+    sectorParam === "rt-rw" || sectorParam === "rtrw"
+      ? "civicgov"
+      : sectorFilters.some((f) => f.key === sectorParam)
+      ? sectorParam!
+      : "all";
+
+  const [localSector, setLocalSector] = useState<string | null>(null);
+  const selectedSector = localSector ?? urlMatchedSector;
+
+  const handleSelectSector = (key: string) => {
+    setLocalSector(key);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (key === "all") {
+        url.searchParams.delete("sector");
+      } else {
+        url.searchParams.set("sector", key);
+      }
+      window.history.replaceState(null, "", url.toString());
+    }
+  };
+
+  const { data: studies = initialData } = useQuery({
+    ...caseStudiesQueryOptions(locale),
+    initialData,
+  });
 
   const filtered =
     selectedSector === "all"
@@ -68,7 +93,7 @@ export function CaseStudyList({
               role="tab"
               aria-selected={isSelected}
               className={isSelected ? styles.filterBtnActive : styles.filterBtn}
-              onClick={() => setSelectedSector(sf.key)}
+              onClick={() => handleSelectSector(sf.key)}
             >
               {sf.label}
             </button>

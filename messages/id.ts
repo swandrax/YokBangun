@@ -61,6 +61,11 @@ const id = {
         description:
           "Bagaimana yokBangun membangun, menjalankan, dan merawat produk digital: stack, keamanan, deployment, dan praktik AI.",
       },
+      download: {
+        title: "Unduh Aplikasi Android",
+        description:
+          "Unduh aplikasi Native Android yokBangun. Pengalaman produk digital yang lebih mulus dengan Jetpack Compose, offline-ready caching, dan deep link parity.",
+      },
     },
   },
 
@@ -541,6 +546,7 @@ const id = {
       stages: [
         { value: "exploring", label: "Baru menjajaki" },
         { value: "planning", label: "Sedang merencanakan" },
+        { value: "prototype", label: "Tahap Prototype" },
         { value: "has-product", label: "Sudah punya produk" },
         { value: "maintenance", label: "Butuh maintenance" },
         { value: "ai", label: "Butuh integrasi AI" },

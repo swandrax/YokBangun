@@ -24,7 +24,14 @@ export const useLanguageStore = create<LanguageState>()(
     (set) => ({
       language: defaultLocale,
       hasChosen: false,
-      setLanguage: (language) => set({ language, hasChosen: true }),
+      setLanguage: (language) => {
+        try {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("yokbangun_lang", language);
+          }
+        } catch {}
+        set({ language, hasChosen: true });
+      },
     }),
     {
       name: "yb-language",

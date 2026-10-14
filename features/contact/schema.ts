@@ -5,7 +5,7 @@
  */
 export type ValidationCode = "required" | "email" | "whatsapp" | "tooShort" | "tooLong" | "choose";
 
-export const projectStages = ["exploring", "planning", "has-product", "maintenance", "ai", "partner"] as const;
+export const projectStages = ["exploring", "planning", "prototype", "concept", "has-product", "maintenance", "ai", "partner"] as const;
 export type ProjectStage = (typeof projectStages)[number];
 
 export const partnershipTypes = ["technology", "business", "community", "institution", "research", "investor"] as const;

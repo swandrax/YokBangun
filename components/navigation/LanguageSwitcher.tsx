@@ -38,6 +38,9 @@ export function LanguageSwitcher({ locale, label, className }: { locale: Locale;
           onClick={() => {
             setTarget(l);
             setLanguage(l);
+            try {
+              localStorage.setItem("yokbangun_lang", l);
+            } catch {}
           }}
         >
           {l.toUpperCase()}

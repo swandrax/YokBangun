@@ -1,0 +1,49 @@
+{
+  "name": "yokBangun — Solusi Digital & AI",
+  "short_name": "yokBangun",
+  "description": "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1F5D45",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "/?source=pwa",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "id.yokbangun.app",
+      "url": "https://yok-bangun.vercel.app/download"
+    }
+  ],
+  "prefer_related_applications": false,
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "id",
+  "dir": "ltr"
+}

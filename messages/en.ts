@@ -59,6 +59,11 @@ const en: Messages = {
         description:
           "How yokBangun builds, runs, and maintains digital products: stack, security, deployment, and AI practices.",
       },
+      download: {
+        title: "Download Android App",
+        description:
+          "Download the yokBangun Native Android app. Smooth digital product experience powered by Jetpack Compose, offline-ready caching, and deep link parity.",
+      },
     },
   },
 
@@ -521,6 +526,7 @@ const en: Messages = {
       stages: [
         { value: "exploring", label: "Just exploring" },
         { value: "planning", label: "Planning" },
+        { value: "prototype", label: "Prototype Stage" },
         { value: "has-product", label: "Already have a product" },
         { value: "maintenance", label: "Need maintenance" },
         { value: "ai", label: "Need AI integration" },

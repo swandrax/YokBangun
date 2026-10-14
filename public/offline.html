@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1F5D45" />
+  <title>Offline — yokBangun</title>
+  <style>
+    :root {
+      --primary: #1F5D45;
+      --primary-hover: #174835;
+      --primary-light: #E6F2ED;
+      --text: #151817;
+      --muted: #4B5563;
+      --bg: #FFFFFF;
+      --surface: #F4F6F5;
+      --border: #DCE3DF;
+      --warning-bg: #FEF3C7;
+      --warning-border: #F59E0B;
+      --warning-text: #92400E;
+      --font-headings: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+    .brand svg {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-family: var(--font-headings);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+    }
+    .lang-toggle {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      font-family: var(--font-headings);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      color: var(--muted);
+      min-width: 44px;
+      min-height: 36px;
+      transition: all 0.15s ease;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+    main {
+      flex: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      width: 100%;
+    }
+    .offline-banner {
+      background: var(--primary-light);
+      border: 1px solid #C4DFD3;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      width: fit-content;
+      border: 1px solid #B8D6C9;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #E3936A;
+    }
+    h1 {
+      font-family: var(--font-headings);
+      font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+      line-height: 1.25;
+    }
+    p.lead {
+      font-size: 1.0625rem;
+      color: #2D3748;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      min-height: 48px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover {
+      background: var(--primary-light);
+    }
+    .warning-card {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--warning-text);
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+    .warning-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .section-title {
+      font-family: var(--font-headings);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .card h3 {
+      font-family: var(--font-headings);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: auto;
+    }
+    [data-lang="en"] { display: none; }
+    body.show-en [data-lang="en"] { display: block; }
+    body.show-en [data-lang="id"] { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#1F5D45"/>
+          <path d="M9.6 9.6 16 18.4M22.4 9.6 13 24.6" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="23.4" cy="23.2" r="2.6" fill="#E3936A"/>
+        </svg>
+        <span class="brand-title">yokBangun</span>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" id="btn-id" onclick="setLang('id')" aria-pressed="true">ID</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Offline status hero banner -->
+    <section class="offline-banner" aria-labelledby="offline-heading">
+      <div class="badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span data-lang="id">Status: Mode Offline</span>
+        <span data-lang="en">Status: Offline Mode</span>
+      </div>
+
+      <div data-lang="id">
+        <h1 id="offline-heading">Anda sedang offline.</h1>
+        <p class="lead" style="margin-top: 8px;">
+          Koneksi internet Anda saat ini terputus. Anda tetap dapat membaca ringkasan profil layanan dan produk yokBangun yang tersimpan di perangkat ini.
+        </p>
+      </div>
+      <div data-lang="en">
+        <h1 id="offline-heading">You are currently offline.</h1>
+        <p class="lead" style="margin-top: 8px;">
+          Your internet connection is currently unavailable. You can still browse cached overview information about yokBangun services and products stored on this device.
+        </p>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" onclick="window.location.reload()">
+          <span data-lang="id">Coba Muat Ulang</span>
+          <span data-lang="en">Try Reconnecting</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Explicit contact disabled warning -->
+    <div class="warning-card" role="alert">
+      <div class="warning-icon" aria-hidden="true">⚠️</div>
+      <div>
+        <strong data-lang="id">Pengiriman Formulir Kontak Dinonaktifkan:</strong>
+        <strong data-lang="en">Live Contact Submissions Disabled:</strong>
+        <p data-lang="id" style="margin-top: 4px;">
+          Pengiriman pesan langsung melalui formulir kontak/konsultasi dinonaktifkan saat tidak ada sambungan internet. Hal ini untuk memastikan informasi kebutuhan proyek Anda tidak hilang tanpa tanda terima resmi dari server kami. Silakan sambungkan kembali koneksi Anda untuk mengirimkan formulir.
+        </p>
+        <p data-lang="en" style="margin-top: 4px;">
+          Live contact form and consultation submissions are disabled while offline to guarantee that your project requirements are not lost without a confirmed server receipt. Please reconnect to submit your message.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cached Overview Section -->
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading" class="section-title">
+        <span data-lang="id">Ringkasan Layanan & Solusi yokBangun</span>
+        <span data-lang="en">yokBangun Services & Solution Overview</span>
+      </h2>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3 data-lang="id">Produk Digital & Web App</h3>
+          <h3 data-lang="en">Digital Products & Web Apps</h3>
+          <p data-lang="id">Membangun website perusahaan, aplikasi web interaktif, katalog digital, dan sistem manajemen operasional yang cepat, aksesibel, dan terukur.</p>
+          <p data-lang="en">Crafting modern corporate websites, responsive web apps, digital catalogs, and accessible operational platforms designed for scalability.</p>
+        </article>
+
+        <article class="card">
+          <h3 data-lang="id">Solusi AI Praktis & Automasi</h3>
+          <h3 data-lang="en">Applied AI & Automation</h3>
+          <p data-lang="id">Integrasi asisten cerdas, sistem tanya-jawab dokumen internal (RAG), automasi alur kerja, dan perapian data untuk efisiensi bisnis nyata.</p>
+          <p data-lang="en">Integrating smart assistants, proprietary document QA (RAG), workflow automation, and structured data extraction to drive real-world business efficiency.</p>
+        </article>
+
+        <article class="card">
+          <h3 data-lang="id">Pemeliharaan & SLA Berkelanjutan</h3>
+          <h3 data-lang="en">Ongoing Maintenance & SLA</h3>
+          <p data-lang="id">Pendampingan jangka panjang: update keamanan berkala, pemantauan performa, backup otomatis, dan penanganan kendala teknis.</p>
+          <p data-lang="en">Long-term product guardianship: recurring security updates, performance monitoring, continuous backups, and proactive issue resolution.</p>
+        </article>
+      </div>
+
+      <h2 class="section-title">
+        <span data-lang="id">Fokus Sektoral</span>
+        <span data-lang="en">Sectoral Focus</span>
+      </h2>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3 data-lang="id">UMKM & Usaha Rumahan</h3>
+          <h3 data-lang="en">SMEs & Local Ventures</h3>
+          <p data-lang="id">Katalog digital, integrasi pesanan WhatsApp, dan pencatatan operasional yang sederhana tanpa kerumitan sistem korporat.</p>
+          <p data-lang="en">Digital storefronts, direct WhatsApp order workflows, and lightweight operational tracking free of enterprise bloat.</p>
+        </article>
+
+        <article class="card">
+          <h3 data-lang="id">RT/RW · civicGov</h3>
+          <h3 data-lang="en">Neighbourhoods · civicGov</h3>
+          <p data-lang="id">Portal informasi warga, permohonan surat pengantar online, transparansi iuran, dan kanal pengumuman komunitas terpusat.</p>
+          <p data-lang="en">Citizen portals, online certificate requests, dues tracking, and centralized neighbourhood announcement streams.</p>
+        </article>
+
+        <article class="card">
+          <h3 data-lang="id">Pendidikan & Kesehatan</h3>
+          <h3 data-lang="en">Education & Healthcare</h3>
+          <p data-lang="id">Portal informasi pendaftaran murid, pencarian arsip, jadwal layanan, dan sistem antrean sederhana yang transparan bagi publik.</p>
+          <p data-lang="en">Enrollment portals, institutional document repositories, schedule directories, and transparent patient queue flows.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© yokBangun. growth with u. Jakarta, Indonesia.</p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      if (lang === 'en') {
+        document.body.classList.add('show-en');
+        document.getElementById('btn-en').classList.add('active');
+        document.getElementById('btn-en').setAttribute('aria-pressed', 'true');
+        document.getElementById('btn-id').classList.remove('active');
+        document.getElementById('btn-id').setAttribute('aria-pressed', 'false');
+      } else {
+        document.body.classList.remove('show-en');
+        document.getElementById('btn-id').classList.add('active');
+        document.getElementById('btn-id').setAttribute('aria-pressed', 'true');
+        document.getElementById('btn-en').classList.remove('active');
+        document.getElementById('btn-en').setAttribute('aria-pressed', 'false');
+      }
+      try {
+        localStorage.setItem('yokbangun_lang', lang);
+      } catch (e) {}
+    }
+    (function initLang() {
+      try {
+        var saved = localStorage.getItem('yokbangun_lang');
+        if (saved === 'en') setLang('en');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

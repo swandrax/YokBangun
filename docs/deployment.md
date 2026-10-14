@@ -33,7 +33,7 @@ Vercel provides native zero-configuration deployments for Next.js App Router.
 1. Import the repository in the Vercel Dashboard.
 2. Configure Environment Variables (from `.env.example`):
    ```env
-   NEXT_PUBLIC_SITE_URL=https://yokbangun.com
+   NEXT_PUBLIC_SITE_URL=https://yok-bangun.vercel.app
    CONTACT_WEBHOOK_URL=https://your-webhook-endpoint.com/contact
    PARTNERSHIP_WEBHOOK_URL=https://your-webhook-endpoint.com/partnership
    ```
@@ -43,6 +43,16 @@ Vercel provides native zero-configuration deployments for Next.js App Router.
    - Output Directory: `.next`
    - Install Command: `npm install`
 4. Deploy.
+
+### Production Headers & Vercel Configuration (`vercel.json`)
+The project includes a root `vercel.json` defining strict MIME types, caching, CORS, and Android App Links verification rules:
+- `/.well-known/assetlinks.json`: Served as `application/json` with `max-age=3600` without any locale redirects.
+- `/manifest.webmanifest`: Served as `application/manifest+json`.
+- `/sw.js`: Served as `application/javascript` with `no-cache, no-store, must-revalidate` and `Service-Worker-Allowed: /`.
+- `/api/(.*)`: CORS enabled (`Access-Control-Allow-Origin: *`, `GET, POST, OPTIONS`, headers `Content-Type, Idempotency-Key`).
+- `/download/(.*).apk`: Served with `Content-Type: application/vnd.android.package-archive` and attachment disposition for native APK direct downloads.
+
+For system architecture diagrams and 5-element design specifications (ERD, LRS, LSF, Use Case, Activity, & UML), see [docs/SYSTEM_ARCHITECTURE_5_UNSUR_UML.md](./SYSTEM_ARCHITECTURE_5_UNSUR_UML.md).
 
 ---
 

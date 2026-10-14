@@ -2,6 +2,7 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { useState, useId, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitContact } from "./api";
 import {
   validateContact,
@@ -22,17 +23,38 @@ type Props = {
 
 export function ContactForm({ copy, validationCopy, sectors }: Props) {
   const formId = useId();
+  const searchParams = useSearchParams();
 
-  const [values, setValues] = useState<ContactInput>({
+  const getInitialSector = (): string => {
+    const param = searchParams?.get("sector")?.toLowerCase()?.trim();
+    if (!param) return "";
+    const matched = sectors.find(
+      (s) =>
+        s.key.toLowerCase() === param ||
+        s.name.toLowerCase() === param ||
+        (param === "civicgov" && s.key === "rt-rw") ||
+        (param === "rt-rw" && s.key === "rt-rw")
+    );
+    return matched ? matched.name : "";
+  };
+
+  const getInitialStage = (): string => {
+    const param = searchParams?.get("stage")?.toLowerCase()?.trim();
+    if (!param) return "exploring";
+    const valid = copy.stages.find((st) => st.value.toLowerCase() === param);
+    return valid ? valid.value : "exploring";
+  };
+
+  const [values, setValues] = useState<ContactInput>(() => ({
     name: "",
     organisation: "",
     email: "",
     whatsapp: "",
-    sector: "",
+    sector: getInitialSector(),
     need: "",
-    stage: "exploring",
+    stage: getInitialStage(),
     website: "", // honeypot
-  });
+  }));
 
   const [errors, setErrors] = useState<FieldErrors<ContactInput>>({});
   const [submitted, setSubmitted] = useState(false);

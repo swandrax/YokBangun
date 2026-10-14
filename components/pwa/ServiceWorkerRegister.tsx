@@ -3,18 +3,14 @@
 import { useEffect } from "react";
 
 /**
- * Registers the production PWA service worker on window load.
+ * Registers the PWA service worker on window load.
  */
 export function ServiceWorkerRegister() {
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      "serviceWorker" in navigator &&
-      process.env.NODE_ENV === "production"
-    ) {
-      window.addEventListener("load", () => {
+    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      const handleLoad = () => {
         navigator.serviceWorker
-          .register("/sw.js")
+          .register("/sw.js", { scope: "/" })
           .then((reg) => {
             reg.onupdatefound = () => {
               const installing = reg.installing;
@@ -24,16 +20,23 @@ export function ServiceWorkerRegister() {
                     installing.state === "installed" &&
                     navigator.serviceWorker.controller
                   ) {
-                    // Update available
+                    // New service worker update available
                   }
                 };
               }
             };
           })
           .catch((err) => {
-            console.warn("[PWA] SW register skipped/failed:", err);
+            console.warn("[PWA] SW registration failed:", err);
           });
-      });
+      };
+
+      if (document.readyState === "complete") {
+        handleLoad();
+      } else {
+        window.addEventListener("load", handleLoad, { once: true });
+        return () => window.removeEventListener("load", handleLoad);
+      }
     }
   }, []);
 

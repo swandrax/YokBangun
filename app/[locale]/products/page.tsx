@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 import { ProductList } from "@/features/products/ProductList";
 import { listProducts, productStatuses } from "@/features/products/data";
+import { Suspense } from "react";
 import styles from "./ProductsPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -72,13 +73,15 @@ export default async function ProductsPage({ params }: Props) {
       <section className="section" aria-label={prod.title}>
         <div className="container">
           <QueryProvider>
-            <ProductList
-              locale={locale}
-              initialData={initialProducts}
-              copy={prod}
-              statusCopy={t.status}
-              contactCtaText={t.nav.cta}
-            />
+            <Suspense fallback={null}>
+              <ProductList
+                locale={locale}
+                initialData={initialProducts}
+                copy={prod}
+                statusCopy={t.status}
+                contactCtaText={t.nav.cta}
+              />
+            </Suspense>
           </QueryProvider>
         </div>
       </section>

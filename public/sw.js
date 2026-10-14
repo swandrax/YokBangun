@@ -1,27 +1,33 @@
-// yokBangun Service Worker - Progressive Web App
-const CACHE_NAME = "yokbangun-pwa-v1";
-const STATIC_ASSETS = [
+// yokBangun Service Worker - Companion PWA Specification
+const CACHE_VERSION = "yokbangun-pwa-v2";
+const STATIC_CACHE = `${CACHE_VERSION}-static`;
+const DATA_CACHE = `${CACHE_VERSION}-data`;
+
+const PRECACHE_ASSETS = [
   "/",
+  "/offline.html",
+  "/manifest.webmanifest",
   "/icon.svg",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/maskable-512.png",
   "/icons/apple-touch-icon.png",
-  "/manifest.webmanifest",
 ];
 
-// Install: Cache initial shell and take control immediately
+// 1. Install Event: Precache offline shell & essential assets
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
-      .open(CACHE_NAME)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
+      .open(STATIC_CACHE)
+      .then((cache) => cache.addAll(PRECACHE_ASSETS))
       .then(() => self.skipWaiting())
-      .catch((err) => console.warn("[SW] Cache prefetch error:", err))
+      .catch((err) => {
+        console.warn("[SW] Precache failed:", err);
+      })
   );
 });
 
-// Activate: Clean up old caches and claim clients
+// 2. Activate Event: Clean up outdated caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
@@ -29,7 +35,7 @@ self.addEventListener("activate", (event) => {
       .then((keys) =>
         Promise.all(
           keys.map((key) => {
-            if (key !== CACHE_NAME) {
+            if (key !== STATIC_CACHE && key !== DATA_CACHE) {
               return caches.delete(key);
             }
           })
@@ -39,56 +45,162 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch: Strategy based on request type
+// Helper: Check if request is for static assets/fonts/illustrations
+function isStaticAsset(url, request) {
+  const pathname = url.pathname;
+  return (
+    request.destination === "font" ||
+    request.destination === "image" ||
+    request.destination === "style" ||
+    request.destination === "script" ||
+    pathname.startsWith("/_next/static/") ||
+    pathname.startsWith("/icons/") ||
+    pathname.startsWith("/about/") ||
+    pathname.startsWith("/brand/") ||
+    pathname.startsWith("/videos/") ||
+    pathname === "/icon.svg" ||
+    url.hostname.includes("fonts.googleapis.com") ||
+    url.hostname.includes("fonts.gstatic.com")
+  );
+}
+
+// Helper: Check if request is for public cacheable content/API
+function isPublicContentApi(url) {
+  const pathname = url.pathname;
+  return (
+    pathname.startsWith("/api/v1/products") ||
+    pathname.startsWith("/api/v1/case-studies") ||
+    pathname === "/api/public-content.json"
+  );
+}
+
+// 3. Fetch Event Routing
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests and external origins
-  if (request.method !== "GET" || url.origin !== self.location.origin) {
-    return;
-  }
-
-  // Skip API routes, feed, and webhook submissions
-  if (url.pathname.startsWith("/api/") || url.pathname === "/feed.xml") {
-    return;
-  }
-
-  // For HTML navigation requests: Network First, Fallback to Cache
-  if (request.mode === "navigate") {
+  // Strategy A: Network-Only for contact form submissions (never fake success offline)
+  if (
+    request.method === "POST" &&
+    (url.pathname === "/api/v1/contact" ||
+      url.pathname === "/api/contact" ||
+      url.pathname.includes("/contact"))
+  ) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+      fetch(request).catch(() => {
+        return new Response(
+          JSON.stringify({
+            ok: false,
+            offline: true,
+            error: "offline",
+            message:
+              "Anda sedang offline. Pengiriman formulir kontak dinonaktifkan tanpa koneksi internet.",
+          }),
+          {
+            status: 503,
+            statusText: "Service Unavailable (Offline)",
+            headers: { "Content-Type": "application/json" },
           }
-          return response;
-        })
-        .catch(async () => {
-          const cached = await caches.match(request);
-          if (cached) return cached;
-          const fallback = await caches.match("/");
-          return fallback || new Response("Offline - yokBangun", { status: 503, headers: { "Content-Type": "text/html" } });
-        })
+        );
+      })
     );
     return;
   }
 
-  // For static assets (CSS, JS chunks, images): Stale-While-Revalidate
-  event.respondWith(
-    caches.match(request).then((cachedResponse) => {
-      const fetchPromise = fetch(request)
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const clone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          }
-          return networkResponse;
-        })
-        .catch(() => cachedResponse);
+  // Skip other non-GET requests or unhandled schemes
+  if (request.method !== "GET" || !url.protocol.startsWith("http")) {
+    return;
+  }
 
-      return cachedResponse || fetchPromise;
-    })
-  );
+  // Strategy B: Cache-First for static assets, fonts, logo, and illustrations
+  if (isStaticAsset(url, request)) {
+    event.respondWith(
+      caches.open(STATIC_CACHE).then((cache) =>
+        cache.match(request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          return fetch(request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          });
+        })
+      )
+    );
+    return;
+  }
+
+  // Strategy C: Stale-While-Revalidate for public content APIs
+  if (isPublicContentApi(url)) {
+    event.respondWith(
+      caches.open(DATA_CACHE).then((cache) =>
+        cache.match(request).then((cachedResponse) => {
+          const fetchPromise = fetch(request)
+            .then((networkResponse) => {
+              if (networkResponse && networkResponse.status === 200) {
+                cache.put(request, networkResponse.clone());
+              }
+              return networkResponse;
+            })
+            .catch(() => cachedResponse);
+
+          return cachedResponse || fetchPromise;
+        })
+      )
+    );
+    return;
+  }
+
+  // Strategy D: Stale-While-Revalidate for navigation/public HTML pages, fallback to offline.html
+  if (request.mode === "navigate") {
+    event.respondWith(
+      caches.open(STATIC_CACHE).then((cache) =>
+        fetch(request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          })
+          .catch(async () => {
+            // First attempt to serve cached version of this page
+            const cachedPage = await cache.match(request);
+            if (cachedPage) return cachedPage;
+
+            // Otherwise serve self-contained offline fallback
+            const offlinePage = await cache.match("/offline.html");
+            return (
+              offlinePage ||
+              new Response("Offline - yokBangun", {
+                status: 503,
+                headers: { "Content-Type": "text/html; charset=utf-8" },
+              })
+            );
+          })
+      )
+    );
+    return;
+  }
+
+  // Strategy E: Same-origin default Stale-While-Revalidate
+  if (url.origin === self.location.origin) {
+    event.respondWith(
+      caches.open(STATIC_CACHE).then((cache) =>
+        cache.match(request).then((cachedResponse) => {
+          const fetchPromise = fetch(request)
+            .then((networkResponse) => {
+              if (networkResponse && networkResponse.status === 200) {
+                cache.put(request, networkResponse.clone());
+              }
+              return networkResponse;
+            })
+            .catch(() => cachedResponse);
+
+          return cachedResponse || fetchPromise;
+        })
+      )
+    );
+  }
 });

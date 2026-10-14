@@ -8,6 +8,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 import { ContactForm } from "@/features/contact/ContactForm";
 import { CopyButton } from "@/components/ui/CopyButton";
+import { Suspense } from "react";
 import styles from "./ContactPage.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -108,12 +109,14 @@ export default async function ContactPage({ params }: Props) {
 
             <div>
               <QueryProvider>
-                <ContactForm
-                  locale={locale}
-                  copy={con.form}
-                  validationCopy={t.validation}
-                  sectors={t.sectors.items}
-                />
+                <Suspense fallback={null}>
+                  <ContactForm
+                    locale={locale}
+                    copy={con.form}
+                    validationCopy={t.validation}
+                    sectors={t.sectors.items}
+                  />
+                </Suspense>
               </QueryProvider>
             </div>
           </div>

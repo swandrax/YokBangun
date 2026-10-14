@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
       afterFiles: [
         { source: "/", destination: "/id" },
         {
-          source: "/:path((?!en(?:/|$)|id(?:/|$)|api/|_next/).+)",
+          source: "/:path((?!en(?:/|$)|id(?:/|$)|api/|_next/|\\.well-known/).+)",
           destination: "/id/:path",
         },
       ],
@@ -61,15 +61,24 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/.well-known/assetlinks.json",
+        headers: [
+          { key: "Content-Type", value: "application/json" },
+          { key: "Cache-Control", value: "public, max-age=3600" },
+        ],
+      },
+      {
         source: "/sw.js",
         headers: [
           { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
           { key: "Content-Type", value: "application/javascript; charset=utf-8" },
+          { key: "Service-Worker-Allowed", value: "/" },
         ],
       },
       {
         source: "/manifest.webmanifest",
         headers: [
+          { key: "Content-Type", value: "application/manifest+json" },
           { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
         ],
       },
@@ -77,6 +86,22 @@ const nextConfig: NextConfig = {
         source: "/icons/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" },
+        ],
+      },
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET, POST, OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "Content-Type, Idempotency-Key" },
+        ],
+      },
+      {
+        source: "/download/:file*.apk",
+        headers: [
+          { key: "Content-Type", value: "application/vnd.android.package-archive" },
+          { key: "Content-Disposition", value: "attachment; filename=\"yokbangun.apk\"" },
+          { key: "Cache-Control", value: "public, max-age=86400" },
         ],
       },
     ];

@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { productsQueryOptions } from "./queries";
 import type { Product, ProductStatus } from "./data";
@@ -19,6 +20,15 @@ type Props = {
   contactCtaText: string;
 };
 
+const statuses: (ProductStatus | "all")[] = [
+  "all",
+  "prototype",
+  "concept",
+  "pilot",
+  "active",
+  "maintenance",
+];
+
 export function ProductList({
   locale,
   initialData,
@@ -26,23 +36,34 @@ export function ProductList({
   statusCopy,
   contactCtaText,
 }: Props) {
-  const [selectedStatus, setSelectedStatus] = useState<ProductStatus | "all">(
-    "all"
-  );
+  const searchParams = useSearchParams();
+  const statusParam = searchParams?.get("status")?.toLowerCase() as
+    | ProductStatus
+    | "all"
+    | null;
+  const validUrlStatus: ProductStatus | "all" =
+    statusParam && statuses.includes(statusParam) ? statusParam : "all";
+
+  const [localStatus, setLocalStatus] = useState<ProductStatus | "all" | null>(null);
+  const selectedStatus = localStatus ?? validUrlStatus;
+
+  const handleSelectStatus = (st: ProductStatus | "all") => {
+    setLocalStatus(st);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (st === "all") {
+        url.searchParams.delete("status");
+      } else {
+        url.searchParams.set("status", st);
+      }
+      window.history.replaceState(null, "", url.toString());
+    }
+  };
 
   const { data: products = initialData } = useQuery({
     ...productsQueryOptions(locale),
     initialData,
   });
-
-  const statuses: (ProductStatus | "all")[] = [
-    "all",
-    "prototype",
-    "concept",
-    "pilot",
-    "active",
-    "maintenance",
-  ];
 
   const filtered =
     selectedStatus === "all"
@@ -67,7 +88,7 @@ export function ProductList({
               role="tab"
               aria-selected={isSelected}
               className={isSelected ? styles.filterBtnActive : styles.filterBtn}
-              onClick={() => setSelectedStatus(st)}
+              onClick={() => handleSelectStatus(st)}
             >
               {label}
             </button>
