@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { MotionProvider } from "@/components/animation/MotionProvider";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -92,6 +93,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <PrelineScript />
         <ServiceWorkerRegister />
         <PwaInstallPrompt locale={locale} />
+        <Analytics />
       </body>
     </html>
   );
