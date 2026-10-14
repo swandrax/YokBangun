@@ -293,46 +293,40 @@ export default async function HomePage({ params }: Props) {
 
       {/* 08b. DOCS & PLATFORM VIDEO TEASER */}
       <VideoTeaser
+        id="teaser"
         src="/videos/yokbangun_teaser_20s.mp4"
         poster="/about/neighbourhood.jpg"
-      >
-        <span className="eyebrow" style={{ color: "#4ADE80", letterSpacing: "0.08em" }}>
-          {locale === "id" ? "Dokumentasi & Platform Teaser" : "Documentation & Platform Teaser"}
-        </span>
-        <h2 style={{ fontSize: "var(--fs-h2)", color: "#ffffff", maxWidth: "26ch" }}>
-          {locale === "id"
+        eyebrow={locale === "id" ? "Dokumentasi & Platform Teaser" : "Documentation & Platform Teaser"}
+        title={
+          locale === "id"
             ? "Membangun Produk yang Handal, Terukur, & Terawat"
-            : "Building Scalable, Resilient, & Maintained Products"}
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.85)", maxWidth: "56ch", fontSize: "var(--fs-md)" }}>
-          {locale === "id"
+            : "Building Scalable, Resilient, & Maintained Products"
+        }
+        description={
+          locale === "id"
             ? "Arsitektur frontend modern, integrasi embedding RAG untuk AI cerdas, hingga perawatan sistem berkala."
-            : "Modern frontend architecture, enterprise embedding RAG AI integration, and dedicated system maintenance."}
-        </p>
-        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", justifyContent: "center", marginTop: "var(--space-2)" }}>
-          <ButtonLink
-            href={localizedPath(locale, "/technical")}
-            variant="primary"
-            size="md"
-            arrow
-          >
-            {locale === "id" ? "Pelajari Catatan Teknis" : "Explore Technical Docs"}
-          </ButtonLink>
-          <ButtonLink
-            href={localizedPath(locale, "/contact")}
-            variant="secondary"
-            size="md"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              color: "#ffffff",
-              borderColor: "rgba(255, 255, 255, 0.35)",
-              backdropFilter: "blur(4px)",
-            }}
-          >
-            {locale === "id" ? "Diskusikan Proyek" : "Discuss Project"}
-          </ButtonLink>
-        </div>
-      </VideoTeaser>
+            : "Modern frontend architecture, enterprise embedding RAG AI integration, and dedicated system maintenance."
+        }
+        actions={
+          <>
+            <ButtonLink
+              href={localizedPath(locale, "/technical")}
+              variant="primary"
+              size="md"
+              arrow
+            >
+              {locale === "id" ? "Pelajari Catatan Teknis" : "Explore Technical Docs"}
+            </ButtonLink>
+            <ButtonLink
+              href={localizedPath(locale, "/contact")}
+              variant="secondary"
+              size="md"
+            >
+              {locale === "id" ? "Diskusikan Proyek" : "Discuss Project"}
+            </ButtonLink>
+          </>
+        }
+      />
 
       {/* 09. SELECTED WORK / CASE STUDIES */}
       <section

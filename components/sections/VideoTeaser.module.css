@@ -1,69 +1,283 @@
-.wrapper {
+.section {
   position: relative;
   width: 100%;
-  min-height: 420px;
+  padding-block: var(--section-y);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, var(--color-brand-tint) 0%, transparent 80%),
+    var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-@media (min-width: 768px) {
-  .wrapper {
-    min-height: 520px;
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Header Text Container - Cleanly situated above the video */
+.headerBlock {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background-color: var(--color-brand-soft);
+  color: var(--color-brand-strong);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(31, 93, 69, 0.15);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  max-width: 26ch;
+}
+
+.description {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  max-width: 58ch;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+/* Dedicated Video Showcase Card */
+.videoCard {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+  background: #111413;
+  border: 1px solid var(--color-border-strong);
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+  box-shadow:
+    0 20px 48px -12px rgba(21, 24, 23, 0.18),
+    0 1px 3px rgba(21, 24, 23, 0.08);
+  transition: transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+
+.videoCard:hover {
+  box-shadow:
+    0 28px 60px -16px rgba(21, 24, 23, 0.24),
+    0 2px 6px rgba(21, 24, 23, 0.1);
+}
+
+/* Window bar on top of the card */
+.videoCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: rgba(21, 24, 23, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.windowDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dot:nth-child(1) {
+  background: #ff5f56;
+}
+
+.dot:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.dot:nth-child(3) {
+  background: #27c93f;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.statusPulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
   }
 }
 
+.statusText {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+
+.headerSpacer {
+  width: 44px;
+}
+
+/* Viewport with strict 16:9 aspect ratio */
+.videoViewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .video {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   opacity: 0;
-  transition: opacity 1.2s var(--ease-out);
+  transition: opacity 0.8s var(--ease-out);
 }
 
 .videoLoaded {
   opacity: 1;
 }
 
-.overlay {
+/* Floating Controls Bar */
+.controlsBar {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(21, 24, 23, 0.72) 0%,
-    rgba(31, 93, 69, 0.55) 100%
-  );
-  z-index: 1;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: calc(var(--container) + var(--gutter) * 2);
-  margin-inline: auto;
-  padding: var(--section-y) var(--gutter);
-  color: #ffffff;
-  text-align: center;
+  bottom: 12px;
+  right: 12px;
+  z-index: 5;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-5);
+  gap: 8px;
 }
 
-.content h2 {
-  font-size: var(--fs-h2);
+.controlBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(17, 20, 19, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  max-width: 22ch;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--dur-micro) var(--ease-out), background var(--dur-micro) var(--ease-out);
 }
 
-.content p {
-  font-size: var(--fs-lg);
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 52ch;
-  line-height: var(--lh-body);
+.controlBtn:hover {
+  background: rgba(31, 93, 69, 0.9);
+  transform: scale(1.08);
+}
+
+.controlBtn:focus-visible {
+  outline: 2px solid #4ade80;
+  outline-offset: 2px;
+}
+
+/* Progress bar at the base of the viewport */
+.progressBarWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 4;
+}
+
+.progressBar {
+  height: 100%;
+  background: #4ade80;
+  transition: width 150ms linear;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .section {
+    padding-block: clamp(2.5rem, 2rem + 3vw, 4rem);
+  }
+
+  .headerBlock {
+    margin-bottom: var(--space-5);
+  }
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .headerSpacer {
+    display: none;
+  }
+
+  .controlsBar {
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .controlBtn {
+    width: 36px;
+    height: 36px;
+  }
 }

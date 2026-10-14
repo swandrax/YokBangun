@@ -12,6 +12,7 @@ import { baseMetadata } from "@/lib/seo/metadata";
 import { PrelineScript } from "@/components/preline/PrelineScript";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { PwaInstallPrompt } from "@/components/pwa/PwaInstallPrompt";
+import { AppSplash } from "@/components/pwa/AppSplash";
 import "../globals.css";
 
 // Two families max. Plus Jakarta Sans (designed in Jakarta) for headings, Inter for body.
@@ -70,6 +71,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body>
+        <AppSplash copy={t.splash} />
         {/* Without JS, reveal animations never run, so keep content visible. */}
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>

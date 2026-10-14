@@ -2,21 +2,22 @@
 
 ## 1. Splash saat aplikasi dibuka
 
-Muncul hanya ketika yokBangun dibuka dari ikon aplikasi yang sudah dipasang
-(PWA standalone di Android, iOS, Windows, macOS). Pengunjung web biasa tidak
-melihatnya, jadi skor Lighthouse dan LCP situs tidak terpengaruh.
+Muncul ketika yokBangun dibuka dari ikon aplikasi yang sudah dipasang
+(PWA standalone di Android, iOS, Windows, macOS) serta migrasi aplikasi mobile
+(React Native / Expo WebView). Pengunjung web biasa tidak melihatnya, jadi skor
+Lighthouse dan LCP situs tidak terpengaruh.
 
-Urutan animasi (total sekitar 3,6 detik, bisa dilewati dengan ketuk / Enter / Esc):
+Urutan animasi (total 4,0 detik, bisa dilewati dengan ketuk layar smartphone / Enter / Esc):
 
 | Waktu | Yang terjadi |
 | :--- | :--- |
-| 0,00 s | Kotak hijau logo muncul |
+| 0,00 s | Kotak hijau logo & loader ring berputar muncul |
 | 0,40 s | Dua garis putih logo tergambar |
-| 1,00 s | Titik clay muncul |
+| 0,90 s | Titik clay muncul |
 | 1,05 s | Tulisan "yokBangun" dan "growth with u" masuk |
-| 1,80 s | "Bangun digitalnya." naik kata per kata |
-| 2,10 s | "Tumbuh usahanya." naik kata per kata (hijau brand) |
-| 3,60 s | Layar splash memudar, halaman siap dipakai |
+| 2,00 s | Teks "Bangun digitalnya." muncul |
+| 2,25 s | Teks "Tumbuh usahanya." muncul (aksen hijau brand) |
+| 4,00 s | Layar splash memudar dan masuk ke seluruh aplikasi |
 
 Perilaku:
 

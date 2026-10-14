@@ -273,6 +273,11 @@ ol[role="list"] {
   top: var(--space-3);
 }
 
+/* Installed app & mobile migration launch splash (components/pwa/AppSplash) */
+html.yb-splash-on body {
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

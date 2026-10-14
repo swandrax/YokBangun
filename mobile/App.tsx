@@ -74,6 +74,7 @@ export default function App() {
           <WebView
             ref={webViewRef}
             source={{ uri: currentUrl }}
+            applicationNameForUserAgent="yokBangunMobile/1.0"
             onLoadStart={() => setIsLoading(true)}
             onLoadEnd={() => setIsLoading(false)}
             onError={() => setHasError(true)}

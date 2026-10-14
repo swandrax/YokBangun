@@ -1,0 +1,358 @@
+/* ==========================================================================
+   Launch Splash Timeline (Total 4.0s + 0.45s fade out):
+     0.00s  Logo mark & loader ring springs in
+     0.40s  Logo white strokes draw
+     0.90s  Clay dot pops
+     1.05s  "yokBangun" and tagline wipe in
+     2.00s  "Bangun digitalnya." rises & fades in
+     2.25s  "Tumbuh usahanya." rises & fades in (brand green accent)
+     4.00s  Overlay fades out, application revealed seamlessly
+   Keep DURATION_MS in AppSplashController.tsx synchronized (4000ms).
+   ========================================================================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+  background:
+    radial-gradient(120% 70% at 50% 0%, #eef5f1 0%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(90% 60% at 50% 110%, #fbf1ec 0%, rgba(255, 255, 255, 0) 60%),
+    #ffffff;
+  color: #1a2421;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+:global(.yb-splash-on) .overlay {
+  display: flex;
+  animation: splashOut 0.45s ease 4.0s forwards;
+}
+
+:global(.yb-splash-on.yb-splash-leaving) .overlay {
+  animation: splashOut 0.45s ease forwards;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 5vh, 48px);
+  width: min(100%, 720px);
+}
+
+/* ---------- Brand: mark + loader ring + wordmark ---------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 3.5vw, 20px);
+}
+
+.markWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderRing {
+  position: absolute;
+  inset: -6px;
+  border-radius: clamp(12px, 3vw, 18px);
+  border: 2px solid rgba(31, 93, 69, 0.12);
+  border-top-color: #1f5d45;
+  animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.mark {
+  width: clamp(56px, 16vw, 84px);
+  height: clamp(56px, 16vw, 84px);
+  flex: none;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.markBg {
+  fill: #1f5d45;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: tileIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.stroke {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.strokeA {
+  animation: draw 0.35s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
+}
+
+.strokeB {
+  animation: draw 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.65s forwards;
+}
+
+.dot {
+  fill: #e3936a;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: pop 0.35s cubic-bezier(0.34, 1.8, 0.64, 1) 0.9s forwards;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.name {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6.5vw, 2.5rem);
+  letter-spacing: -0.02em;
+  color: #1a2421;
+  clip-path: inset(0 100% 0 0);
+  animation: wipe 0.5s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(0.85rem, 3vw, 1.05rem);
+  color: #5b6762;
+  opacity: 0;
+  animation: fadeUp 0.45s ease 1.35s forwards;
+}
+
+/* ---------- Headline: Revealed at 2.0s ---------- */
+
+.headline {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.65rem, 6.8vw, 3.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #1a2421;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line1 {
+  display: block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: revealText 0.55s cubic-bezier(0.22, 1, 0.36, 1) 2.0s forwards;
+}
+
+.line2 {
+  display: block;
+  color: #1f5d45;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: revealText 0.55s cubic-bezier(0.22, 1, 0.36, 1) 2.25s forwards;
+}
+
+/* ---------- Progress + skip hint ---------- */
+
+.progress {
+  position: absolute;
+  left: 50%;
+  bottom: max(28px, calc(env(safe-area-inset-bottom) + 16px));
+  width: min(160px, 42vw);
+  height: 3px;
+  margin-left: calc(min(160px, 42vw) / -2);
+  border-radius: 3px;
+  background: #e4ebe7;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1f5d45;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fill 4.0s linear forwards;
+}
+
+.skip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(44px, calc(env(safe-area-inset-bottom) + 32px));
+  text-align: center;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: #8a948f;
+  opacity: 0;
+  animation: fadeUp 0.4s ease 1.2s forwards;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 1024px) {
+  .stage {
+    gap: 56px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .stage {
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 48px);
+    width: min(100%, 880px);
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headline {
+    text-align: left;
+    align-items: flex-start;
+    font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+  }
+
+  .skip {
+    display: none;
+  }
+}
+
+/* Reduced motion preference */
+:global(.yb-splash-calm) .markBg,
+:global(.yb-splash-calm) .dot,
+:global(.yb-splash-calm) .line1,
+:global(.yb-splash-calm) .line2,
+:global(.yb-splash-calm) .tagline,
+:global(.yb-splash-calm) .skip {
+  transform: none;
+  animation: fade 0.3s ease forwards;
+}
+
+:global(.yb-splash-calm) .loaderRing {
+  display: none;
+}
+
+:global(.yb-splash-calm) .stroke {
+  stroke-dashoffset: 0;
+  animation: none;
+}
+
+:global(.yb-splash-calm) .name {
+  clip-path: none;
+  animation: none;
+}
+
+:global(.yb-splash-calm) .progress::after {
+  animation-duration: 1.6s;
+}
+
+:global(.yb-splash-on.yb-splash-calm) .overlay {
+  animation: splashOut 0.3s ease 1.6s forwards;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tileIn {
+  from {
+    opacity: 0;
+    transform: scale(0.55) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes wipe {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splashOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
