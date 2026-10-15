@@ -70,7 +70,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             </li>
             <li>
               <a href="/feed.xml" target="_blank" rel="noopener noreferrer">
-                RSS Feed
+                {locale === "id" ? "Kabar Terbaru (RSS)" : "Latest News (RSS)"}
               </a>
             </li>
             {publicContact.email && (

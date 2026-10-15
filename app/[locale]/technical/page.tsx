@@ -75,13 +75,13 @@ export default async function TechnicalPage({ params }: Props) {
             <div className={styles.bannerContent}>
               <h2 className={styles.bannerTitle}>
                 {locale === "id"
-                  ? "Punya infrastruktur atau sistem yang sudah berjalan?"
-                  : "Have an existing infrastructure or legacy system?"}
+                  ? "Punya program atau cara kerja yang sudah berjalan sebelumnya?"
+                  : "Have an existing system or established workflow?"}
               </h2>
               <p className={styles.bannerText}>
                 {locale === "id"
-                  ? "Kami terbiasa menyambungkan produk baru ke API, database, atau layanan internal yang sudah ada tanpa perlu merombak semuanya dari nol."
-                  : "We regularly integrate new products with existing APIs, databases, or internal services without requiring a ground-up rewrite."}
+                  ? "Kami terbiasa menyambungkan sistem baru dengan pembukuan, nomor WhatsApp, atau alur kerja yang sudah Anda pakai tanpa perlu merombak semuanya dari nol."
+                  : "We regularly integrate new solutions with your existing workflows, customer channels, or operational records without requiring a ground-up rewrite."}
               </p>
             </div>
             <div className={styles.bannerActions}>
@@ -98,7 +98,7 @@ export default async function TechnicalPage({ params }: Props) {
                 variant="secondary"
                 size="md"
               >
-                {locale === "id" ? "Kemitraan Teknis" : "Technical Partnership"}
+                {locale === "id" ? "Jajaki Kerja Sama" : "Explore Partnership"}
               </ButtonLink>
             </div>
           </div>

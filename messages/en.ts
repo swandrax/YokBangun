@@ -55,14 +55,14 @@ const en: Messages = {
         description: "Tell us what you are trying to build. We can help define what should be built first.",
       },
       technical: {
-        title: "Technical Notes",
+        title: "Quality Standards",
         description:
-          "How yokBangun builds, runs, and maintains digital products: stack, security, deployment, and AI practices.",
+          "How yokBangun keeps digital products enduring, secure, and easy to use: working standards, regular maintenance, and ongoing care.",
       },
       download: {
         title: "Download Android App",
         description:
-          "Download the yokBangun Native Android app. Smooth digital product experience powered by Jetpack Compose, offline-ready caching, and deep link parity.",
+          "Download the yokBangun Android app. A smoother experience with instant loading, offline availability, and intuitive navigation.",
       },
     },
   },
@@ -96,7 +96,7 @@ const en: Messages = {
     partnership: "Partnership",
     about: "About",
     contact: "Contact",
-    technical: "Technical Notes",
+    technical: "Quality Standards",
     cta: "Discuss Your Project",
     howWeWork: "How it works",
     discussProject: "Discuss project",
@@ -397,14 +397,14 @@ const en: Messages = {
     eyebrow: "Work & Case Studies",
     title: "From the first problem to what we built.",
     description:
-      "Every case study follows the same order: the starting point, what we built, the technology used, the outcome, and where it stands now.",
+      "Every case study follows the same order: the starting point, what we built, how we solved it, the outcome, and where it stands now.",
     illustrativeNote:
       "For now, case studies are shown as illustrative scenarios. Client case studies will be published once each client has given permission.",
     labels: {
       sector: "Sector",
       problem: "Problem",
       built: "What we built",
-      technology: "Technology",
+      technology: "How We Built It",
       outcome: "Outcome",
       intendedOutcome: "Intended outcome",
       status: "Current status",
@@ -618,62 +618,62 @@ const en: Messages = {
   },
 
   technical: {
-    eyebrow: "Technical Notes",
-    title: "Technical details for IT teams and partners.",
+    eyebrow: "Quality Standards & Care",
+    title: "How we keep your digital products enduring, secure, and easy to use.",
     description:
-      "This page outlines how we build, deploy, and maintain products. If you're a business owner, the rest of the site covers what you need.",
+      "We build systems with longevity in mind. This page outlines our working standards so your application stays reliable over the long run.",
     sections: [
       {
-        title: "Frontend & Backend",
+        title: "Fast & Mobile-Friendly Experience",
         items: [
-          "Frontend: Next.js, React, TypeScript, Tailwind CSS, responsive & accessible architecture",
-          "Backend: Node.js / TypeScript APIs, microservices integration & serverless/edge computing",
-          "Database: PostgreSQL for transactional reliability and high-performance querying",
-          "Integration & APIs: REST APIs, GraphQL, Webhooks, WhatsApp Business API, and payment gateways",
+          "Interfaces designed for comfortable touch navigation and legible typography",
+          "Lightweight page loading that performs reliably even on weaker connections",
+          "Accessible across diverse mobile devices without requiring heavy downloads",
+          "Direct click-to-chat integration to keep communications simple and immediate",
         ],
       },
       {
-        title: "CMS (Content Management System)",
+        title: "Effortless Content Management",
         items: [
-          "Decoupled Headless CMS architecture for agile, fast, and secure content publishing",
-          "Custom CMS solutions or headless implementations (Strapi, Payload CMS, Decap) intuitive for non-technical teams",
-          "Automated media asset optimization and built-in SEO metadata management",
-          "Clean separation of content and presentation layers for peak security and lightning-fast load times",
+          "Business owners and community admins can update text and items independently",
+          "Clean and approachable management views tailored for non-technical teams",
+          "Automatic media optimization to conserve visitor bandwidth and data",
+          "Separated content architecture so updates never disrupt system stability",
         ],
       },
       {
-        title: "CRM (Customer Relationship Management)",
+        title: "Customer & Community Relationships",
         items: [
-          "Unified customer relationship pipelines and lead management systems",
-          "Multi-channel data synchronization: interactive web forms, WhatsApp, and operational databases",
-          "Automated follow-up workflows and notifications for sales and support teams",
-          "Transparent, exportable analytics on customer engagement and product interactions",
+          "Centralized inquiry and service request logs in one organized place",
+          "Automated instant notifications when new inquiries or orders arrive",
+          "Smart categorization between common questions and high-priority matters",
+          "Clear and exportable summaries for transparent operational reviews",
         ],
       },
       {
-        title: "AI Engineering & Practice",
+        title: "Document-Grounded Assistants",
         items: [
-          "Building & Integration of embedding RAG (Retrieval Augmented Generation)",
-          "Vector embeddings and semantic search for high-precision retrieval across internal business documents",
-          "LLM orchestration with strict context guardrails and verifiable source citations",
-          "Intelligent token cost control, response caching, and seamless fallback to human operators",
+          "Smart assistants answer strictly from your verified business documentation",
+          "Answers include clear source references so information can always be verified",
+          "Inquiries beyond documented knowledge are gracefully escalated to staff",
+          "Operating costs are actively monitored and controlled on a predictable basis",
         ],
       },
       {
-        title: "Deployment & Infrastructure",
+        title: "Solid Foundations & Client Ownership",
         items: [
-          "Vercel, Cloudflare, or custom VPS architecture, tailored to workload requirements and cost efficiency",
-          "Automated preview deployments for every pull request before production releases",
-          "Isolated, cloud-agnostic configuration ensuring systems can be migrated whenever necessary",
-          "Domains, cloud accounts, repositories, and credentials registered directly under client ownership",
+          "Built with flexible architecture so services can be relocated whenever needed",
+          "Every update is thoroughly tested in staging before reaching public visitors",
+          "Domain names, service accounts, and data records are registered in your name",
+          "You retain complete ownership and full control over your digital assets",
         ],
       },
       {
-        title: "Security, Maintenance & Handover",
+        title: "Security, Regular Care & Handover",
         items: [
-          "Regular dependency audits, security vulnerability patches, and end-to-end data encryption",
-          "Scheduled automated database backups and tested disaster recovery procedures",
-          "Comprehensive technical documentation, repository handover, and guided knowledge transfer sessions",
+          "Ongoing maintenance to keep systems protected against vulnerabilities",
+          "Scheduled automated backups to safeguard critical business information",
+          "Comprehensive guides and hands-on onboarding until your team is confident",
         ],
       },
     ],

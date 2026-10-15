@@ -8,6 +8,7 @@
   border-top: 1.5px solid #1F5D45;
   box-shadow: 0 -4px 20px rgba(31, 93, 69, 0.15);
   padding: 12px 16px;
+  padding-bottom: max(12px, calc(env(safe-area-inset-bottom, 0px) + 12px));
   animation: slideUp 0.25s ease-out;
 }
 

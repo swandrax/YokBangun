@@ -9,7 +9,7 @@ function normaliseUrl(url: string): string {
   return url.endsWith("/") ? url.slice(0, -1) : url;
 }
 
-export const siteUrl = normaliseUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://yokbangun.id");
+export const siteUrl = normaliseUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://yok-bangun.vercel.app");
 
 /** Optional public contact details. Never hard-code invented numbers. */
 export const publicContact = {

@@ -70,7 +70,7 @@ describe("Companion PWA Specification", () => {
     expect(fs.existsSync(manifestPath)).toBe(true);
 
     const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
-    expect(manifest.name).toBe("yokBangun — Solusi Digital & AI");
+    expect(manifest.name).toBe("yokBangun — Mitra Produk Digital & Layanan Warga");
     expect(manifest.short_name).toBe("yokBangun");
     expect(manifest.start_url).toBe("/?source=pwa");
     expect(manifest.display).toBe("standalone");

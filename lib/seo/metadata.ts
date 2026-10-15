@@ -62,8 +62,8 @@ export function baseMetadata(locale: Locale): Metadata {
       "civicGov",
       "pendidikan",
       "kesehatan",
-      "enterprise digital",
-      "ISO 27001",
+      "keamanan sistem teruji",
+      "transformasi digital",
     ],
     other: {
       "geo.region": "ID-JK",

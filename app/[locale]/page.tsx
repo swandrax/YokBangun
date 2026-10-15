@@ -301,16 +301,16 @@ export default async function HomePage({ params }: Props) {
         id="teaser"
         src="/videos/yokbangun_teaser_20s.mp4"
         poster="/about/neighbourhood.jpg"
-        eyebrow={locale === "id" ? "Dokumentasi & Platform Teaser" : "Documentation & Platform Teaser"}
+        eyebrow={locale === "id" ? "Dokumentasi & Video Pengenalan" : "Documentation & Video Overview"}
         title={
           locale === "id"
-            ? "Membangun Produk yang Handal, Terukur, & Terawat"
-            : "Building Scalable, Resilient, & Maintained Products"
+            ? "Membangun Produk yang Handal, Rapi, & Terawat"
+            : "Building Reliable, Clean, & Maintained Products"
         }
         description={
           locale === "id"
-            ? "Arsitektur frontend modern, integrasi embedding RAG untuk AI cerdas, hingga perawatan sistem berkala."
-            : "Modern frontend architecture, enterprise embedding RAG AI integration, and dedicated system maintenance."
+            ? "Tampilan yang cepat dan nyaman di ponsel, asisten yang menjawab tepat dari dokumen milik Anda, serta perawatan rutin agar sistem selalu siap pakai."
+            : "Fast and responsive on mobile, smart assistants grounded in your documents, and regular maintenance for lasting reliability."
         }
         actions={
           <>
@@ -320,7 +320,7 @@ export default async function HomePage({ params }: Props) {
               size="md"
               arrow
             >
-              {locale === "id" ? "Pelajari Catatan Teknis" : "Explore Technical Docs"}
+              {locale === "id" ? "Cara Kami Menjaga Kualitas" : "How We Maintain Quality"}
             </ButtonLink>
             <ButtonLink
               href={localizedPath(locale, "/contact")}

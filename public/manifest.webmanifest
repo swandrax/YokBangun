@@ -1,7 +1,7 @@
 {
-  "name": "yokBangun — Solusi Digital & AI",
+  "name": "yokBangun — Mitra Produk Digital & Layanan Warga",
   "short_name": "yokBangun",
-  "description": "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
+  "description": "yokBangun membantu membangun produk digital, asisten pintar, dan perawatan berkala untuk UMKM, pengurus RT/RW, sekolah, dan layanan kesehatan.",
   "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#FFFFFF",

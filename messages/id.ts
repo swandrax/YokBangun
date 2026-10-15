@@ -57,14 +57,14 @@ const id = {
           "Ceritakan apa yang ingin Anda bangun. Kami bantu menentukan apa yang sebaiknya dibangun lebih dahulu.",
       },
       technical: {
-        title: "Catatan Teknis",
+        title: "Cara Menjaga Kualitas",
         description:
-          "Bagaimana yokBangun membangun, menjalankan, dan merawat produk digital: stack, keamanan, deployment, dan praktik AI.",
+          "Bagaimana yokBangun menjaga produk digital tetap awet, aman, dan mudah digunakan: standar kerja, perawatan berkala, dan pendampingan jangka panjang.",
       },
       download: {
         title: "Unduh Aplikasi Android",
         description:
-          "Unduh aplikasi Native Android yokBangun. Pengalaman produk digital yang lebih mulus dengan Jetpack Compose, offline-ready caching, dan deep link parity.",
+          "Unduh aplikasi Android yokBangun. Pengalaman lebih cepat, nyaman digunakan, dan tetap bisa dibuka saat jaringan lemah.",
       },
     },
   },
@@ -98,7 +98,7 @@ const id = {
     partnership: "Kemitraan",
     about: "Tentang",
     contact: "Kontak",
-    technical: "Catatan Teknis",
+    technical: "Standar Kualitas",
     cta: "Diskusikan Kebutuhan",
     howWeWork: "Cara kerja",
     discussProject: "Diskusi proyek",
@@ -417,14 +417,14 @@ const id = {
     eyebrow: "Karya & Studi Kasus",
     title: "Dari masalah awal sampai apa yang dibangun.",
     description:
-      "Setiap studi kasus ditulis dengan urutan yang sama: kondisi awal, apa yang kami bangun, teknologi yang dipakai, hasil, dan status saat ini.",
+      "Setiap studi kasus ditulis dengan urutan yang sama: kondisi awal, apa yang kami bangun, cara kami menyelesaikannya, hasil, dan status saat ini.",
     illustrativeNote:
       "Saat ini studi kasus ditampilkan sebagai skenario ilustratif. Studi kasus klien akan dipublikasikan setelah mendapat izin dari klien yang bersangkutan.",
     labels: {
       sector: "Sektor",
       problem: "Masalah",
       built: "Yang kami bangun",
-      technology: "Teknologi",
+      technology: "Cara Kami Membangunnya",
       outcome: "Hasil",
       intendedOutcome: "Hasil yang dituju",
       status: "Status saat ini",
@@ -638,62 +638,62 @@ const id = {
   },
 
   technical: {
-    eyebrow: "Catatan Teknis",
-    title: "Detail teknis untuk tim IT dan partner.",
+    eyebrow: "Standar Kualitas & Perawatan",
+    title: "Cara kami menjaga produk tetap awet, aman, dan mudah digunakan.",
     description:
-      "Halaman ini untuk Anda yang ingin tahu cara kami membangun dan menjalankan produk. Kalau Anda pemilik usaha, bagian lain dari website ini sudah cukup.",
+      "Kami membangun sistem dengan prinsip kehati-hatian. Halaman ini menjelaskan standar kerja kami agar aplikasi Anda tetap stabil dan terawat dalam jangka panjang.",
     sections: [
       {
-        title: "Frontend & Backend",
+        title: "Tampilan Nyaman & Cepat di Ponsel",
         items: [
-          "Frontend: Next.js, React, TypeScript, Tailwind CSS, arsitektur responsif dan aksesibel",
-          "Backend: Node.js / TypeScript API, integrasi microservices dan serverless/edge computing",
-          "Database: PostgreSQL untuk data operasional terstruktur dan performa tinggi",
-          "Integrasi & API: REST API, GraphQL, Webhooks, WhatsApp Business API, dan payment gateways",
+          "Tampilan dirancang nyaman untuk jari tangan dan tulisan tetap jelas dibaca",
+          "Halaman ringan dibuka sehingga lancar meski sinyal internet kurang stabil",
+          "Dapat dibuka dari berbagai jenis ponsel pintar tanpa perlu memasang aplikasi berat",
+          "Menghubungkan tombol pesan langsung ke WhatsApp untuk memudahkan pelanggan",
         ],
       },
       {
-        title: "CMS (Content Management System)",
+        title: "Pengelolaan Konten yang Mudah",
         items: [
-          "Headless CMS terdistribusi untuk fleksibilitas publikasi konten yang cepat dan aman",
-          "Implementasi CMS kustom maupun platform headless (Strapi, Payload CMS, Decap) yang intuitif untuk tim non-teknis",
-          "Optimasi media otomatis dan pengelolaan metadata SEO terintegrasi",
-          "Pemisahan konten dan logika presentasi demi keamanan maksimal dan kecepatan muat aplikasi",
+          "Pemilik usaha dan pengurus dapat memperbarui teks atau daftar produk secara mandiri",
+          "Tampilan pengelola yang sederhana dan ramah bagi pengguna non-teknis",
+          "Foto produk dan gambar dioptimalkan secara otomatis agar tidak memakan kuota",
+          "Pemisahan data yang rapi agar isi tulisan tidak mudah terhapus atau rusak",
         ],
       },
       {
-        title: "CRM (Customer Relationship Management)",
+        title: "Pengelolaan Hubungan & Layanan Warga",
         items: [
-          "Sistem manajemen relasi pelanggan dan pipeline prospek (leads) yang terintegrasi",
-          "Sinkronisasi data multi-saluran: formulir web interaktif, WhatsApp, dan database operasional",
-          "Automasi alur tindak lanjut (follow-up) serta notifikasi tim penjualan dan layanan pelanggan",
-          "Laporan analitik interaksi pelanggan yang transparan dan dapat diekspor kapan saja",
+          "Pencatatan pesan dan permintaan layanan dari warga atau pelanggan di satu tempat",
+          "Pemberitahuan otomatis ke WhatsApp pengurus atau pemilik saat ada pesanan baru",
+          "Pemisahan pesan yang butuh perhatian segera dari pertanyaan berulang harian",
+          "Laporan ringkas yang mudah dipahami untuk evaluasi berkala",
         ],
       },
       {
-        title: "Praktisi AI (AI Engineering)",
+        title: "Penerapan Asisten Berbasis Dokumen",
         items: [
-          "Building & Integration embedding RAG (Retrieval Augmented Generation)",
-          "Vector embeddings & semantic search untuk penelusuran data dokumen internal klien secara akurat",
-          "Integrasi model bahasa besar (LLM) dengan batasan konteks ketat (guardrails) dan sitasi sumber yang dapat diverifikasi",
-          "Manajemen biaya token cerdas, caching respons, serta jalur eskalasi otomatis ke operator manusia",
+          "Asisten tanya-jawab hanya menjawab dari dokumen resmi yang Anda sediakan",
+          "Setiap jawaban menyertakan rujukan dokumen agar dapat diperiksa kebenarannya",
+          "Pertanyaan di luar dokumen otomatis diarahkan ke nomor kontak staf Anda",
+          "Biaya operasional asisten terkendali dan dipantau secara berkala",
         ],
       },
       {
-        title: "Deployment & Infrastruktur",
+        title: "Pondasi Sistem & Kepemilikan Klien",
         items: [
-          "Vercel, Cloudflare, atau arsitektur VPS kustom, disesuaikan dengan kebutuhan dan efisiensi biaya",
-          "Preview deployment otomatis untuk setiap perubahan sebelum dirilis ke produksi",
-          "Konfigurasi infrastruktur terisolasi (cloud-agnostic) agar aplikasi mudah dipindahkan kapan pun",
-          "Domain, akun layanan, repositori, dan kredensial dicatat penuh atas nama klien",
+          "Sistem dibangun fleksibel agar mudah dipindahkan bila suatu saat diperlukan",
+          "Uji coba selalu dilakukan sebelum pembaruan ditampilkan ke pengguna umum",
+          "Nama alamat situs, akun layanan, dan data dicatat resmi atas nama klien",
+          "Klien memiliki kendali penuh atas data dan kepemilikan aset digital mereka",
         ],
       },
       {
-        title: "Keamanan, Pemeliharaan & Serah Terima",
+        title: "Keamanan, Perawatan & Serah Terima",
         items: [
-          "Pembaruan dependensi berkala, patch keamanan, dan enkripsi data end-to-end",
-          "Pencadangan data (backup) otomatis terjadwal dan prosedur uji pemulihan (disaster recovery)",
-          "Dokumentasi arsitektur menyeluruh, repositori kode di organisasi klien, dan transfer pengetahuan teknis",
+          "Pembaruan berkala agar aplikasi selalu aman dan data terlindungi rapat",
+          "Pencadangan data otomatis terjadwal untuk mencegah kehilangan data berharga",
+          "Buku panduan lengkap dan pendampingan penggunaan hingga tim Anda mandiri",
         ],
       },
     ],

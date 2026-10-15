@@ -35,7 +35,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     slug: "portal-layanan-rw",
     kind: "illustrative",
     sectorKey: "civicgov",
-    technology: ["Next.js", "PostgreSQL", "WhatsApp notification"],
+    technology: ["Portal Layanan Warga", "Pencatatan Data Rapi", "Pemberitahuan WhatsApp"],
     content: {
       id: {
         sector: "RT/RW · civicGov",
@@ -71,7 +71,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     slug: "katalog-usaha-makanan",
     kind: "illustrative",
     sectorKey: "home-business",
-    technology: ["Next.js", "Headless CMS", "WhatsApp click-to-chat", "QRIS"],
+    technology: ["Katalog Menu Digital", "Tombol Pesan Otomatis", "Rekap Pesanan", "Pembayaran QRIS"],
     content: {
       id: {
         sector: "Usaha Rumahan",
@@ -107,7 +107,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     slug: "operasional-toko-umkm",
     kind: "illustrative",
     sectorKey: "umkm",
-    technology: ["Next.js", "PostgreSQL", "WhatsApp API", "QRIS"],
+    technology: ["Katalog Produk Toko", "Rekap Penjualan Harian", "Pemberitahuan WhatsApp", "Pembayaran QRIS"],
     content: {
       id: {
         sector: "UMKM",
@@ -143,7 +143,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     slug: "antrean-layanan-klinik",
     kind: "illustrative",
     sectorKey: "kesehatan",
-    technology: ["Next.js", "Real-time Queue", "WhatsApp Notification", "PostgreSQL"],
+    technology: ["Antrean Digital Mandiri", "Estimasi Waktu Panggil", "Pemberitahuan WhatsApp", "Jadwal Praktik Dokter"],
     content: {
       id: {
         sector: "Kesehatan",
@@ -179,7 +179,7 @@ const caseStudies: LocalizedCaseStudy[] = [
     slug: "asisten-faq-kursus",
     kind: "illustrative",
     sectorKey: "pendidikan",
-    technology: ["Document retrieval", "LLM API", "Admin review", "WhatsApp Business API"],
+    technology: ["Pencarian Dokumen Resmi", "Jawaban Bersumber Teruji", "Penyambungan ke Tim", "Riwayat Percakapan"],
     content: {
       id: {
         sector: "Pendidikan",

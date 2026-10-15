@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "yokBangun — Solusi Digital & AI",
+    name: "yokBangun — Mitra Produk Digital & Layanan Warga",
     short_name: "yokBangun",
     description:
-      "yokBangun membangun produk digital, layanan AI, integrasi, dan maintenance untuk UMKM, usaha menengah, komunitas, serta kebutuhan sektoral.",
+      "yokBangun membantu membangun produk digital, asisten pintar, dan perawatan berkala untuk UMKM, pengurus RT/RW, sekolah, dan layanan kesehatan.",
     start_url: "/?source=pwa",
     display: "standalone",
     background_color: "#FFFFFF",
@@ -50,17 +50,17 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: "Layanan",
         url: "/services",
-        description: "Lihat 4 bidang layanan produk & maintenance yokBangun",
+        description: "Lihat layanan produk digital dan perawatan berkala yokBangun",
       },
       {
-        name: "Layanan AI",
+        name: "Asisten Cerdas",
         url: "/ai-services",
-        description: "Solusi asisten, automasi, dan pencarian dokumen berbasis AI",
+        description: "Solusi asisten pintar yang menjawab dari dokumen resmi usaha Anda",
       },
       {
         name: "Kontak",
         url: "/contact",
-        description: "Hubungi atau diskusikan kebutuhan proyek Anda",
+        description: "Hubungi atau diskusikan kebutuhan usaha Anda",
       },
     ],
     categories: ["business", "productivity", "utilities"],
